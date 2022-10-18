@@ -31,7 +31,7 @@ As a Student , one is able to:
 8).Submit a full whiteboard process - write BDD, Pseudocode, and code
 9).Read feedback from my mentors.
 
-<!-- ## Project-Setup-Instructions
+## Project-Setup-Instructions
 ### Back-End
 1)Installation of the Visual studio code . 
 2)Git cloning the repository .
@@ -41,7 +41,7 @@ As a Student , one is able to:
 
 ### Front-End
 1)After Git cloning the application and the back-end running, install REACT dependancies for the front-end by running `npm install`.  
-2)After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running. -->
+2)After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running.
 
 
 
