@@ -43,7 +43,14 @@ As a Student , one is able to:
 1)After Git cloning the application and the back-end running, install REACT dependancies for the front-end by running `npm install`.  
 2)After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running.
 
-
-
+## Technology-Used
+HTML - Used as a template to hold the React components of the app via the root div. 
+CSS styling-which was used to style the User Interface. 
+JS - Java Script is used to make the website interactive.
+REACT.js & Redux Toolkit  -For the front-end .
+Ruby on Rails- used to create a back-end API.
+PostgreSQL - used to create a database.
+​Jest & Minitests - Testing Framework.
+Git- For Version control.
 
 
