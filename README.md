@@ -53,4 +53,7 @@ PostgreSQL - used to create a database.
 ​Jest & Minitests - Testing Framework.
 Git- For Version control.
 
+# Project-Design-Link
+https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2
+
 
