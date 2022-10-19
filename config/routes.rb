@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :mcqs
   resources :pros
   resources :kataas
   resources :assessments

@@ -1,0 +1,2 @@
+class McqsController < ApplicationController
+end
