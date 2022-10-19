@@ -5,7 +5,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <Container>
-      <p>Copyright ⓒ {year}</p>
+      <Text>Copyright ⓒ {year} Moringa School</Text>
     </Container>
   );
 };
@@ -18,4 +18,8 @@ const Container = styled.footer`
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+`;
+
+const Text = styled.p`
+  color: #ccc;
 `;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import MoringaImage from "../assests/images/hackerank.png";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
           <Image src={MoringaImage} alt="homeImage" />
         </Right>
       </Wrapper>
+      <Footer />
     </Container>
   );
 };
