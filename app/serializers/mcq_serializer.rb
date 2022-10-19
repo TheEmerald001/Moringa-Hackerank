@@ -1,4 +1,4 @@
 class McqSerializer < ActiveModel::Serializer
-  attributes :id, :question, :is_right, :response
+  attributes :id, :question, :response
   has_one :assessment
 end

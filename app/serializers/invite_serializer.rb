@@ -1,5 +1,5 @@
 class InviteSerializer < ActiveModel::Serializer
-  attributes :id, :is_accepted
+  attributes :id, :status
   has_one :tutor
   has_one :student
   has_one :assessment
