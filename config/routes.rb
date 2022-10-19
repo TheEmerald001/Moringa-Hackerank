@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pros
   resources :kataas
   resources :assessments
   resources :students

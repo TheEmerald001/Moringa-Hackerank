@@ -1,0 +1,2 @@
+class ProsController < ApplicationController
+end
