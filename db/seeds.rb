@@ -60,11 +60,11 @@ Invitation.create(mentor_id: 1, student_id: 6, assessment_id: 3, status: "accept
 Invitation.create(mentor_id: 1, student_id: 7, assessment_id: 2, status: "pending")
 
 # Attempt data
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, prose_score: 1, kata_response: "test", kata_score: 1, mcq_response: "test", mcq_score: 1, tutor_feedback: "Good!", total_score: 0)
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, prose_score: 2, kata_response: "test", kata_score: 2, mcq_response: "test", mcq_score: 2, tutor_feedback: "Good!", total_score: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, prose_score: 3, kata_response: "test", kata_score: 3, mcq_response: "test", mcq_score: 3, tutor_feedback: "Good!", total_score: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, prose_score: 4, kata_response: "test", kata_score: 4, mcq_response: "test", mcq_score: 4, tutor_feedback: "Good!", total_score: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, prose_score: 5, kata_response: "test", kata_score: 5, mcq_response: "test", mcq_score: 5, tutor_feedback: "Good!", total_score: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, prose_score: 6, kata_response: "test", kata_score: 6, mcq_response: "test", mcq_score: 6, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 1, prose_response: "test", prose_score: 1, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 2, prose_response: "test", prose_score: 2, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 3, prose_response: "test", prose_score: 3, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 4, prose_response: "test", prose_score: 4, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 5, prose_response: "test", prose_score: 5, tutor_feedback: "Good!", total_score: 0)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 6, prose_response: "test", prose_score: 6, tutor_feedback: "Good!", total_score: 0)
 
 puts "Done, DB seeded successfully✅"
