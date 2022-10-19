@@ -55,7 +55,7 @@ PostgreSQL - used to create a database.
 Git- For Version control.
 
 ## Project-Design-Links
-[UI Design Rerference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
-[ERD Design Rerference](https://drive.google.com/file/d/1v_okCflmD6JtfT3j8mmLlkuQI4pIeukT/view)
+1. [UI Design Rerference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
+1. [ERD Design Rerference](https://drive.google.com/file/d/1v_okCflmD6JtfT3j8mmLlkuQI4pIeukT/view)
 
 
