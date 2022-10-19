@@ -1,5 +1,5 @@
 class AssessmentSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_one :tm
+  attributes :id, :assessment_title
+  has_one :tutor
   has_one :student
 end

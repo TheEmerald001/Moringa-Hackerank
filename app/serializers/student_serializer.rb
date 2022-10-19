@@ -1,3 +1,3 @@
 class StudentSerializer < ActiveModel::Serializer
-  attributes :id, :name, :password, :email, :username
+  attributes :id, :name, :email, :username, :password
 end
