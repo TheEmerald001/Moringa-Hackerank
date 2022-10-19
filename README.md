@@ -5,7 +5,6 @@
 1. Login
 1. See the assessments that I am signed up for.
 1. Accept an invitation to an assessment
-1. Receive notifications for an assessment’s information i.e when and time range
 1. Have visibility on remaining time at any given moment(countdown) during the test.
 1. Take a trial assessment to familiarize with the platform 
 1. Take an actual assessment. 8).Submit a full whiteboard process - write BDD, Pseudocode, and code
