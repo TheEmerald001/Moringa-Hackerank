@@ -54,7 +54,12 @@ As a Student , one is able to:
 * ​Jest & Minitests - Testing Framework. <br/>
 * Git- For Version control.
 
+<<<<<<< Updated upstream
 ## Project's-Important-Links
+=======
+# Project-Design-Link
+[Design link](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
+>>>>>>> Stashed changes
 
 ### Project-Design-Links
 1. [UI Design Reference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
