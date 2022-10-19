@@ -1,4 +1,4 @@
-puts "Seeding Database..."
+puts "Seeding Database⏳..."
 
 # Mentor data
 Tutor.create(name: "John Doe", workid: "mtr_1", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
@@ -67,3 +67,4 @@ Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, prose_score: 4, kat
 Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, prose_score: 5, kata_response: "test", kata_score: 5, mcq_response: "test", mcq_score: 5, tutor_feedback: "Good!", total_score: 0)
 Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, prose_score: 6, kata_response: "test", kata_score: 6, mcq_response: "test", mcq_score: 6, tutor_feedback: "Good!", total_score: 0)
 
+puts "Done, DB seeded successfully✅"
