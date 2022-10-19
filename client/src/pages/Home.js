@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Navbar />
+    </Container>
+  );
 };
 
 export default Home;
