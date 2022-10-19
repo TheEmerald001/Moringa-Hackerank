@@ -44,7 +44,7 @@ As a Student , one is able to:
 1. After Git cloning the application and the back-end running, install REACT dependancies for the front-end by running `npm install`.  
 1. After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running.
 
-## Technology-Used
+## Technologies-Used
 HTML - Used as a template to hold the React components of the app via the root div. <br/>
 CSS -used to style the User Interface. <br/>
 JS - Java Script is used to make the website interactive. <br/>
@@ -54,11 +54,33 @@ PostgreSQL - used to create a database. <br/>
 ​Jest & Minitests - Testing Framework. <br/>
 Git- For Version control.
 
-## Project-Important-Links
+## Project's-Important-Links
 
 ### Project-Design-Links
-1. [UI Design Rerference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
-1. [ERD Design Rerference](https://drive.google.com/file/d/1v_okCflmD6JtfT3j8mmLlkuQI4pIeukT/view)
+1. [UI Design Reference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
+1. [ERD Design Reference](https://drive.google.com/file/d/1v_okCflmD6JtfT3j8mmLlkuQI4pIeukT/view)
 
 ### Project-Github-Repo-Link
 [Project's Repository Link](https://github.com/TheEmerald001/Moringa-Hackerank.git)
+
+## Project's-Screenshots
+
+## Known-Bugs
+
+## License
+
+## Author
+
+By : Michael Kaburu
+
+## Support-And-Contact-Details
+
+Email address: dennis.shakava@student.moringaschool.com | Slack: Dennis Shakava <br/>
+Email address: elvis.kimani@student.moringaschool.com   | Slack: Elvis Kimani <br/>
+Email address: maurice.nganga@student.moringaschool.com | Slack: Maurice Nganga <br/>
+Email address: michael.Kaburu@student.moringaschool.com | Slack: Michael Kaburu <br/>
+Email address: stephen.lukanu@student.moringaschool.com | Slack: Stephen Lukanu <br/>
+Email address: wycliffe.ndiba@student.moringaschool.com | Slack: Wycliffe Ndiba 
+
+
+
