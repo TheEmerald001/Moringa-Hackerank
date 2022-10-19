@@ -16,7 +16,18 @@ const Home = () => {
             assessments that include code kata, quizzes and prose that
             continuously challenge and push your coding practice
           </Into>
-          <Button> Sign up & code</Button>
+          <LoginContainer>
+            <MentorLogin>
+              <LoginTitle>For Mentors</LoginTitle>
+              <LoginText>Create and grade assessments for students</LoginText>
+              <Button position="first">Login</Button>
+            </MentorLogin>
+            <StudentLogin>
+              <LoginTitle>For Students</LoginTitle>
+              <LoginText>Take assessments and get reviewed</LoginText>
+              <Button position="last">Login</Button>
+            </StudentLogin>
+          </LoginContainer>
         </Left>
         <Right>
           <Image src={MoringaImage} alt="homeImage" />
@@ -29,7 +40,9 @@ const Home = () => {
 
 export default Home;
 
-const Container = styled.main``;
+const Container = styled.main`
+  color: #101f3c;
+`;
 
 const Wrapper = styled.section`
   padding: 3.75rem;
@@ -50,9 +63,26 @@ const Title = styled.h1`
 `;
 
 const Into = styled.p`
-  color: #101f3c;
   font-size: 2rem;
   line-height: 1.5;
+  margin-bottom: 2rem;
+`;
+
+const LoginContainer = styled.article`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+const MentorLogin = styled.article``;
+
+const StudentLogin = styled.article``;
+
+const LoginTitle = styled.h3`
+  margin-bottom: 2rem;
+`;
+
+const LoginText = styled.p`
   margin-bottom: 2rem;
 `;
 
@@ -62,8 +92,9 @@ const Button = styled.button`
   font-size: 1rem;
   color: gray;
   border: none;
-  color: #ea501a;
-  border: 2px solid #ea501a;
+  color: ${(props) => (props.position === "first" ? "#ea501a" : "#101f3c")};
+  border: ${(props) =>
+    props.position === "first" ? "2px solid #ea501a" : "2px solid #101f3c"};
   cursor: pointer;
   background-color: transparent;
 `;
@@ -75,6 +106,6 @@ const Right = styled.section`
 `;
 
 const Image = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 `;
