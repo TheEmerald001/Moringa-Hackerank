@@ -5,4 +5,5 @@ class Assessment < ApplicationRecord
   has_many :mcqs
   has_many :kataas
   has_many :pros
+  has_many :attempts
 end
