@@ -45,17 +45,20 @@ As a Student , one is able to:
 1. After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running.
 
 ## Technology-Used
-HTML - Used as a template to hold the React components of the app via the root div. 
-CSS -used to style the User Interface. 
-JS - Java Script is used to make the website interactive.
-REACT.js & Redux Toolkit - For the front-end .
-Ruby on Rails- used to create a back-end API.
-PostgreSQL - used to create a database.
-​Jest & Minitests - Testing Framework.
+HTML - Used as a template to hold the React components of the app via the root div. <br/>
+CSS -used to style the User Interface. <br/>
+JS - Java Script is used to make the website interactive. <br/>
+REACT.js & Redux Toolkit - For the front-end . <br/>
+Ruby on Rails- used to create a back-end API. <br/>
+PostgreSQL - used to create a database. <br/>
+​Jest & Minitests - Testing Framework. <br/>
 Git- For Version control.
 
-## Project-Design-Links
+## Project-Important-Links
+
+### Project-Design-Links
 1. [UI Design Rerference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
 1. [ERD Design Rerference](https://drive.google.com/file/d/1v_okCflmD6JtfT3j8mmLlkuQI4pIeukT/view)
 
-
+### Project-Github-Repo-Link
+[Project's Repository Link](https://github.com/TheEmerald001/Moringa-Hackerank.git)
