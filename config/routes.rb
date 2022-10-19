@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :attempts
   resources :invites
   resources :mcqs
   resources :pros
