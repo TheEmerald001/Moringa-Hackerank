@@ -45,14 +45,14 @@ As a Student , one is able to:
 1. After all the dependancies have been installed run `npm start` or `npm run start` to start the server and the app will be up running.
 
 ## Technologies-Used
-HTML - Used as a template to hold the React components of the app via the root div. <br/>
-CSS -used to style the User Interface. <br/>
-JS - Java Script is used to make the website interactive. <br/>
-REACT.js & Redux Toolkit - For the front-end . <br/>
-Ruby on Rails- used to create a back-end API. <br/>
-PostgreSQL - used to create a database. <br/>
-​Jest & Minitests - Testing Framework. <br/>
-Git- For Version control.
+* HTML - Used as a template to hold the React components of the app via the root div. <br/>
+* CSS -used to style the User Interface. <br/>
+* JS - Java Script is used to make the website interactive. <br/>
+* REACT.js & Redux Toolkit - For the front-end . <br/>
+* Ruby on Rails- used to create a back-end API. <br/>
+* PostgreSQL - used to create a database. <br/>
+* ​Jest & Minitests - Testing Framework. <br/>
+* Git- For Version control.
 
 ## Project's-Important-Links
 
@@ -69,18 +69,16 @@ Git- For Version control.
 
 ## License
 
-## Author
+## Support-And-Team-Details
 
-By : Michael Kaburu
-
-## Support-And-Contact-Details
-
-Email address: dennis.shakava@student.moringaschool.com | Slack: Dennis Shakava <br/>
-Email address: elvis.kimani@student.moringaschool.com   | Slack: Elvis Kimani <br/>
-Email address: maurice.nganga@student.moringaschool.com | Slack: Maurice Nganga <br/>
-Email address: michael.Kaburu@student.moringaschool.com | Slack: Michael Kaburu <br/>
-Email address: stephen.lukanu@student.moringaschool.com | Slack: Stephen Lukanu <br/>
-Email address: wycliffe.ndiba@student.moringaschool.com | Slack: Wycliffe Ndiba 
-
-
+---
+| No | Name | Email | Role |
+|:---:|:---:|:---:|:---:|
+| 1 | Dennis Shakava | dennis.shakava@student.moringaschool.com | Quaso |
+| 2 | Elvis Kimani | elvis.kimani@student.moringaschool.com | Fronend Dev |
+| 3 | Maurice Nganga | maurice.nganga@student.moringaschool.com | Lead Frentend |
+| 4 | Michael Kaburu | michael.Kaburu@student.moringaschool.com | Lead Backend |
+| 5 | Wycliffe Ndiba | wycliffe.ndiba@student.moringaschool.com | Backend Dev |
+| 6 | Stephen Lukanu | austines811@gmail.com |Team Lead |
+---
 
