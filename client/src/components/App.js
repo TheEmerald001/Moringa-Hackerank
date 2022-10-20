@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<StudentDashboard />} />
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </Router>

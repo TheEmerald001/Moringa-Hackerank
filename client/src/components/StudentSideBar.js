@@ -5,18 +5,12 @@ import {
   AccountCircleOutlined,
   Assessment,
   Code,
-  CreditCard,
-  Dashboard,
   Home,
-  LocalShippingOutlined,
   Notifications,
-  PersonOutlineOutlined,
-  Settings,
 } from "@material-ui/icons";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import PsychologyIcon from "@mui/icons-material/Psychology";
+
 import LogoutIcon from "@mui/icons-material/Logout";
-import StoreMallDirectoryIcon from "@mui/icons-material/StoreMallDirectory";
+
 import { Quiz } from "@mui/icons-material";
 const StudentSideBar = () => {
   return (
