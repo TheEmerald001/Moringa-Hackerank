@@ -1,7 +1,10 @@
 class AssessmentsController < ApplicationController
 
+rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
     # GET /assessments/1
     def show
+        assessment = find_assessment
         render json: assessment
     end
 
@@ -14,7 +17,7 @@ class AssessmentsController < ApplicationController
     # PATCH/PUT /assessments/1
     def update
         assessment = find_assessment
-        assessment.update(assessment_params)
+        assessment.update!(assessment_params)
         render json: assessment, status: :ok
     end
 
