@@ -67,4 +67,10 @@ Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kata_
 Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 5, prose_response: "test", prose_score: 5, tutor_feedback: "Good!", total: 0)
 Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 6, prose_response: "test", prose_score: 6, tutor_feedback: "Good!", total: 0)
 
+#Student profile
+Studentprofile.create(image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4AGU7PcdzwW1smKQuMMTgKj1yGlUMa84fDyt0SJWoeUG_o5QpbBdN_wP1oaYpHSQSJ4&usqp=CAU", phone: "0795225110",student_id: 1)
+
+#Student profile
+Tutorprofile.create(image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcxQ32AdfMJt28qStJxIiuJ5cM9TKwuvmcDQ&usqp=CAU", phone: "0795225110",tutor_id: 1)
+
 puts "Done, DB seeded successfully✅"
