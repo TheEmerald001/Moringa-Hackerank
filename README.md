@@ -52,14 +52,12 @@ As a Student , one is able to:
 * Ruby on Rails- used to create a back-end API. <br/>
 * PostgreSQL - used to create a database. <br/>
 * ​Jest & Minitests - Testing Framework. <br/>
-* Git- For Version control.
+* Git- For Version control
 
-<<<<<<< Updated upstream
 ## Project's-Important-Links
-=======
+
 # Project-Design-Link
 [Design link](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
->>>>>>> Stashed changes
 
 ### Project-Design-Links
 1. [UI Design Reference](https://www.figma.com/file/tUituS41lsYX94PYEnln59/Hacker-rank?node-id=1%3A2)
@@ -82,7 +80,7 @@ As a Student , one is able to:
 | 1 | Dennis Shakava | dennis.shakava@student.moringaschool.com | Quaso |
 | 2 | Elvis Kimani | elvis.kimani@student.moringaschool.com | Fronend Dev |
 | 3 | Maurice Nganga | maurice.nganga@student.moringaschool.com | Lead Frentend |
-| 4 | Michael Kaburu | michael.Kaburu@student.moringaschool.com | Lead Backend |
+| 4 | Michael Kaburu | kabururm@gmail.com    | Lead Backend |
 | 5 | Wycliffe Ndiba | wycliffe.ndiba@student.moringaschool.com | Backend Dev |
 | 6 | Stephen Lukanu | austines811@gmail.com |Team Lead |
 ---
