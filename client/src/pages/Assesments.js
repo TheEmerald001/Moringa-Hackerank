@@ -47,6 +47,21 @@ function Assesments() {
                     <span><MdModeEditOutline/></span>
                     <span><MdDelete/></span>
                 </div>
+                <div className='Assesment'>
+                    <span>Assesment 5</span>
+                    <span><MdModeEditOutline/></span>
+                    <span><MdDelete/></span>
+                </div>
+                <div className='Assesment'>
+                    <span>Assesment 5</span>
+                    <span><MdModeEditOutline/></span>
+                    <span><MdDelete/></span>
+                </div>
+                <div className='Assesment'>
+                    <span>Assesment 5</span>
+                    <span><MdModeEditOutline/></span>
+                    <span><MdDelete/></span>
+                </div>
               
             </div>
         </div>

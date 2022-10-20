@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MoringaLogo from "../assests/images/hackerlogo.png";
+import MoringaLogo from "../assests/images/H-logo.png";
 
 const Navbar = () => {
   return (
