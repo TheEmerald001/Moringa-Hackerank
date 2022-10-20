@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import StudentAnnouncement from "../components/StudentAnnouncement";
 import StudentHero from "../components/StudentHero";
 import StudentSideBar from "../components/StudentSideBar";
 
@@ -9,6 +10,7 @@ const StudentDashboard = () => {
       <StudentSideBar />
       <HomeContainer>
         <StudentHero />
+        <StudentAnnouncement />
       </HomeContainer>
     </Container>
   );

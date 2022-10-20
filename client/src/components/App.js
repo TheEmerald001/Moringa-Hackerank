@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Assignment from "../pages/Assignment";
 import Home from "../pages/Home";
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
@@ -8,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<StudentDashboard />} />
+          <Route index element={<Assignment />} />
         </Route>
       </Routes>
     </Router>

@@ -27,6 +27,8 @@ const Container = styled.main`
   padding: 3.75rem;
   display: flex;
   align-items: center;
+  color: #101f3c;
+  height: 50vh;
 `;
 
 const Left = styled.section`
