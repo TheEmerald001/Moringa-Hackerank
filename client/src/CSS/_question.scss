@@ -1,0 +1,35 @@
+.question{
+    background-color:#D9D9D9;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+    form{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        input{
+            padding: 15px 100px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: none;
+        }
+        .opt{
+            background-color:#101f3c;
+            color: white;
+            padding: 10px 1px;
+            width: 50px;
+        }
+        
+    }
+    button{
+        margin-top: 50px;
+        padding: 10px 20px;
+        background-color: #EA501A;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 20px;
+    }
+}
