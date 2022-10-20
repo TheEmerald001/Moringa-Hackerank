@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :attempts
+  resources :attempts,only:[:show,:create,:update]
   resources :invites
   resources :mcqs
   resources :pros
