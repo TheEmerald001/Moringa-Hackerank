@@ -1,0 +1,42 @@
+body {
+  background-color: white;
+}
+
+.container > form {
+  width: 40%;
+  padding: 50px;
+  border-radius: 10px;
+  background: #101f3c
+}
+pre {
+  width: 70%;
+  color: #fff;
+  font-size: larger;
+}
+
+button {
+  background: #ea501a;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 10rem;
+}
+p {
+  color: whitesmoke;
+}
+
+log {
+  color: #ea501a;
+}
+
+.f1{
+  display:block;
+  padding: 5px;
+  border-radius: 5px;
+  width: 15rem;
+
+}
+
+.header {
+  color: white;
+}
