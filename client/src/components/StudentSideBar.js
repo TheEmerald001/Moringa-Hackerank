@@ -43,7 +43,10 @@ const StudentSideBar = () => {
               <ItemSpan>Home</ItemSpan>
             </Item>
             <Item>
-              <Notifications />
+              <Icon>
+                <Notifications />
+                <Counter>2</Counter>
+              </Icon>
               <ItemSpan>Notifications</ItemSpan>
             </Item>
           </Link>
@@ -169,4 +172,24 @@ const Avatar = styled.img`
 const StudentName = styled.span`
   font-size: 13px;
   font-weight: 600;
+`;
+
+const Counter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  background-color: #ea501a;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+`;
+
+const Icon = styled.article`
+  position: relative;
 `;
