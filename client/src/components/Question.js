@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Question = () => {
+const Question = ({ question, onAnswered }) => {
+  const [timeRemaining, setTimeRemaining] = useState(10);
+  const { id, prompt, answers, correctIndex } = question;
+
+  useEffect(() => {
+    const timerId = setTimeout(
+      () => setTimeRemaining((timeRemaining) => timeRemaining - 1),
+      1000
+    );
+    if (timeRemaining === 0) {
+      setTimeRemaining(10);
+      onAnswered(false);
+    }
+
+    return () => clearTimeout(timerId);
+  }, [timeRemaining]);
+
+  const handleAnswer = (isCorrect) => {
+    setTimeRemaining(10);
+    onAnswered(isCorrect);
+  };
+
   return (
     <Container>
       <Top>
         <TopWrapper>
           <Text>Skill Assessment: JavaScript</Text>
-          <Text>10 Questions Remaining</Text>
+          <Text>{timeRemaining} Questions Remaining</Text>
         </TopWrapper>
       </Top>
       <Bottom>
-        <Prompt>
-          Which following of Number object returns a string version of the
-          current number?
-        </Prompt>
-        <Answer>toString()</Answer>
-        <Answer>toFixed()</Answer>
-        <Answer>toLocaleString()</Answer>
-        <Answer>toPrecion()</Answer>
+        <Prompt>{prompt}</Prompt>
+        {answers.map((answer, index) => {
+          const isCorrect = index === correctIndex;
+          return (
+            <Answer key={answer} onClick={() => handleAnswer(isCorrect)}>
+              {answer}
+            </Answer>
+          );
+        })}
       </Bottom>
     </Container>
   );
