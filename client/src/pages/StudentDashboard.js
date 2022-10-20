@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import StudentHero from "../components/StudentHero";
 import StudentSideBar from "../components/StudentSideBar";
 
 const StudentDashboard = () => {
   return (
     <Container>
       <StudentSideBar />
-      <HomeContainer>Student Dashboard</HomeContainer>
+      <HomeContainer>
+        <StudentHero />
+      </HomeContainer>
     </Container>
   );
 };
