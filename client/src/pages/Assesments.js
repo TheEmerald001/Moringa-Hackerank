@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Sidebar from '../components/Sidebar'
 import assesment from '../CSS/_assesment.scss'
 import { BiBookAdd } from 'react-icons/bi';
@@ -6,6 +7,7 @@ import { MdModeEditOutline } from 'react-icons/md';
 import { MdDelete } from 'react-icons/md';
 
 function Assesments() {
+    let navigate = useNavigate();
   return (
     <div className='asses'>
         <Sidebar/>
@@ -15,7 +17,7 @@ function Assesments() {
             </div>
             <div className='add'>
                 <div>
-                    <BiBookAdd className='a-icon'/> <span>Add New Assesment</span>
+                    <BiBookAdd className='a-icon'/> <span onClick={()=>{navigate("/newAssesments")}}>Add New Assesment</span>
                 </div>
                 <div>
                     <input type="text" placeholder="Search Assesment" name="search" className='Search'/>
