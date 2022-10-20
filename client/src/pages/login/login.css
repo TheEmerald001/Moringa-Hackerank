@@ -1,0 +1,60 @@
+body {
+  background-color: white;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50rem;
+  border-radius: 20px;
+  width: 100%;
+  padding-right: 20rem;
+  
+}
+
+.container > form {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid #dfdfdf;
+  padding: 50px;
+  border-radius: 15px;
+  background: #101f3c
+  
+}
+
+pre {
+  width: 70%;
+  color: #fff;
+  font-size: larger;
+}
+
+
+button {
+  background: #ea501a;
+  size: 30px;
+  border-color: #ea501a;
+}
+
+p {
+  color: whitesmoke;
+}
+
+.log {
+  color: #ea501a;
+}
+
+.field{
+  display:block;
+  padding: 20px;
+  border-radius: 3px;
+
+}
+
+.header {
+  color: white;
+}
+
+
+
