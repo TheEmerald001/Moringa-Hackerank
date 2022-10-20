@@ -1,4 +1,5 @@
 import React from 'react'
+import Congratulations from './Congratulations';
 import Question from './Question';
 import SendInvite from './SendInvite';
 import Sidebar from './Sidebar'
@@ -12,7 +13,7 @@ function NewAssesment() {
         <div className="A-title">
           <h1> New Assesment</h1>
         </div>
-        <SendInvite/>
+        <Congratulations/>
       </div>
     </div>
   );
