@@ -2,10 +2,10 @@ class StudentsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     #GET/students
-    def index
-    students= Student.all
-    render json: students
-    end
+    # def index
+    # students= Student.all
+    # render json: students
+    # end
 
     #GET/students/id
     def show
@@ -37,5 +37,5 @@ class StudentsController < ApplicationController
     def render_not_found_response
         render json: { error: "Student not found" }, status: :not_found
     end
-    
+
 end
