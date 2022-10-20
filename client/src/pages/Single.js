@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AnswerTable from "../components/AnswerTable";
 
 const Single = () => {
   return (
@@ -31,7 +32,10 @@ const Single = () => {
           </Left>
           <Right>Details</Right>
         </Top>
-        <Bottom>Bottom</Bottom>
+        <Bottom>
+          <ListTitle>Student's Answer</ListTitle>
+          <AnswerTable />
+        </Bottom>
       </Wrapper>
     </Container>
   );
@@ -110,4 +114,10 @@ const Bottom = styled.section`
   box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   -moz-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+`;
+
+const ListTitle = styled.article`
+  font-weight: 600;
+  color: gray;
+  margin-bottom: 1rem;
 `;
