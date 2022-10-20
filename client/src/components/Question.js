@@ -1,5 +1,6 @@
 import React from 'react'
 import question from '../CSS/_question.scss'
+import { GoDiffAdded } from 'react-icons/go';
 
 function Question({page, setPage, handleChange,formData}) {
   return (
@@ -18,8 +19,12 @@ function Question({page, setPage, handleChange,formData}) {
           <option value="d">D</option>
         </select>
       </form>
-      <button onClick={() => {setPage(page - 1)}} >Previous</button>
-      <button onClick={() => {setPage(page + 1)}}>NEXT</button>
+      <div className='q-add'> <GoDiffAdded className='q-icon'/> <span>Add Question</span> </div>
+      <div className='q-buttons'>
+        <button onClick={() => {setPage(page - 1)}} >Previous</button>
+        <button onClick={() => {setPage(page + 1)}}>NEXT</button>
+      </div>
+     
     </div>
   );
 }
