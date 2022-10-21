@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_20_073307) do
+ActiveRecord::Schema.define(version: 2022_10_20_193717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,15 @@ ActiveRecord::Schema.define(version: 2022_10_20_073307) do
     t.index ["assessment_id"], name: "index_pros_on_assessment_id"
   end
 
+  create_table "studentprofiles", force: :cascade do |t|
+    t.string "image"
+    t.string "phone"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_studentprofiles_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -88,6 +97,15 @@ ActiveRecord::Schema.define(version: 2022_10_20_073307) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tutorprofiles", force: :cascade do |t|
+    t.string "image"
+    t.string "phone"
+    t.bigint "tutor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tutor_id"], name: "index_tutorprofiles_on_tutor_id"
   end
 
   create_table "tutors", force: :cascade do |t|
@@ -109,4 +127,6 @@ ActiveRecord::Schema.define(version: 2022_10_20_073307) do
   add_foreign_key "kataas", "assessments"
   add_foreign_key "mcqs", "assessments"
   add_foreign_key "pros", "assessments"
+  add_foreign_key "studentprofiles", "students"
+  add_foreign_key "tutorprofiles", "tutors"
 end

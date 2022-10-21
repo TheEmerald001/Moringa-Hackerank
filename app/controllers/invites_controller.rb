@@ -16,6 +16,15 @@ class InvitesController < ApplicationController
         render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end
 
+     #PATCH/invites/id
+     def update
+        invite = Invite.find(params[:id])
+        invite.update!(invite_params)
+        render json: invite
+    rescue ActiveRecord::RecordInvalid => e
+        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
     #DELETE /invites/id
     def destroy
         invite= Invite.find(params[:id])
