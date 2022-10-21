@@ -4,7 +4,7 @@ class CreateInvites < ActiveRecord::Migration[6.1]
       t.references :tutor, null: false, foreign_key: true
       t.references :student, null: false, foreign_key: true
       t.references :assessment, null: false, foreign_key: true
-      t.string :status
+      t.boolean :status
 
       t.timestamps
     end

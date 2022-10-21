@@ -5,4 +5,5 @@ class Student < ApplicationRecord
     has_many :assessments,through: :invites
     has_many :attempts
     has_one :studentprofile
+
 end

@@ -2,6 +2,12 @@ class AttemptsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   
+    #GET/attempts
+    def index
+        attempts = Attempt.all
+        render json:attempts 
+    end
+
     #GET/attempts/id
     def show
         attempt = Attempt.find(params[:id])

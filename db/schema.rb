@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "tutor_id", null: false
     t.bigint "student_id", null: false
     t.bigint "assessment_id", null: false
-    t.string "status"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_invites_on_assessment_id"

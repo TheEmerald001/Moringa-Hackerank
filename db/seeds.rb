@@ -50,22 +50,21 @@ Pro.create(assessment_id: 3, question: "How would you resolve and mitigate an em
 
 
 # Invitation data
-# validates :status, inclusion: { in: %w(pending accepted declined) }
-Invite.create(tutor_id: 1, student_id: 1, assessment_id: 1, status: "pending")
-Invite.create(tutor_id: 1, student_id: 2, assessment_id: 1, status: "accepted")
-Invite.create(tutor_id: 1, student_id: 3, assessment_id: 2, status: "pending")
-Invite.create(tutor_id: 1, student_id: 4, assessment_id: 1, status: "declined")
-Invite.create(tutor_id: 1, student_id: 5, assessment_id: 3, status: "accepted")
-Invite.create(tutor_id: 1, student_id: 6, assessment_id: 3, status: "accepted")
-Invite.create(tutor_id: 1, student_id: 7, assessment_id: 2, status: "pending")
+Invite.create(tutor_id: 1, student_id: 1, assessment_id: 1, status: false)
+Invite.create(tutor_id: 1, student_id: 2, assessment_id: 1, status: false)
+Invite.create(tutor_id: 1, student_id: 3, assessment_id: 2, status: false)
+Invite.create(tutor_id: 1, student_id: 4, assessment_id: 1, status: false)
+Invite.create(tutor_id: 1, student_id: 5, assessment_id: 3, status: false)
+Invite.create(tutor_id: 1, student_id: 6, assessment_id: 3, status: false)
+Invite.create(tutor_id: 1, student_id: 7, assessment_id: 2, status: false)
 
-# Attempt data
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 1, prose_response: "test", prose_score: 1, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 2, prose_response: "test", prose_score: 2, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 3, prose_response: "test", prose_score: 3, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 4, prose_response: "test", prose_score: 4, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 5, prose_response: "test", prose_score: 5, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 6, prose_response: "test", prose_score: 6, tutor_feedback: "Good!", total: 0)
+#Attempt data
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 1, prose_response: "test", prose_score: 1, tutor_feedback: "Good!", total: 40)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 2, prose_response: "test", prose_score: 2, tutor_feedback: "Good!", total: 20)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 3, prose_response: "test", prose_score: 3, tutor_feedback: "Good!", total: 60)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 4, prose_response: "test", prose_score: 4, tutor_feedback: "Good!", total: 50)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 5, prose_response: "test", prose_score: 5, tutor_feedback: "Good!", total: 36)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 6, prose_response: "test", prose_score: 6, tutor_feedback: "Good!", total: 45)
 
 #Student profile
 Studentprofile.create(image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4AGU7PcdzwW1smKQuMMTgKj1yGlUMa84fDyt0SJWoeUG_o5QpbBdN_wP1oaYpHSQSJ4&usqp=CAU", phone: "0795225110",student_id: 1)
