@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import AnswerTable from "../components/AnswerTable";
+
 
 const Single = () => {
   return (
@@ -115,9 +117,12 @@ const Bottom = styled.section`
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   -moz-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
 `;
+<<<<<<< HEAD
 
 const ListTitle = styled.article`
   font-weight: 600;
   color: gray;
   margin-bottom: 1rem;
 `;
+=======
+>>>>>>> 414a31f (Create a single page that will display a single student and their answers when the technical mentor selects on a student)
