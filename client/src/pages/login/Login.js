@@ -5,34 +5,42 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <div className="container">
-      <div className="login-wrapper">
+      <div className="wrapper">
         <form>
           <h1 className="header">Welcome Back</h1>
-          <p>Enter your details below</p>
-
+          <p1>Enter your details below</p1>
+          <div className='btn-fields'>
           <input
             type="text"
             name="name"
             placeholder="Full Name"
             className="input"
           />
+          </div>
+          
+          <div className='btn-fields'>
           <input
             type="text"
             name="work id"
-            placeholder="work id"
+            placeholder="Work id"
             className="input"
           />
-
+          </div>
+          
+          <div className='btn-fields'>
           <input
             type="text"
             name="password"
-            placeholder="password"
+            placeholder="Password"
             className="input"
           />
-
-          <button className="login-button">LOGIN</button>
+          </div>
+         
+         <br/>
+            <button className='btn-field'>LOGIN</button>
+          <br/>
           <p className="mt-2">
-            Dont have an account?{" "}
+            Don't have an account?{" "}
             <Link to="/register" className="log">
               SignUp
             </Link>

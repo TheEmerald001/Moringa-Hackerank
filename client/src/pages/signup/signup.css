@@ -1,50 +1,7 @@
-
-.container {
-
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.log {
+  color: #ea501a;
 }
 
-.wrapper {
-  width: 40%;
-  padding: 20px;
-  background: #101f3c;
-  color: white;
-  border-radius: 10px;
-}
-h1{
-  font-size: 24px;
-  font-weight: 300;
-}
-
-form {
-  display: flex;
-  flex-wrap: wrap;
-
-
-}
-
-input{
-  flex: 1;
-  min-width: 40%;
-  margin: 20px 10px 0 0;
-  padding: 10px;
-}
-
-button {
-  background: #ea501a;
-  color: white;
-  border-radius: 5px;
-  width: 40%;
-  padding: 15px 20px;
-  cursor: pointer;
-  border: none;
-}
-
-span {
-  font-size: 12px;
-  margin: 20px 0;
+input {
+  min-width: 95%;
 }

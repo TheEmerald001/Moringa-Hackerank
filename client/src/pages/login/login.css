@@ -1,60 +1,48 @@
-body {
-  background-color: white;
+body{
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoringaschool.com%2Fwp-content%2Fthemes%2Fmoringa%2Fpublic%2Fimages%2Flogo-white.png&f=1&nofb=1&ipt=f92396d7bd1e04f82eb9b5422129b401c260567a04bc08c11a8bcb99899ae48d&ipo=images');
 }
 
 .container {
   width: 100vw;
   height: 100vh;
-   display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
-.login-wrapper{
-  width: 25%;
+.wrapper {
+  width: 40%;
   padding: 20px;
   background: #101f3c;
   color: white;
+  border-radius: 10px;
+  height: 87vh;
 }
 
-.login-form {
+.header{
+  font-size: 2rem;
+  font-weight: bold;
   display: flex;
-  flex-direction: column;
-  border: 1px solid #dfdfdf;
-  border-radius: 15px;
+}
 
+input{
+  flex: 1;
+  margin: 20px 30px 0 0;
+  padding: 10px;
+  justify-content: center;
+  border-radius: 5px;
   
 }
-h1{
-  font-size: 24px;
-  font-weight: 300;
-}
 
-.input {
-  flex: 1;
-  min-width: 40%;
-  margin: 10px 0;
-  padding: 10px;
-}
-
-
-
-.login-button {
+button {
   background: #ea501a;
-  width: 40%;
   color: white;
-  padding: 15px 20px;
+  border-radius: 5px;
+  width: 20%;
+  padding: 10px ;
   cursor: pointer;
   border: none;
-  margin-bottom: 10px;
-  border-color: #ea501a;
 }
-
-.log {
-  color: #ea501a;
-}
-
 
 
 
