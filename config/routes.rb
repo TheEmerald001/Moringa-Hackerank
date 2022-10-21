@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-
-  resources :attempts
-  resources :invites
+  resources :tutorprofiles, only:[:idex,:show,:create]
+  resources :studentprofiles,only:[:index,:show,:create]
+  resources :attempts,only:[:show,:create,:update]
+  resources :invites,only:[:show,:create,:destroy]
   resources :mcqs, only: [:show, :create, :update, :destroy]
   resources :pros, only: [:show, :create, :update, :destroy]
   resources :kataas, only: [:show, :create, :update, :destroy]
   resources :assessments, only: [:show, :create, :update, :destroy]
-  resources :students
+  resources :students,only:[:show,:create,:destroy]
   resources :tutors, only: [:show, :create]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
