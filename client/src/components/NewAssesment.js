@@ -19,6 +19,7 @@ function NewAssesment() {
         },
         inviteLinks: []
       });
+    
 
       //handlechange
      function handleChange (event){
@@ -32,7 +33,7 @@ function NewAssesment() {
 
     const componentList = [
         <Title page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
-        <Question page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
+        <Question page={page} setPage={setPage} />,
         <SendInvite page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
         <Congratulations page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>
       ];

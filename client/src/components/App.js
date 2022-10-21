@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Assesments from "../pages/Assesments";
 import Home from "../pages/Home";
 import NewAssesment from "./NewAssesment";
-import Test from "./NewAssesment";
+
+
+
 
 function App() {
   return (
