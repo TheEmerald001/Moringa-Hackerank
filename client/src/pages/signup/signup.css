@@ -1,42 +1,50 @@
-body {
-  background-color: white;
+
+.container {
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.container > form {
+.wrapper {
   width: 40%;
-  padding: 50px;
+  padding: 20px;
+  background: #101f3c;
+  color: white;
   border-radius: 10px;
-  background: #101f3c
 }
-pre {
-  width: 70%;
-  color: #fff;
-  font-size: larger;
+h1{
+  font-size: 24px;
+  font-weight: 300;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+
+input{
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0 0;
+  padding: 10px;
 }
 
 button {
   background: #ea501a;
   color: white;
-  padding: 5px;
   border-radius: 5px;
-  width: 10rem;
-}
-p {
-  color: whitesmoke;
-}
-
-log {
-  color: #ea501a;
+  width: 40%;
+  padding: 15px 20px;
+  cursor: pointer;
+  border: none;
 }
 
-.f1{
-  display:block;
-  padding: 5px;
-  border-radius: 5px;
-  width: 15rem;
-
-}
-
-.header {
-  color: white;
+span {
+  font-size: 12px;
+  margin: 20px 0;
 }

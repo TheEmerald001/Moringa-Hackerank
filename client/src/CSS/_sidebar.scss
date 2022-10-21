@@ -1,0 +1,52 @@
+.side-nav{
+    height: 100vh;
+    flex: 1;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    .myLogo{
+        img{
+            height: 200px;
+            padding-top: 0px;
+            padding-left: 20px;
+        }
+    }
+    .prof{
+
+        padding-left: 30px;
+        .tESTING{
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+        }
+    }
+    .icon-container{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+        .iCon{
+            padding: 50px;
+            &:hover{
+                margin-left: 0.9rem;
+                color: white;
+            }
+        }
+        .iCON{
+            font-size: 2em;
+            margin-right: 20px;
+        }
+    }
+    .logof{
+        margin-top: 30px;
+        padding-left: 70px;
+        &:hover{
+            margin-left: 0.9rem;
+            color: #EA501A;
+        }
+        .iCON{
+            font-size: 2em;
+            margin-right: 20px;
+        }
+    }
+}

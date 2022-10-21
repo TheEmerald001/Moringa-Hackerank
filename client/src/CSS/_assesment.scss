@@ -1,0 +1,52 @@
+.asses{
+    display: flex;
+    flex-direction: row;
+    .content{
+        display: flex;
+        flex-direction: column;
+        .A-title{
+            background-color: #404C63;
+            color: white;
+            padding: 10px;
+            width: 70vw;
+            margin-left: 40px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .add{
+            padding: 10px;
+            margin-left: 40px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .a-icon{
+                font-size: 2.5em;
+               margin-right: 20px;
+            }
+            .Search{
+                padding: 20px 50px;
+                border-radius: 10px;
+            }
+        }
+        .as-container{
+            margin-top: 90px;
+            margin-left: 40px;
+            height: 60vh;
+            overflow: hidden;
+            overflow-y: auto;
+            .Assesment{
+                height: 70px;
+                width: 700px;
+                background-color: aqua;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                color: white;
+                background-color: #EA501A;
+            }
+        }
+    }
+}
