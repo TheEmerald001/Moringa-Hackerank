@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tutorprofiles, only:[:idex,:show,:create]
+  resources :tutorprofiles, only:[:index,:show,:create]
   resources :studentprofiles,only:[:index,:show,:create]
   resources :attempts,only:[:index,:show,:create,:update]
   resources :invites,only:[:show,:create,:destroy]

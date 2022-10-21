@@ -1,7 +1,7 @@
 class TutorprofilesController < ApplicationController
 
     def create
-        profile = Tutorprofile.create(profile_params.merge(user: @user))
+        profile = Tutorprofile.create(profile_params)
         if profile.valid?
             render json: profile, status: :created
         else
@@ -10,12 +10,12 @@ class TutorprofilesController < ApplicationController
     end
 
     def index
-        profiles = Profile.all
+        profiles = Tutorprofile.all
         render json: profiles, status: :ok 
     end
 
     def show
-        profile = TutorProfile.find(params[:id])
+        profile = Tutorprofile.find(params[:id])
         if profile
           render json: profiles, status: :ok 
         else

@@ -4,7 +4,7 @@ class Attempt < ApplicationRecord
   belongs_to :tutor
 
   def order_by_total
-    self.attempts.order(total: :desc)
+    self.attempts.order(total: :desc).all
   end
 
 end
