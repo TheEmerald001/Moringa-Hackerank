@@ -18,13 +18,13 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="student">
+          <Route path="students">
             <Route index element={<StudentDashboard />} />
             <Route path="quiz" element={<QuizPage />} />
-            <Route path="assignment" element={<Assignment />} />
+            <Route path="assignments" element={<Assignment />} />
           </Route>
         </Route>
-        <Route path="mentor">
+        <Route path="mentors">
           <Route index element={<Assesments />} />
           <Route path="grades">
             <Route index element={<List />} />
