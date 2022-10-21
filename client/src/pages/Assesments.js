@@ -25,7 +25,7 @@ function Assesments() {
                     <BsCodeSlash className='a-icon'/> <span onClick={()=>{navigate("/newKata")}}>Add New Kata</span>
                 </div>
                 <div>
-                    <BsPatchQuestion className='a-icon'/> <span onClick={()=>{navigate("/newAssesments")}}>Add Subjective Assessment</span>
+                    <BsPatchQuestion className='a-icon'/> <span onClick={()=>{navigate("/newSubjective")}}>Add Subjective Assessment</span>
                 </div>
                 <div>
                     <input type="text" placeholder="Search Assesment" name="search" className='Search'/>

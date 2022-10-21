@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
 import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
-function Question({page, setPage, handleChange,formData}) {
+function Question({page, setPage}) {
     const [allPlayers, setAllPlayers] = useState([
         { name: "", optionA: "", optionB: "",optionC: "",optionD: "", correctAns:""},
       ]);
@@ -47,20 +46,18 @@ function Question({page, setPage, handleChange,formData}) {
     
   return (
     <div className='question' >
-        {/* <button onClick={() => handleAddPlayers()}>Add Question</button> */}
-        
         <div className='q-form'>
             {allPlayers.length > 0 && (
                 <>
                 {allPlayers.map((field,index)=> (
                     <div className='q-container'>
                         <h4>Question {index +1}</h4>
-                        <input type='text' name='name' placeholder='Enter Name' value={field.name} onChange={(event) => handleInputChange(index,event)}/>
+                        <input type='text' name='name' placeholder='Enter Question' value={field.name} onChange={(event) => handleInputChange(index,event)}/>
                         <input type="text" name="optionA" placeholder="Enter option A" value={field.optionA} onChange={(event) =>handleInputChange(index, event) }/>
                         <input type="text" name="optionB" placeholder="Enter option B" value={field.optionB} onChange={(event) =>handleInputChange(index, event) }/>
                         <input type="text" name="optionC" placeholder="Enter option C" value={field.optionC} onChange={(event) =>handleInputChange(index, event) }/>
                         <input type="text" name="optionD" placeholder="Enter option D" value={field.optionD} onChange={(event) =>handleInputChange(index, event) }/>
-                        <select className='opt' onChange={(event) =>handleInputChange(index, event) } value={field.correctAns}>
+                        <select className='opt' onChange={(event) =>handleInputChange(index, event) } value={field.correctAns} name='correctAns'>
                            {/* {options.map(option => (
                                 <option key={option.value} value={option.value}>
                                 {option.text}

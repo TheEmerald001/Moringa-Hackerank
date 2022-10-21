@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import Congratulations from './Congratulations';
+import Kata from './Kata';
 import Question from './Question';
 import SendInvite from './SendInvite';
 import Sidebar from './Sidebar'
 import Title from './Title';
 
-function NewAssesment() {
+function NewKata() {
     const [page, setPage] = useState(0);
     const [formData, setFormData] = useState({
         title: "",
@@ -25,7 +26,7 @@ function NewAssesment() {
 
     const componentList = [
         <Title page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
-        <Question page={page} setPage={setPage} />,
+        <Kata page={page} setPage={setPage} />,
         <SendInvite page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
         <Congratulations page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>
       ];
@@ -36,7 +37,7 @@ function NewAssesment() {
       <Sidebar className=".side-nav" />
       <div className="content">
         <div className="A-title">
-          <h1> New Assesment</h1>
+          <h1> New Kata</h1>
         </div>
          {componentList[page]}
       </div>
@@ -44,4 +45,4 @@ function NewAssesment() {
   );
 }
 
-export default NewAssesment
+export default NewKata
