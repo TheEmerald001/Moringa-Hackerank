@@ -1,46 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Answer from "./answer/Answer";
+import { selectedAnswer } from "../redux/quizSlice";
 
-const Question = ({ question, onAnswered }) => {
-  const [timeRemaining, setTimeRemaining] = useState(10);
-  const { id, prompt, answers, correctIndex } = question;
-
-  useEffect(() => {
-    const timerId = setTimeout(
-      () => setTimeRemaining((timeRemaining) => timeRemaining - 1),
-      1000
-    );
-    if (timeRemaining === 0) {
-      setTimeRemaining(10);
-      onAnswered(false);
-    }
-
-    return () => clearTimeout(timerId);
-  }, [timeRemaining]);
-
-  const handleAnswer = (isCorrect) => {
-    setTimeRemaining(10);
-    onAnswered(isCorrect);
-  };
+const Question = () => {
+  const { questions, currentQuestionIndex, answers, currentAnswer } =
+    useSelector((state) => state.quiz);
+  const dispatch = useDispatch();
+  const currentQuestion = questions[currentQuestionIndex];
 
   return (
     <Container>
       <Top>
         <TopWrapper>
           <Text>Skill Assessment: JavaScript</Text>
-          <Text>{timeRemaining} Questions Remaining</Text>
+          <Text>
+            You are at Question {currentQuestionIndex + 1}/{questions.length}
+          </Text>
         </TopWrapper>
       </Top>
       <Bottom>
-        <Prompt>{prompt}</Prompt>
-        {answers.map((answer, index) => {
-          const isCorrect = index === correctIndex;
-          return (
-            <Answer key={answer} onClick={() => handleAnswer(isCorrect)}>
-              {answer}
-            </Answer>
-          );
-        })}
+        <Prompt>{currentQuestion.question}</Prompt>
+        {answers.map((answer, index) => (
+          <Answer
+            key={index}
+            answerText={answer}
+            currentAnswer={currentAnswer}
+            correctAnswer={currentQuestion.correctAnswer}
+            index={index}
+            onSelectedAnswer={(answerText) =>
+              dispatch(selectedAnswer(answerText))
+            }
+          />
+        ))}
       </Bottom>
     </Container>
   );
@@ -87,18 +80,6 @@ const Prompt = styled.h3`
   color: gray;
   cursor: pointer;
   border-radius: 5px;
-  &:hover {
-    background-color: lightgray;
-  }
-`;
-
-const Answer = styled.article`
-  background-color: #f5f5f5;
-  padding: 0.7rem;
-  cursor: pointer;
-  color: gray;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   &:hover {
     background-color: lightgray;
   }
