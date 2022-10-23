@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Congratulations from './Congratulations';
 import Kata from './Kata';
-import Question from './Question';
+import Question from './Quiz';
 import SendInvite from './SendInvite';
 import Sidebar from './Sidebar'
 import Title from './Title';
@@ -9,7 +9,7 @@ import Title from './Title';
 function NewKata() {
     const [page, setPage] = useState(0);
     const [formData, setFormData] = useState({
-        title: ""
+        title: "",
       });
     
 

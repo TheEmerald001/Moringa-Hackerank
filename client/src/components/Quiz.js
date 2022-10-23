@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
-function Question({page, setPage}) {
+function Quiz({page, setPage}) {
     const [allQuestions, setAllQuestions] = useState([
         { name: "", optionA: "", optionB: "",optionC: "",optionD: "", correctAns:""},
       ]);
@@ -81,4 +81,4 @@ function Question({page, setPage}) {
   )
 }
 
-export default Question
+export default Quiz

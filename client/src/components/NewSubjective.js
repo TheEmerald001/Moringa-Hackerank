@@ -8,7 +8,7 @@ import Title from './Title';
 function NewSubjective() {
     const [page, setPage] = useState(0);
     const [formData, setFormData] = useState({
-        title: ""
+        title: "",
       });
     
 
