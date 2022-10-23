@@ -9,7 +9,7 @@ function NewAssesment() {
     const [page, setPage] = useState(0);
     const [formData, setFormData] = useState({
         title: "",
-        // inviteLinks: []
+        
       });
     
 
@@ -27,7 +27,7 @@ function NewAssesment() {
     const componentList = [
         <Title page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
         <Question page={page} setPage={setPage} />,
-        <SendInvite page={page} setPage={setPage}  setFormData={setFormData} handleChange={handleChange} formData={formData}/>,
+        <SendInvite page={page} setPage={setPage}  />,
         <Congratulations page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>
       ];
 

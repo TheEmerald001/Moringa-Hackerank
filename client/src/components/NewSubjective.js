@@ -8,8 +8,7 @@ import Title from './Title';
 function NewSubjective() {
     const [page, setPage] = useState(0);
     const [formData, setFormData] = useState({
-        title: "",
-        inviteLinks: []
+        title: ""
       });
     
 
@@ -26,7 +25,7 @@ function NewSubjective() {
     const componentList = [
         <Title page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
         <Subjective page={page} setPage={setPage} />,
-        <SendInvite page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>,
+        <SendInvite page={page} setPage={setPage} />,
         <Congratulations page={page} setPage={setPage} handleChange={handleChange} formData={formData}/>
       ];
 
