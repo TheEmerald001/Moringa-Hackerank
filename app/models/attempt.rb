@@ -3,8 +3,5 @@ class Attempt < ApplicationRecord
   belongs_to :student
   belongs_to :tutor
 
-  def order_by_total
-    self.attempts.order(total: :desc).all
-  end
-
+ 
 end

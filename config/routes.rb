@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
   resources :tutors, only: [:show, :create]
 
+  get "/attemptlist/:assessment_id",to: "attempts#order"
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

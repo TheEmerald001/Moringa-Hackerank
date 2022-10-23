@@ -2,10 +2,22 @@ class AttemptsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   
+    def order
+        attemptlist = Attempt.where(assessment_id: params[:assessment_id])
+        render json: { 
+            allAttempts: attemptlist.map do |attempt|
+                {
+                    student_name: attempt.student.name,
+                    total: attempt.total
+                }
+            end
+        }
+    end
+
     #GET/attempts
     def index
         attempts = Attempt.all
-        render json:attempts 
+        render json: attempts 
     end
 
     #GET/attempts/id
