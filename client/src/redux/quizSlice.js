@@ -4,7 +4,9 @@ import { shuffleAnswers } from "../Helpers/shuffleAnswers";
 const quizSlice = createSlice({
   name: "quiz",
   initialState: {
-    questions,
+    questions: [],
+    isFetching: false,
+    error: false,
     currentQuestionIndex: 0,
     showResults: false,
     correctAnswerCount: 0,
@@ -12,8 +14,16 @@ const quizSlice = createSlice({
     currentAnswer: "",
   },
   reducers: {
-    getQuestions: (state, action) => {
-      return state;
+    getQuestionStart: (state) => {
+      state.isFetching = true;
+    },
+    getQuestionSuccess: (state, action) => {
+      state.isFetching = false;
+      state.products = action.payload;
+    },
+    getQuestionFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
     },
     nextQuestion: (state) => {
       const showResults =
@@ -60,6 +70,12 @@ const quizSlice = createSlice({
   },
 });
 
-export const { getQuestions, nextQuestion, selectedAnswer, restart } =
-  quizSlice.actions;
+export const {
+  getQuestionStart,
+  getQuestionSuccess,
+  getQuestionFailure,
+  nextQuestion,
+  selectedAnswer,
+  restart,
+} = quizSlice.actions;
 export default quizSlice.reducer;
