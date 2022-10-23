@@ -16,9 +16,12 @@ const StudentSideBar = () => {
   return (
     <Container>
       <Top>
-        <Logo>
-          <FirstSpan>Moringa</FirstSpan> Hackerank
-        </Logo>
+        <Link to="/">
+          {" "}
+          <Logo>
+            <FirstSpan>Moringa</FirstSpan> Hackerank
+          </Logo>
+        </Link>
       </Top>
       <Hr />
       <AvatarContainer>
@@ -32,10 +35,12 @@ const StudentSideBar = () => {
         <List>
           <Link>
             <Title>MAIN</Title>
-            <Item>
-              <Home />
-              <ItemSpan>Home</ItemSpan>
-            </Item>
+            <Link to="/students">
+              <Item>
+                <Home />
+                <ItemSpan>Home</ItemSpan>
+              </Item>
+            </Link>
             <Item>
               <Icon>
                 <Notifications />
@@ -45,13 +50,13 @@ const StudentSideBar = () => {
             </Item>
           </Link>
           <Title style={{ marginTop: "2rem" }}>ASSESSMENTS</Title>
-          <Link>
+          <Link to="/students/quiz">
             <Item>
               <Quiz />
               <ItemSpan>Quiz</ItemSpan>
             </Item>
           </Link>
-          <Link>
+          <Link to="/students/assignments">
             <Item>
               <Assessment />
               <ItemSpan>Prose</ItemSpan>
@@ -65,10 +70,12 @@ const StudentSideBar = () => {
       </Center>
       <Bottom>
         <Title>USER</Title>
-        <Item>
-          <AccountCircleOutlined />
-          <ItemSpan>Profile</ItemSpan>
-        </Item>
+        <Link>
+          <Item to="/settings">
+            <AccountCircleOutlined />
+            <ItemSpan>Profile</ItemSpan>
+          </Item>
+        </Link>
         <Item>
           <LogoutIcon />
           <ItemSpan>Logout</ItemSpan>

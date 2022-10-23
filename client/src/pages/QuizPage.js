@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Question from "../components/Question";
 import StudentSideBar from "../components/StudentSideBar";
-import { fetchQuiz } from "../redux/apiCall";
 import { nextQuestion, restart } from "../redux/quizSlice";
 
 function QuizPage() {
@@ -12,10 +11,6 @@ function QuizPage() {
   );
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetchQuiz(dispatch);
-  }, [dispatch]);
 
   return (
     <Container>
@@ -34,12 +29,12 @@ function QuizPage() {
           </Results>
         )}
         {!showResults && (
-          <>
-            {/* <Question /> */}
+          <QuizWrapper>
+            <Question />
             <NextButton onClick={() => dispatch(nextQuestion())}>
               Next Question
             </NextButton>
-          </>
+          </QuizWrapper>
         )}
       </QuizContainer>
     </Container>
@@ -60,9 +55,10 @@ const QuizContainer = styled.section`
   flex-direction: column;
   justify-content: center;
 `;
+const QuizWrapper = styled.section``;
 
 const NextButton = styled.article`
-  margin: 0 auto;
+  margin: 1rem auto;
   color: #fff;
   background-color: #101f3c;
   width: 300px;
@@ -93,7 +89,7 @@ const Grade = styled.article`
 const Text = styled.article``;
 
 const Retake = styled.article`
-  margin: 0 auto;
+  margin: 1rem auto;
   color: #fff;
   background-color: #101f3c;
   font-size: 18px;
