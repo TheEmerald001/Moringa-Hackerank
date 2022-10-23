@@ -1,24 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import invite from '../CSS/_sendInvite.scss'
+import Select from 'react-select';
 
-function SendInvite({page, setPage, handleChange,formData}) {
+
+function SendInvite({page, setPage, }) {
+  const [selectedlinks , setSelectedlinks] = useState([])
+  
+
+  // dummy student emails
+  const emails = [
+  {value: "joedoe@email.com",label: "joedoe@email.com",},
+  {value: "marydoe@email.com",label: "marydoe@email.com",},
+  {value: "masai@email.com",label: "masai@email.com",},
+  ];
+
+
+
+
   return (
     <div className="invite">
       <div className='heading'>Invite Students</div>
       <div className='mid'>
         <label>Select Email</label>
-        <select className="choise" value={formData.inviteLinks} onChange={handleChange} name="inviteLinks">
-          <option className='oPT' value="a">A</option>
-          <option className='oPT' value="b">B</option>
-          <option className='oPT' value="c">C</option>
-          <option className='oPT' value="d">D</option>
-        </select>
-        <button>Invite</button>
+       <Select  
+                isMulti
+                closeMenuOnSelect={false}
+                className="choise "
+                placeholder="Select Students"
+                options={emails}
+                isClearable={true}
+                noOptionsMessage={() => "Student not found"}
+                isSearchable = {true}
+                onChange={(item) => setSelectedlinks(item)}
+                
+                
+              />
+
       </div>
       <div className='lower'>
           <button  onClick={() => {setPage(page - 1)}}>Back</button>
           <button onClick={() => {
-              console.log(formData)
+              console.log(selectedlinks)
               setPage(page + 1)}}>Finish</button>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Congratulations() {
     let navigate = useNavigate();
+    
   return (
     <div className='congrats'>
         <div>
