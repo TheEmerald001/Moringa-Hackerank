@@ -1,7 +1,8 @@
 class TutorsController < ApplicationController
+    before_action :authorize
 
-     #GET/tutors
-     def index
+    #GET/tutors
+    def index
         tutors= Tutor.all
         render json: tutors
         end
@@ -16,15 +17,15 @@ class TutorsController < ApplicationController
     end
 end
 
-     #POST/signup
-     def create
+    #POST/signup
+    def create
         tutor = Tutor.create!(tutor_params)
         if tutor.valid?
             session[:tutor_id] = tutor.id
             render json: tutor, status: :created
-          else
+        else
             render json: { errors: tutor.errors.full_messages }, status: :unprocessable_entity
-          end
+        end
     end
 
     private
@@ -32,5 +33,8 @@ end
     def tutor_params
         params.permit(:tutor_name, :work_id, :email, :password_digest)
     end
-
+    #authorization
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :tutor_id
+    end
 end

@@ -1,13 +1,13 @@
 class StudentsController < ApplicationController
-  
+    before_action :authorize
     #GET/students
     def index
     students= Student.all
     render json: students
     end
 
-   #Get /me 
-  def show
+    #GET /me 
+    def show
     student = Student.find_by(id: session[:student_id])
     if student
         render json: student
@@ -22,9 +22,9 @@ end
         if student.valid?
             session[:student_id] = student.id
             render json: student, status: :created
-          else
+        else
             render json: { errors: student.errors.full_messages }, status: :unprocessable_entity
-          end
+        end
     end
 
     #DELETE /student/id
@@ -40,4 +40,8 @@ end
         params.permit(:name, :email, :username, :password_digest)
     end
     
+    #authorization
+    def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :tutor_id
+    end
 end
