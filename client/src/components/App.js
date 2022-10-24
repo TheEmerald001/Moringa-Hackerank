@@ -5,8 +5,14 @@ import NewAssesment from "./NewAssesment";
 import NewKata from "./NewKata";
 import NewSubjective from "./NewSubjective";
 
+import List from "../pages/List";
+import Assignment from "../pages/Assignment";
+import Register from "../pages/signup/Register";
+import Login from "../pages/login/Login";
+import QuizPage from "../pages/QuizPage";
+import StudentDashboard from "../pages/StudentDashboard";
 
-
+import Single from "../pages/Single";
 
 function App() {
   return (
@@ -14,20 +20,24 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          <Route path="students">
+            <Route index element={<StudentDashboard />} />
+            <Route path="quiz" element={<QuizPage />} />
+            <Route path="assignments" element={<Assignment />} />
+          </Route>
         </Route>
-        <Route path="/assessments">
+        <Route path="mentors">
           <Route index element={<Assesments />} />
+          <Route path="newquiz" element={<NewAssesment />} />
+          <Route path="newkata" element={<NewKata />} />
+          <Route path="newsubjective" element={<NewSubjective />} />
+          <Route path="grades">
+            <Route index element={<List />} />
+            <Route path=":studentId" element={<Single />} />
+          </Route>
         </Route>
-        <Route path="/newAssesments">
-          <Route index element={<NewAssesment />} />
-        </Route>
-        <Route path="/newKata">
-          <Route index element={<NewKata />} />
-        </Route>
-        <Route path="/newSubjective">
-          <Route index element={<NewSubjective/>} />
-        </Route>
-
       </Routes>
     </Router>
   );

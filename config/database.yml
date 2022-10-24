@@ -32,7 +32,6 @@ development:
 
   username: moringa
 
-
   # The password associated with the postgres role (username).
   password: Access
 
@@ -84,5 +83,5 @@ test:
 production:
   <<: *default
   database: hackerank
-  username: steve
+  username: shaki
   password: <%= ENV['HACKERANK_DATABASE_PASSWORD'] %>

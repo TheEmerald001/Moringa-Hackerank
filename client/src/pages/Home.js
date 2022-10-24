@@ -42,6 +42,7 @@ export default Home;
 
 const Container = styled.main`
   color: #101f3c;
+  min-height: 100vh;
 `;
 
 const Wrapper = styled.section`
@@ -56,16 +57,16 @@ const Left = styled.article`
 
 const Title = styled.h1`
   font-weight: bold;
-  font-size: 5.3rem;
+  font-size: 3.5rem;
   letter-spacing: 1px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: #ea501a;
 `;
 
 const Into = styled.p`
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const LoginContainer = styled.article`
@@ -101,11 +102,12 @@ const Button = styled.button`
 
 const Right = styled.section`
   flex: 1;
+  height: 100%;
   display: flex;
   align-items: center;
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 `;
