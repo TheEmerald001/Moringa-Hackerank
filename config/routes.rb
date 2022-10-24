@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
   resources :tutors, only: [:show, :create]
 
+  #custome route for assessment
+  get "/attemptlist/:assessment_id",to: "attempts#order"
+
   #Signup routes for student
   post "/signup" , to: "students#create"
   get "/me", to:"students#show"
@@ -20,9 +23,15 @@ Rails.application.routes.draw do
   #login & logout routes for student
   post "/login" , to:"sessions#create"
   delete "/logout" ,to: "sessions#destroy"
-  #custome route for assessment
-  get "/attemptlist/:assessment_id",to: "attempts#order"
-
+  
+  #Signup routes for tutor
+  post "/signup" , to: "tutors#create"
+  get "/me", to:"tutors#show"
+  get '/tutors', to: "tutors#index"
+  
+  #login & logout routes for tutor
+  post "/login" , to:"tutorsessions#create"
+  delete "/logout" ,to: "tutorsessions#destroy"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

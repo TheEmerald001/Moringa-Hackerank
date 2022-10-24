@@ -1,29 +1,36 @@
 class TutorsController < ApplicationController
 
-    # GET /tutors/1
-    def show
-        tutor = find_tutor
-        render json: tutor
-    end
+     #GET/tutors
+     def index
+        tutors= Tutor.all
+        render json: tutors
+        end
 
-    # POST /tutors
-    def create
+    #Get /me 
+    def show
+        tutor = Tutor.find(params[:id])
+        if tutor
+        render json: tutor, status: :ok
+    else
+        render json: { error: "Not authorized" }, status: :unauthorized
+    end
+end
+
+     #POST/signup
+     def create
         tutor = Tutor.create!(tutor_params)
-        render json: tutor, status: :created
+        if tutor.valid?
+            session[:tutor_id] = tutor.id
+            render json: tutor, status: :created
+          else
+            render json: { errors: tutor.errors.full_messages }, status: :unprocessable_entity
+          end
     end
 
     private
 
     def tutor_params
-        params.permit(:tutor_name, :work_id, :email, :password)
-    end
-
-    def find_tutor
-        Tutor.find(params[:id])
-    end
-
-    def render_unprocessable_entity_response(exception)
-        render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+        params.permit(:tutor_name, :work_id, :email, :password_digest)
     end
 
 end
