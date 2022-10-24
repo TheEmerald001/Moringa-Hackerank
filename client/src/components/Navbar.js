@@ -10,8 +10,8 @@ const Navbar = () => {
           <Logo src={MoringaLogo} alt="logo" />
         </Left>
         <Right>
-          <Button>Login</Button>
-          <Button>Register</Button>
+          <Button href="/login">Login</Button>
+          <Button href="/register">Register</Button>
         </Right>
       </Wrapper>
     </Container>
@@ -48,7 +48,7 @@ const Right = styled.article`
   gap: 1.25rem;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   padding: 10px 1rem;
   font-weight: 600;
   color: gray;
