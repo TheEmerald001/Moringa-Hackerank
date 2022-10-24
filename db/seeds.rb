@@ -1,19 +1,19 @@
 puts "Seeding Database⏳..."
 
 # Mentor data
-Tutor.create(name: "John Doe", work_id: "mtr_1", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(name: "Michael Hill", work_id: "mtr_2", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(name: "Matt Smith", work_id: "mtr_3", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(name: "Jane Doe", work_id: "mtr_4", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(name: "Mary Smith", work_id: "mtr_5", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname:  "John",lastname: "Doe", work_id: "mtr_1", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname:  "Michael",lastname: "Hill", work_id: "mtr_2", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname:  "Matt",lastname: "Smith", work_id: "mtr_3", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname:  "Jane",lastname: "Doe", work_id: "mtr_4", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname:  "Mary",lastname: "Smith", work_id: "mtr_5", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
 
 # Student data
-Student.create(name: "Wycliffe Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "123456", password_confirmation: "123456")
-Student.create(name: "Dennis Shakava", email: "d.shakava@gmail.com", username: "dennishakava", password: "123456", password_confirmation: "123456")
-Student.create(name: "Stephen Lukanu", email: "s.lukanu@gmail.com", username: "stephenlukanu", password: "123456", password_confirmation: "123456")
-Student.create(name: "Michael Kaburu", email: "m.kaburu@gmail.com", username: "michaelkaburu", password: "123456", password_confirmation: "123456")
-Student.create(name: "Elvis Kimani", email: "e.kimani@gmail.com", username: "elviskimani", password: "123456", password_confirmation: "123456")
-Student.create(name: "Maurice Nganga", email: "m.nganga@gmail.com", username: "mauricenganga", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Wycliffe", lastname: "Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Dennis" , lastname:"Shakava", email: "d.shakava@gmail.com", username: "dennishakava", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Stephen", lastname: "Lukanu", email: "s.lukanu@gmail.com", username: "stephenlukanu", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Michael", lastname: "Kaburu", email: "m.kaburu@gmail.com", username: "michaelkaburu", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Elvis" , lastname: "Kimani", email: "e.kimani@gmail.com", username: "elviskimani", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Maurice", lastname: "Nganga", email: "m.nganga@gmail.com", username: "mauricenganga", password: "123456", password_confirmation: "123456")
 
 # Assessment data
 Assessment.create(tutor_id: 1, assessment_title: "Ruby Basics")

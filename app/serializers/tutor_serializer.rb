@@ -1,3 +1,3 @@
 class TutorSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email
+  attributes :id, :firstname, :lastname, :email,:work_id
 end

@@ -31,7 +31,7 @@ end
     private
 
     def tutor_params
-        params.permit(:tutor_name, :work_id, :email, :password_digest)
+        params.permit(:firstname, :lastname, :work_id, :email, :password_digest)
     end
     #authorization
     def authorize

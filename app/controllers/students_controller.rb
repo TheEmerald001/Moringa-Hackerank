@@ -37,7 +37,7 @@ end
     private
 
     def student_params
-        params.permit(:name, :email, :username, :password_digest)
+        params.permit(:firstname, :lastname, :email, :username, :password_digest)
     end
     
     #authorization
