@@ -1,24 +1,30 @@
 class StudentsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-
+  
     #GET/students
     def index
     students= Student.all
     render json: students
     end
 
-    #GET/students/id
-    def show
-        student= Student.find(params[:id])
-        render json: student 
+   #Get /me 
+  def show
+    student = Student.find_by(id: session[:student_id])
+    if student
+        render json: student
+    else
+        render json: { error: "Not authorized" }, status: :unauthorized
     end
+end
 
-    #POST/students
+    #POST/signup
     def create
         student= Student.create!(student_params)
-        render json: student
-    rescue ActiveRecord::RecordInvalid => e
-        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+        if student.valid?
+            session[:student_id] = student.id
+            render json: student, status: :created
+          else
+            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+          end
     end
 
     #DELETE /student/id
@@ -34,8 +40,4 @@ class StudentsController < ApplicationController
         params.permit(:name, :email, :username, :password_digest)
     end
     
-    def render_not_found_response
-        render json: { error: "Student not found" }, status: :not_found
-    end
-
 end

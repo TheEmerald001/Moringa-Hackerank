@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   end
   resources :tutors, only: [:show, :create]
 
+  #Signup routes for student
+  post "/signup" , to: "students#create"
+  get "/me", to:"students#show"
+  get '/students', to: "students#index"
+  
+  #login & logout routes for student
+  post "/login" , to:"sessions#create"
+  delete "/logout" ,to: "sessions#destroy"
+  #custome route for assessment
   get "/attemptlist/:assessment_id",to: "attempts#order"
 
   # Routing logic: fallback requests for React Router.
