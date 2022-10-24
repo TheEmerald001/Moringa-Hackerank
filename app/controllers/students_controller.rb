@@ -42,6 +42,6 @@ end
     
     #authorization
     def authorize
-    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :tutor_id
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :student_id
     end
 end
