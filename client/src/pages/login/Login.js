@@ -37,8 +37,9 @@ export default function Login() {
           </div>
          
          <br/>
-            <button className='btn-field'>LOGIN</button>
+            <btn className='btn-field'>LOGIN</btn>
           <br/>
+          <br />
           <p className="mt-2">
             Don't have an account?{" "}
             <Link to="/register" className="log">

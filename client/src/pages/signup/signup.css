@@ -5,3 +5,13 @@
 input {
   min-width: 95%;
 }
+
+.fluid-ui-button-blue {
+  background: #ea501a;
+  color: white;
+  border-radius: 5px;
+  padding: 10px ;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+}

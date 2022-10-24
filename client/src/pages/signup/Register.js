@@ -47,8 +47,9 @@ export default function Register() {
           
           <div>
             <br/>
-          <button className="fluid ui button blue">CREATE</button>
+          <button1 className="fluid-ui-button-blue">CREATE</button1>
           </div>
+          <br /> 
           <span className="mt-2">
             Have an account?{" "}
             <Link to="/login" className="log">
