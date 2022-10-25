@@ -1,0 +1,10 @@
+.header {
+  font-weight: bold;
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  box-shadow: 7px 0px 2px rgba(0,0,0,0.7);
+}

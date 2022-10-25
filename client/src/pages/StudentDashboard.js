@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import StudentAnnouncement from "../components/StudentAnnouncement";
-import StudentHero from "../components/StudentHero";
 import StudentSideBar from "../components/StudentSideBar";
 
 const StudentDashboard = () => {
@@ -9,7 +8,6 @@ const StudentDashboard = () => {
     <Container>
       <StudentSideBar />
       <HomeContainer>
-        <StudentHero />
         <StudentAnnouncement />
       </HomeContainer>
     </Container>

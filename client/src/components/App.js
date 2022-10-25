@@ -9,6 +9,7 @@ import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
 
 import Single from "../pages/Single";
+import StudentTrial from "../pages/StudentTrial";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="assignments" element={<Assignment />} />
           </Route>
         </Route>
+        <Route path="trial" element={<StudentTrial />} />
         <Route path="mentors">
           <Route index element={<Assesments />} />
           <Route path="grades">
