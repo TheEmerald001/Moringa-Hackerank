@@ -9,7 +9,8 @@ import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
 
 import Single from "../pages/Single";
-import StudentTrial from "../pages/StudentTrial";
+import TrialPage from "../pages/TrialPage";
+
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
             <Route index element={<StudentDashboard />} />
             <Route path="quiz" element={<QuizPage />} />
             <Route path="assignments" element={<Assignment />} />
+            <Route path="trial" element={<TrialPage />} />
           </Route>
         </Route>
-        <Route path="trial" element={<StudentTrial />} />
         <Route path="mentors">
           <Route index element={<Assesments />} />
           <Route path="grades">
