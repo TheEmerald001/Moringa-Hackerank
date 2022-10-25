@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import NewAssesment from "./NewAssesment";
 import NewKata from "./NewKata";
 import NewSubjective from "./NewSubjective";
+import Test from "./Test";
 
 
 
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/newSubjective">
           <Route index element={<NewSubjective/>} />
+        </Route>
+        <Route path="/test">
+          <Route index element={<Test/>} />
         </Route>
 
       </Routes>

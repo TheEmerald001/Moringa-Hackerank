@@ -34,23 +34,17 @@ function Quiz({page, setPage}) {
 
         setAllQuestions(values);
     };
-    //dummy will be replaced by actual student emails
-    // const options = [
-    //     {value: '', text: '--Choose an option--'},
-    //     {value: 'apple', text: 'Apple 🍏'},
-    //     {value: 'banana', text: 'Banana 🍌'},
-    //     {value: 'kiwi', text: 'Kiwi 🥝'},
-    //   ];
+ 
 
     console.log(allQuestions);
     
   return (
-    <div className='question' >
-        <div className='q-form'>
+    <div  className="question">
+        <div className="q-form">
             {allQuestions.length > 0 && (
                 <>
                 {allQuestions.map((field,index)=> (
-                    <div className='q-container'>
+                    <div className="q-container">
                         <h4>Question {index +1}</h4>
                         <input type='text' name='name' placeholder='Enter Question' value={field.name} onChange={(event) => handleInputChange(index,event)}/>
                         <input type="text" name="optionA" placeholder="Enter option A" value={field.optionA} onChange={(event) =>handleInputChange(index, event) }/>
@@ -58,10 +52,7 @@ function Quiz({page, setPage}) {
                         <input type="text" name="optionC" placeholder="Enter option C" value={field.optionC} onChange={(event) =>handleInputChange(index, event) }/>
                         <input type="text" name="optionD" placeholder="Enter option D" value={field.optionD} onChange={(event) =>handleInputChange(index, event) }/>
                         <select className='opt' onChange={(event) =>handleInputChange(index, event) } value={field.correctAns} name='correctAns'>
-                           {/* {options.map(option => (
-                                <option key={option.value} value={option.value}>
-                                {option.text}
-                            </option>))} */}
+                          
                             <option value="a">A</option>
                             <option value="b">B</option>
                             <option value="ab">AB</option>
@@ -73,10 +64,7 @@ function Quiz({page, setPage}) {
 
         </div>
         <div className='q-add'> <GoDiffAdded className='q-icon'/> <span onClick={() => handleAddQuestions()}>Add Question</span> </div>
-        <div className='q-buttons'>
-        <button onClick={() => {setPage(page - 1)}} >Previous</button>
-        <button onClick={() => {setPage(page + 1)}}>NEXT</button>
-      </div>
+        
     </div>
   )
 }

@@ -53,10 +53,7 @@ function Kata({page, setPage}) {
 
         </div>
         <div className='q-add'> <GoDiffAdded className='q-icon'/> <span onClick={() => handleAddQuestions()}>Add Question</span> </div>
-        <div className='q-buttons'>
-        <button onClick={() => {setPage(page - 1)}} >Previous</button>
-        <button onClick={() => {setPage(page + 1)}}>NEXT</button>
-      </div>
+       
     </div>
   )
 }

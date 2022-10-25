@@ -5,8 +5,7 @@ import assesment from '../CSS/_assesment.scss'
 import { BiBookAdd } from 'react-icons/bi';
 import { MdModeEditOutline } from 'react-icons/md';
 import { MdDelete } from 'react-icons/md';
-import { BsCodeSlash } from 'react-icons/bs';
-import { BsPatchQuestion } from 'react-icons/bs';
+
 
 function Assesments() {
     let navigate = useNavigate();
@@ -19,14 +18,9 @@ function Assesments() {
             </div>
             <div className='add'>
                 <div>
-                    <BiBookAdd className='a-icon'/> <span onClick={()=>{navigate("/newAssesments")}}>Add New Quiz</span>
+                    <BiBookAdd className='a-icon'/> <span onClick={()=>{navigate("/test")}}>Create New Assessment</span>
                 </div>
-                <div>
-                    <BsCodeSlash className='a-icon'/> <span onClick={()=>{navigate("/newKata")}}>Add New Kata</span>
-                </div>
-                <div>
-                    <BsPatchQuestion className='a-icon'/> <span onClick={()=>{navigate("/newSubjective")}}>Add Subjective Assessment</span>
-                </div>
+              
                 <div>
                     <input type="text" placeholder="Search Assesment" name="search" className='Search'/>
                 </div>
