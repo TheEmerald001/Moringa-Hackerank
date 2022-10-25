@@ -4,6 +4,7 @@ class CreateKataas < ActiveRecord::Migration[6.1]
       t.references :assessment, null: false, foreign_key: true
       t.string :question
       t.string :instructions
+      t.string :answer
 
       t.timestamps
     end
