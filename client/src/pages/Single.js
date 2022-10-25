@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import AnswerTable from "../components/AnswerTable";
+import Sidebar from "../components/Sidebar";
 
 const Single = () => {
   return (
     <Container>
+      <Sidebar />
       <Wrapper>
         <Top>
           <Left>
@@ -45,9 +47,12 @@ export default Single;
 
 const Container = styled.main`
   color: #101f3c;
+  display: flex;
 `;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  flex: 8;
+`;
 
 const Top = styled.section`
   padding: 1.25rem;

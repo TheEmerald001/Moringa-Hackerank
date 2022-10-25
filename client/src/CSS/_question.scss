@@ -1,0 +1,142 @@
+.question{
+    background-color:#D9D9D9;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+    .q-form{
+        height: 60vh;
+        overflow: hidden;
+        overflow-y: auto;
+        .q-container{
+            border: 1px solid #101f3c;
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            input{
+                padding: 15px 100px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                border: none;
+            }
+            .opt{
+                background-color:#101f3c;
+                color: white;
+                padding: 10px 1px;
+                width: 50px;
+            }
+            h4{
+                text-align: center;
+                padding: 10px;
+                font-weight: lighter;
+            }
+        }
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form{
+    margin-top: 20px;
+    border: 1px solid #101f3c;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    input{
+        padding: 15px 100px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: none;
+    }
+    .opt{
+        background-color:#101f3c;
+        color: white;
+        padding: 10px 1px;
+        width: 50px;
+    }
+    
+}
+.q-add{
+    padding: 10px;
+    .q-icon{
+        font-size: 1.2em;
+        color: #101f3c;
+    }
+    span{
+        padding-left: 10px;
+    }
+}
+.q-buttons{
+    
+    width: 300px;
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+}
+button{
+    margin-top: 50px;
+    padding: 10px 20px;
+    background-color: #EA501A;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}

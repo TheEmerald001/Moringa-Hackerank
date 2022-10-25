@@ -5,7 +5,14 @@
 .container {
   width: 100vw;
   height: 100vh;
-  display: flex;
+   display: flex;
+   background: linear-gradient(
+    rgba(16,31,60, 0.5),
+    rgba(16,31,60, 0.5)
+  ),
+  url("https://blog.hackerrank.com/wp-content/uploads/HackerRank_RemoteHiringUpdates.png")
+    center;
+background-size: cover;
   align-items: center;
   justify-content: center;
 }
@@ -13,29 +20,38 @@
 .wrapper {
   width: 40%;
   padding: 20px;
-  background: #101f3c;
-  color: white;
-  border-radius: 10px;
-  height: 87vh;
+  color: #0a1f4e;
+  background: white;
 }
 
 .header{
   font-size: 2rem;
   font-weight: bold;
   display: flex;
+  flex-direction: column;
+  border-radius: 15px;
 }
 
-input{
+input {
   flex: 1;
   margin: 20px 30px 0 0;
   padding: 10px;
   justify-content: center;
   border-radius: 5px;
   border: none;
-  
 }
 
-.btn-field {
+.input {
+  flex: 1;
+  border: 1px solid #0a1f4e;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+
+
+.login-button {
   background: #ea501a;
   color: white;
   border-radius: 5px;

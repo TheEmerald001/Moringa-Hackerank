@@ -1,19 +1,22 @@
-import React from 'react'
-import sidebar from '../CSS/_sidebar.scss'
-import image from '../assests/images/hackerlogo.png'
+import React from "react";
+import sidebar from "../CSS/_sidebar.scss";
+import image from "../assests/images/logo.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { AiFillHome } from 'react-icons/ai';
-import { FaBook } from 'react-icons/fa';
-import { MdGrade } from 'react-icons/md';
-import { BiLogOutCircle } from 'react-icons/bi';
-
+import { AiFillHome } from "react-icons/ai";
+import { FaBook } from "react-icons/fa";
+import { MdGrade } from "react-icons/md";
+import { BiLogOutCircle } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <div className="side-nav">
-      <div className="myLogo">
-        <img src={image} alt="wewe" />
-      </div>
+      <Link to="/">
+        <div className="myLogo">
+          <img src={image} alt="wewe" />
+        </div>
+      </Link>
+
       <div className="prof">
         <Avatar>
           <AvatarImage
@@ -26,13 +29,25 @@ function Sidebar() {
         <span>username</span>
       </div>
       <div className="icon-container">
-        <div className='iCon'> <AiFillHome className='iCON'/> <span>Home</span></div>
-        <div className='iCon'> <FaBook className='iCON'/> <span>Assesments</span></div>
-        <div className='iCon'> <MdGrade className='iCON'/> <span>Grades</span></div>
+        <div className="iCon">
+          {" "}
+          <AiFillHome className="iCON" /> <span>Home</span>
+        </div>
+        <div className="iCon">
+          {" "}
+          <FaBook className="iCON" /> <span>Assesments</span>
+        </div>
+        <div className="iCon">
+          {" "}
+          <MdGrade className="iCON" /> <span>Grades</span>
+        </div>
       </div>
-      <div className='logof'> <BiLogOutCircle className='iCON'/> <span>Logout</span></div>
+      <div className="logof">
+        {" "}
+        <BiLogOutCircle className="iCON" /> <span>Logout</span>
+      </div>
     </div>
   );
 }
 
-export default Sidebar
+export default Sidebar;

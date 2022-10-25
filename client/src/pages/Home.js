@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import MoringaImage from "../assests/images/hackerank.png";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import { desktop } from "../Helpers/responsive";
 
 const Home = () => {
   return (
@@ -20,12 +22,16 @@ const Home = () => {
             <MentorLogin>
               <LoginTitle>For Mentors</LoginTitle>
               <LoginText>Create and grade assessments for students</LoginText>
-              <Button position="first">Login</Button>
+              <Link to="/login">
+                <Button position="first">LOGIN AS MENTOR</Button>
+              </Link>
             </MentorLogin>
             <StudentLogin>
               <LoginTitle>For Students</LoginTitle>
               <LoginText>Take assessments and get reviewed</LoginText>
-              <Button position="last">Login</Button>
+              <Link to="/studentlogin">
+                <Button position="last">LOGIN AS STUDENT</Button>
+              </Link>
             </StudentLogin>
           </LoginContainer>
         </Left>
@@ -61,12 +67,14 @@ const Title = styled.h1`
   letter-spacing: 1px;
   margin-bottom: 1rem;
   color: #ea501a;
+  ${desktop({ fontSize: "5.3rem" })}
 `;
 
 const Into = styled.p`
   font-size: 1.5rem;
   line-height: 1.5;
   margin-bottom: 1rem;
+  ${desktop({ marginBottom: "2.5rem" })}
 `;
 
 const LoginContainer = styled.article`
@@ -89,15 +97,16 @@ const LoginText = styled.p`
 
 const Button = styled.button`
   padding: 1rem;
+  width: 70%;
   font-weight: 600;
   font-size: 1rem;
   color: gray;
   border: none;
-  color: ${(props) => (props.position === "first" ? "#ea501a" : "#101f3c")};
-  border: ${(props) =>
-    props.position === "first" ? "2px solid #ea501a" : "2px solid #101f3c"};
+  color: ${(props) => (props.position === "first" ? "#ea501a" : "white")};
+  border: ${(props) => props.position === "first" && "2px solid #ea501a"};
   cursor: pointer;
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.position === "first" ? "transparent" : "#101f3c"};
 `;
 
 const Right = styled.section`

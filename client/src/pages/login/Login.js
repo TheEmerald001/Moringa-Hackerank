@@ -12,15 +12,6 @@ export default function Login() {
           <div className='btn-fields'>
           <input
             type="text"
-            name="name"
-            placeholder="Full Name"
-            className="input"
-          />
-          </div>
-          
-          <div className='btn-fields'>
-          <input
-            type="text"
             name="work id"
             placeholder="Work id"
             className="input"
