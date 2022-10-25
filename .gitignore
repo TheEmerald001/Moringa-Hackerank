@@ -30,10 +30,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-<<<<<<< HEAD
-#ignore node modules
-/client/node_modules/*
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -58,4 +54,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
->>>>>>> e21876bd13ffeb81dcd9bd9f6ffcf8aaad461d2b
