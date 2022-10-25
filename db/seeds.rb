@@ -1,11 +1,11 @@
 puts "Seeding Database⏳..."
 
 # Mentor data
-Tutor.create(firstname:  "John",lastname: "Doe", work_id: "SE/2022/01 ", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname:  "Michael",lastname: "Hill", work_id: "SE/2022/02 ", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname:  "Matt",lastname: "Smith", work_id: "SE/2022/03 ", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname:  "Jane",lastname: "Doe", work_id: "SE/2022/04 ", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname:  "Mary",lastname: "Smith", work_id: "SE/2022/05 ", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "John",lastname: "Doe", work_id: "SE/2022/01", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Michael",lastname: "Hill", work_id: "SE/2022/02", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Matt",lastname: "Smith", work_id: "SE/2022/03", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Jane",lastname: "Doe", work_id: "SE/2022/04", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Mary",lastname: "Smith", work_id: "SE/2022/05", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
 
 # Student data
 Student.create(firstname: "Wycliffe", lastname: "Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "123456", password_confirmation: "123456")
@@ -59,12 +59,12 @@ Invite.create(tutor_id: 1, student_id: 6, assessment_id: 3, status: false)
 Invite.create(tutor_id: 1, student_id: 7, assessment_id: 2, status: false)
 
 #Attempt data
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 1, prose_response: "test", prose_score: 1, tutor_feedback: "Good!", total: 40)
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 2, prose_response: "test", prose_score: 2, tutor_feedback: "Good!", total: 20)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 3, prose_response: "test", prose_score: 3, tutor_feedback: "Good!", total: 60)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 4, prose_response: "test", prose_score: 4, tutor_feedback: "Good!", total: 50)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kata_response: "test", kata_score: 5, prose_response: "test", prose_score: 5, tutor_feedback: "Good!", total: 36)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kata_response: "test", kata_score: 6, prose_response: "test", prose_score: 6, tutor_feedback: "Good!", total: 45)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 10, kataa_response: "test", kataa_score: 1, pro_response: "test", pro_score: 1, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 2, pro_response: "test", pro_score: 2, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 3, pro_response: "test", pro_score: 3, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 4, pro_response: "test", pro_score: 4, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 5, pro_response: "test", pro_score: 5, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 6, pro_response: "test", pro_score: 6, tutor_feedback: "Good!", total: 0)
 
 #Student profile
 Studentprofile.create(image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4AGU7PcdzwW1smKQuMMTgKj1yGlUMa84fDyt0SJWoeUG_o5QpbBdN_wP1oaYpHSQSJ4&usqp=CAU", phone: "0795225110",student_id: 1)

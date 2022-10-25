@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "student_id", null: false
     t.bigint "tutor_id", null: false
     t.integer "mcq_score"
-    t.string "kata_response"
-    t.integer "kata_score"
-    t.string "prose_response"
-    t.integer "prose_score"
+    t.string "kataa_response"
+    t.integer "kataa_score"
+    t.string "pro_response"
+    t.integer "pro_score"
     t.string "tutor_feedback"
     t.integer "total"
     t.datetime "created_at", precision: 6, null: false
