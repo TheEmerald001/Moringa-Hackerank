@@ -44,7 +44,7 @@ function Quiz({page, setPage}) {
             {allQuestions.length > 0 && (
                 <>
                 {allQuestions.map((field,index)=> (
-                    <div className="q-container">
+                    <div className="q-container" key={index}>
                         <h4>Question {index +1}</h4>
                         <input type='text' name='name' placeholder='Enter Question' value={field.name} onChange={(event) => handleInputChange(index,event)}/>
                         <input type="text" name="optionA" placeholder="Enter option A" value={field.optionA} onChange={(event) =>handleInputChange(index, event) }/>

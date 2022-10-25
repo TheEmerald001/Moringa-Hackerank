@@ -18,7 +18,7 @@ function Assesments() {
             </div>
             <div className='add'>
                 <div>
-                    <BiBookAdd className='a-icon'/> <span onClick={()=>{navigate("/test")}}>Create New Assessment</span>
+                    <BiBookAdd className='a-icon'/> <span onClick={()=>{navigate("/newAssessment")}}>Create New Assessment</span>
                 </div>
               
                 <div>
