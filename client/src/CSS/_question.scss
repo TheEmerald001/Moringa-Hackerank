@@ -8,7 +8,7 @@
         overflow: hidden;
         overflow-y: auto;
         .q-container{
-            color: aliceblue;
+            
             background-color: black;
             border: 1px solid #101f3c;
             padding-top: 20px;
@@ -26,7 +26,7 @@
                 border: none;
             }
             .opt{
-                background-color:#101f3c;
+                background-color:orange;
                 color: white;
                 padding: 10px 1px;
                 width: 50px;
@@ -35,8 +35,12 @@
                 text-align: center;
                 padding: 10px;
                 font-weight: lighter;
+                color: WHITE;
             }
         }
+    }
+    .q-add{
+        color: black;
     }
    
 }
