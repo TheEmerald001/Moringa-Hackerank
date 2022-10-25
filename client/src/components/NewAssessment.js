@@ -8,7 +8,7 @@ import Quiz from './Quiz';
 import Kata from './Kata';
 import Subjective from './Subjective';
 
-function Test() {
+function NewAssessment() {
   
   let navigate = useNavigate();
 
@@ -65,4 +65,4 @@ function Test() {
   );
 }
 
-export default Test
+export default NewAssessment

@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Assesments from "../pages/Assesments";
 import Home from "../pages/Home";
-import NewAssesment from "./NewAssesment";
-import NewKata from "./NewKata";
-import NewSubjective from "./NewSubjective";
-import Test from "./Test";
+import NewAssessment from "./NewAssessment";
 
 
 
@@ -19,17 +16,9 @@ function App() {
         <Route path="/assessments">
           <Route index element={<Assesments />} />
         </Route>
-        <Route path="/newAssesments">
-          <Route index element={<NewAssesment />} />
-        </Route>
-        <Route path="/newKata">
-          <Route index element={<NewKata />} />
-        </Route>
-        <Route path="/newSubjective">
-          <Route index element={<NewSubjective/>} />
-        </Route>
-        <Route path="/test">
-          <Route index element={<Test/>} />
+        
+        <Route path="/newAssessment">
+          <Route index element={<NewAssessment/>} />
         </Route>
 
       </Routes>
