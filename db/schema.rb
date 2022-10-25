@@ -91,7 +91,8 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
+    t.string "firstname"
+    t.string "lastname"
     t.string "email"
     t.string "username"
     t.string "password_digest"
@@ -109,7 +110,8 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
   end
 
   create_table "tutors", force: :cascade do |t|
-    t.string "name"
+    t.string "firstname"
+    t.string "lastname"
     t.string "email"
     t.integer "work_id"
     t.string "password_digest"

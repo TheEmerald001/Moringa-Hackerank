@@ -2,7 +2,7 @@ class TutorsessionsController < ApplicationController
 
     #POST /login
     def create
-        tutor = Tutor.find_by(username: params[:username])
+        tutor = Tutor.find_by(work_id: params[:work_id])
         if tutor&.authenticate(params[:password])
             session[:tutor_id] = tutor.id
             render json: tutor, status: :created
