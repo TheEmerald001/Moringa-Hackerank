@@ -5,17 +5,17 @@ import MoringaImage from "../assests/images/hackerank.png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const CombineLogin = () => {
   return (
     <Container>
       <Navbar />
       <Wrapper>
         <Left>
-          <Title>Achieve Mastery Through Challenge</Title>
+          <Title>Participate and Learn Software Development</Title>
+
           <Into>
-            Improve your development skills by training with your peers on
-            assessments that include code kata, quizzes and prose that
-            continuously challenge and push your coding practice
+            Join other developers, practice coding skills, prepare for the
+            interviews, and get hired.
           </Into>
           <LoginContainer>
             <MentorLogin>
@@ -43,7 +43,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default CombineLogin;
 
 const Container = styled.main`
   color: #101f3c;

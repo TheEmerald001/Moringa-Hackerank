@@ -9,11 +9,13 @@ import List from "../pages/List";
 import Assignment from "../pages/Assignment";
 import Register from "../pages/signup/Register";
 import Login from "../pages/login/Login";
+import StudentLogin from "../pages/StudentLogin";
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
 
 import Single from "../pages/Single";
 import SendMail from "./SendMail";
+import CombineLogin from "../pages/CombineLogin";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
+          <Route path="studentlogin" element={<StudentLogin />} />
+          <Route path="access-account" element={<CombineLogin />} />
           <Route path="students">
             <Route index element={<StudentDashboard />} />
             <Route path="quiz" element={<QuizPage />} />

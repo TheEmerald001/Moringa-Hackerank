@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import MoringaLogo from "../assests/images/hackerlogo.png";
 
@@ -7,10 +8,12 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Logo src={MoringaLogo} alt="logo" />
+          <NavLink to="/">
+            <Logo src={MoringaLogo} alt="logo" />
+          </NavLink>
         </Left>
         <Right>
-          <Button href="/login">Login</Button>
+          <Button href="/access-account">Login</Button>
           <Button href="/register">Register</Button>
         </Right>
       </Wrapper>
