@@ -13,6 +13,7 @@ import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
 
 import Single from "../pages/Single";
+import SendMail from "./SendMail";
 
 function App() {
   return (
