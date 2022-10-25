@@ -33,7 +33,7 @@ export default function Register() {
       <div className="wrapper">
         <h1 className="header">Create Account</h1>
         <p>Fill in the form below</p>
-        <form onSubmit={handleSubmit}>
+        <form className="registerForm" onSubmit={handleSubmit}>
           <input
             type="text"
             onChange={handleChange}

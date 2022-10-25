@@ -6,6 +6,13 @@ body {
   width: 100vw;
   height: 100vh;
    display: flex;
+   background: linear-gradient(
+    rgba(16,31,60, 0.5),
+    rgba(16,31,60, 0.5)
+  ),
+  url("https://blog.hackerrank.com/wp-content/uploads/HackerRank_RemoteHiringUpdates.png")
+    center;
+background-size: cover;
   align-items: center;
   justify-content: center;
   
@@ -14,14 +21,13 @@ body {
 .login-wrapper{
   width: 25%;
   padding: 20px;
-  background: #101f3c;
-  color: white;
+  color: #0a1f4e;
+  background: white;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  border: 1px solid #dfdfdf;
   border-radius: 15px;
 
   
@@ -33,6 +39,7 @@ h1{
 
 .input {
   flex: 1;
+  border: 1px solid #0a1f4e;
   min-width: 40%;
   margin: 10px 0;
   padding: 10px;

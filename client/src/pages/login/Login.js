@@ -12,12 +12,6 @@ export default function Login() {
 
           <input
             type="text"
-            name="name"
-            placeholder="Full Name"
-            className="input"
-          />
-          <input
-            type="text"
             name="work id"
             placeholder="work id"
             className="input"
