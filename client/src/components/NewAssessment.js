@@ -15,6 +15,11 @@ function NewAssessment() {
   const [formData, setformData] = useState({
     title:"",
   })
+  
+
+  const [mcq, setMcq] =useState({})
+  const [kata, setKata] =useState({})
+  const [pros, setPros] =useState({})
 
   //handleChange
   function handleChange (event){
@@ -25,6 +30,12 @@ function NewAssessment() {
         [name]:value
     })
   }
+
+  // console.log(formData)
+  // console.log(mcq)
+
+  const merge = {...formData, ...mcq, ...kata, ...pros}
+  console.log(merge)
   return (
     <div className="asses">
       <Sidebar className=".side-nav" />
@@ -48,13 +59,13 @@ function NewAssessment() {
         </div>
         <div className='neW'>
           <div className='mcQ'>
-            <Quiz/>
+            <Quiz setMcq={setMcq}/>
           </div>
           <div className='katA'>
-            <Kata/>
+            <Kata  setKata={setKata}/>
           </div>
           <div className='proS'>
-            <Subjective/>
+            <Subjective setPros={setPros}/>
           </div>
         </div>
         <div className='nexT'>

@@ -4,7 +4,7 @@ import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
 
-function Subjective({page, setPage}) {
+function Subjective({page, setPage, setPros}) {
     const [allQuestions, setAllQuestions] = useState([
         { name: ""},
       ]);
@@ -23,6 +23,7 @@ function Subjective({page, setPage}) {
         const values = [...allQuestions];
         values.splice(index, 1);
         setAllQuestions(values);
+        
     };
 
     const handleInputChange = (index, event) => {
@@ -31,10 +32,11 @@ function Subjective({page, setPage}) {
         values[index][updatedValue] = event.target.value;
 
         setAllQuestions(values);
+        setPros(allQuestions)
     };
 
 
-    console.log(allQuestions);
+    // console.log(allQuestions);
     
   return (
     <div className='question' >

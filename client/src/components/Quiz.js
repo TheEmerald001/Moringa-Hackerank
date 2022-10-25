@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
-function Quiz({page, setPage}) {
+function Quiz({page, setPage, setMcq}) {
     const [allQuestions, setAllQuestions] = useState([
         { name: "", optionA: "", optionB: "",optionC: "",optionD: "", correctAns:""},
       ]);
@@ -33,10 +33,11 @@ function Quiz({page, setPage}) {
         values[index][updatedValue] = event.target.value;
 
         setAllQuestions(values);
+        setMcq(allQuestions)
     };
  
 
-    console.log(allQuestions);
+    // console.log(allQuestions);
     
   return (
     <div  className="question">

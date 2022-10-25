@@ -4,7 +4,7 @@ import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
 
-function Kata({page, setPage}) {
+function Kata({page, setPage, setKata}) {
     const [allQuestions, setAllQuestions] = useState([
         { name: ""},
       ]);
@@ -31,10 +31,11 @@ function Kata({page, setPage}) {
         values[index][updatedValue] = event.target.value;
 
         setAllQuestions(values);
+        setKata(allQuestions)
     };
 
 
-    console.log(allQuestions);
+    // console.log(allQuestions);
     
   return (
     <div className='question' >
