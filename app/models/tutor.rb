@@ -6,8 +6,7 @@ class Tutor < ApplicationRecord
     has_many :attempts
     has_one :tutorprofile
     
-    # VALID_WORK_ID_REGEX = \A[A-Z]{2}\/\d{4}\/\d{2}\z
-    # validates :work_id, presence: true, format: { with: VALID_WORK_ID_REGEX } 
+    validates :work_id, presence: true, format: { with: /\A[A-Z]{2}\/\d{4}\/\d{3}\z/, message: "please use the correct work_id format"}
     validates :work_id, presence: true
     validates :password, presence: true, length: { minimum: 6 }
 end
