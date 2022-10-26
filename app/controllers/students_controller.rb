@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
     before_action :authorize
+    skip_before_action :authorize, only:[:create]
     #GET/students
     def index
     students= Student.all
@@ -20,7 +21,7 @@ end
     def create
         student= Student.create!(student_params)
         if student.valid?
-            session[:student_id] = student.id
+            # session[:student_id] = student.id
             render json: student, status: :created
         else
             render json: { errors: student.errors.full_messages }, status: :unprocessable_entity
@@ -37,11 +38,11 @@ end
     private
 
     def student_params
-        params.permit(:firstname, :lastname, :email, :username, :password_digest)
+        params.permit(:firstname, :lastname, :email, :username, :password, :password_confirmation)
     end
     
     #authorization
     def authorize
-    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :student_id
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end
