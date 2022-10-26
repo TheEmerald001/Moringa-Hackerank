@@ -4,7 +4,7 @@ class CreateTutors < ActiveRecord::Migration[6.1]
       t.string :firstname
       t.string :lastname
       t.string :email
-      t.integer :work_id
+      t.string :work_id
       t.string :password_digest
 
       t.timestamps
