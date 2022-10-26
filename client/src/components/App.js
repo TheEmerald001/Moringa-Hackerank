@@ -16,8 +16,12 @@ import StudentDashboard from "../pages/StudentDashboard";
 import Single from "../pages/Single";
 import SendMail from "./SendMail";
 import CombineLogin from "../pages/CombineLogin";
+import CreateQuiz from "./CreateQuiz";
+import { useSelector } from "react-redux";
 
 function App() {
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <Router>
       <Routes>
@@ -35,7 +39,7 @@ function App() {
         </Route>
         <Route path="mentors">
           <Route index element={<Assesments />} />
-          <Route path="newquiz" element={<NewAssesment />} />
+          <Route path="newquiz" element={<CreateQuiz />} />
           <Route path="newkata" element={<NewKata />} />
           <Route path="newsubjective" element={<NewSubjective />} />
           <Route path="grades">
