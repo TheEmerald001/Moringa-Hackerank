@@ -29,9 +29,6 @@ Rails.application.routes.draw do
   get "/me", to:"tutors#show"
   get '/tutors', to: "tutors#index"
   
-  #login & logout routes for tutor
-  post "/login" , to:"tutorsessions#create"
-  delete "/logout" ,to: "tutorsessions#destroy"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
