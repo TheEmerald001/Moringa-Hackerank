@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Assesments from "../pages/Assesments";
 import Home from "../pages/Home";
+import TmHome from "../pages/TmHome";
 import NewAssessment from "./NewAssessment";
 
 
@@ -19,6 +20,9 @@ function App() {
         
         <Route path="/newAssessment">
           <Route index element={<NewAssessment/>} />
+        </Route>
+        <Route path="/home">
+          <Route index element={<TmHome/>} />
         </Route>
 
       </Routes>

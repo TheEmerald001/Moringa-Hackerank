@@ -14,7 +14,7 @@ function Assesments() {
         <Sidebar/>
         <div className='content'>
             <div className='A-title'>
-                <h1>Assesment</h1>
+                <h1>Assessment</h1>
             </div>
             <div className='add'>
                 <div>

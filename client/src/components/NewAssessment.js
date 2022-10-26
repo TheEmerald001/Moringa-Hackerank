@@ -69,7 +69,7 @@ function NewAssessment() {
           </div>
         </div>
         <div className='nexT'>
-          <button className='buttoN'>SAVE</button>
+          <button className='buttoN' onClick={()=>{navigate("/assessments")}}>SAVE</button>
         </div>
       </div>
     </div>
