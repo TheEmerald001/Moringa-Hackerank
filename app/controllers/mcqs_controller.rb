@@ -29,8 +29,8 @@ class McqsController < ApplicationController
     private
 
     def mcq_params
-        params.permit(:assessment_id, :question, :answers, :correct_answers)
-    end
+        params.permit(:assessment_id, :question, {:answers => []}, :correct_answers)
+    end 
 
     def find_mcq
         Mcq.find(params[:id])
