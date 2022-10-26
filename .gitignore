@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# ignore node modules in client
+client/node_modules
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
