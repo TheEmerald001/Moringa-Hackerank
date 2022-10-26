@@ -17,13 +17,12 @@ class Attempt < ApplicationRecord
   #pros_score
   def pros_score
     pros = assessment.pros
-    pro_score = 0
     pros.each do |pro|
-      if pro.answer == pro.correct_answer
-        pro_score += 1
+      if pro.kataa_score == pro_score
+      return pro_score
       end
-    end
-    pro_score
+      pro_score
+      end
   end
   #kataas_score
   def kataas_score
