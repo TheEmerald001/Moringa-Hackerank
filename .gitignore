@@ -9,6 +9,7 @@
 
 # ignore node modules in client
 client/node_modules
+node_modules/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
