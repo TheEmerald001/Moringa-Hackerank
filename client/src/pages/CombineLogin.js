@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import MoringaImage from "../assests/images/hackerank.png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { desktop } from "../Helpers/responsive";
 
 const CombineLogin = () => {
   return (
@@ -67,14 +66,12 @@ const Title = styled.h1`
   letter-spacing: 1px;
   margin-bottom: 1rem;
   color: #ea501a;
-  ${desktop({ fontSize: "5.3rem" })}
 `;
 
 const Into = styled.p`
   font-size: 1.5rem;
   line-height: 1.5;
   margin-bottom: 1rem;
-  ${desktop({ marginBottom: "2.5rem" })}
 `;
 
 const LoginContainer = styled.article`
