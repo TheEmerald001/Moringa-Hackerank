@@ -18,7 +18,7 @@ export default function Login() {
           />
 
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
             className="input"
