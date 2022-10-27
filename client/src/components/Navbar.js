@@ -1,17 +1,20 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import MoringaLogo from "../assests/images/H-logo.png";
+import MoringaLogo from "../assests/images/hackerlogo.png";
 
 const Navbar = () => {
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Logo src={MoringaLogo} alt="logo" />
+          <NavLink to="/">
+            <Logo src={MoringaLogo} alt="logo" />
+          </NavLink>
         </Left>
         <Right>
-          <Button>Login</Button>
-          <Button>Register</Button>
+          <Button href="/access-account">Login</Button>
+          <Button href="/register">Register</Button>
         </Right>
       </Wrapper>
     </Container>
@@ -48,7 +51,7 @@ const Right = styled.article`
   gap: 1.25rem;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   padding: 10px 1rem;
   font-weight: 600;
   color: gray;

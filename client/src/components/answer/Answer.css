@@ -1,0 +1,16 @@
+.answer{
+    background-color: #f5f5f5;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: gray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.selected-answer{
+    background: lightgray;
+}
+
+.disabled-answer {
+    pointer-events: none;
+  }
