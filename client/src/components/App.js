@@ -17,6 +17,7 @@ import SendMail from "./SendMail";
 import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
+import Trial from "../pages/Trial";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -34,6 +35,7 @@ function App() {
             <Route index element={<StudentDashboard />} />
             <Route path="quiz" element={<QuizPage />} />
             <Route path="assignments" element={<Assignment />} />
+            <Route path="trial" element={<Trial />} />
           </Route>
         </Route>
         <Route path="mentors">
