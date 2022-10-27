@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Assesments from "../pages/Assesments";
+import Assessments from "../pages/Assessments";
 import Home from "../pages/Home";
 import TmHome from "../pages/TmHome";
 import NewAssessment from "./NewAssessment";
@@ -11,7 +11,10 @@ import Login from "../pages/login/Login";
 import StudentLogin from "../pages/StudentLogin";
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
-
+import {
+  assessmentColumns,
+  assessmentRows,
+} from "../Helpers/assessmentDataTableSource";
 import Single from "../pages/Single";
 import SendMail from "./SendMail";
 import CombineLogin from "../pages/CombineLogin";
@@ -39,8 +42,17 @@ function App() {
         <Route path="mentors">
           <Route index element={<TmHome />} />
           <Route path="assessments">
-            <Route index element={<Assesments />} />
-            <Route path="new-assessment" element={<NewAssessment />} />
+            <Route
+              index
+              element={
+                <Assessments
+                  data={assessmentRows}
+                  columns={assessmentColumns}
+                  type="mentor"
+                />
+              }
+            />
+            <Route path="new-assessment" element={<CreateQuiz />} />
           </Route>
           <Route path="grades">
             <Route index element={<List />} />
