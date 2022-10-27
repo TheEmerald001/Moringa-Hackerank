@@ -19,7 +19,7 @@ class Attempt < ApplicationRecord
     pros = assessment.pros
     pros.each do |pro|
       if pro.pro_score == pro_score
-      return pro_score
+        return pro_score
       end
       pro_score
       end
@@ -35,7 +35,10 @@ class Attempt < ApplicationRecord
       end
   end
   #total scores
-  def total_score
-    total = mcq_score + kataa_score + pro_score
-  end
+def total_score
+  self.kataa_score + self.pro_score + self.mcq_score
+end
+
+
+
 end
