@@ -1,11 +1,11 @@
 puts "Seeding Database⏳..."
 
 # Mentor data
-Tutor.create(firstname: "John",lastname: "Doe", work_id: "SE/2022/01", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Michael",lastname: "Hill", work_id: "SE/2022/02", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Matt",lastname: "Smith", work_id: "SE/2022/03", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Jane",lastname: "Doe", work_id: "SE/2022/04", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Mary",lastname: "Smith", work_id: "SE/2022/05", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "John", lastname: "Doe", work_id: "SE/2022/101", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Michael", lastname: "Hill", work_id: "SE/2022/002", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Matt", lastname: "Smith", work_id: "SE/2022/003", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Jane", lastname: "Doe", work_id: "SE/2022/004", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "Mary", lastname: "Smith", work_id: "SE/2022/005", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
 
 # Student data
 Student.create(firstname: "Wycliffe", lastname: "Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "123456", password_confirmation: "123456")
