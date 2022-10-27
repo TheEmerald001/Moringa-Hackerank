@@ -1,6 +1,6 @@
 class TutorsController < ApplicationController
  
-    #GET/tutors
+    #GET /tutors
     def index
         tutors= Tutor.all
         render json: tutors
@@ -10,13 +10,13 @@ class TutorsController < ApplicationController
     def show
         tutor = Tutor.find(params[:id])
         if tutor
-        render json: tutor, status: :ok
-    else
-        render json: { error: "Not authorized" }, status: :unauthorized
+            render json: tutor, status: :ok
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
-end
 
-    #POST/signup
+    #POST /signup
     def create
         tutor = Tutor.create!(tutor_params)
         if tutor.valid?
@@ -32,8 +32,6 @@ end
     def tutor_params
         params.permit(:firstname, :lastname, :work_id, :email, :password, :password_confirmation)
     end
-    #authorization
-    def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
+    
+
 end

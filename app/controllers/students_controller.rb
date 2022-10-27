@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     
-    #GET/students
+    #GET /students
     def index
     students= Student.all
     render json: students
@@ -8,15 +8,15 @@ class StudentsController < ApplicationController
 
     #GET /me 
     def show
-    student = Student.find_by(id: session[:student_id])
-    if student
-        render json: student
-    else
-        render json: { error: "Not authorized" }, status: :unauthorized
+        student = Student.find_by(id: session[:student_id])
+        if student
+            render json: student
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
-end
 
-    #POST/signup
+    #POST /signup
     def create
         student= Student.create!(student_params)
         if student.valid?
@@ -34,14 +34,12 @@ end
         head :not_found
     end
 
+
     private
 
     def student_params
         params.permit(:firstname, :lastname, :email, :username, :password, :password_confirmation)
     end
     
-    #authorization
-    def authorize
-    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
+
 end
