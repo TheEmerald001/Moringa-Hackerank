@@ -18,7 +18,7 @@ class Attempt < ApplicationRecord
   def pros_score
     pros = assessment.pros
     pros.each do |pro|
-      if pro.kataa_score == pro_score
+      if pro.pro_score == pro_score
       return pro_score
       end
       pro_score
