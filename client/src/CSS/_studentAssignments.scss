@@ -55,7 +55,7 @@
     overflow: hidden;
     overflow-y: auto;
     .iteM{
-        background-color: #d9d9d9;
+        background-color: #ede9e9;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
         display: flex;
         flex-direction: row;
@@ -71,10 +71,11 @@
             font-weight: lighter;
         }
         .view{
-          background-color: rgb(121, 237, 121);
+          background-color: #62DE90;
           padding: 10px 15px;
           margin-bottom: 10px;
           cursor: pointer;
+          border-radius: 5px;
         }
 
     }

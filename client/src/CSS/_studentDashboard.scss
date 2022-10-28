@@ -7,7 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     .notI{
-        width: 50%;
+        width: 40%;
         h2{
             font-weight: lighter;
             font-size: 1.5em;
@@ -15,10 +15,86 @@
         .n-icon{
             padding-left: 10px;
         }
+        .notiContainer{
+            margin-top: 25px;
+            height: 60vh;
+            overflow: hidden;
+            overflow-y: auto;
+            .notificatioN{
+                background-color: rgb(245, 248, 248);
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                p{
+                    font-size: small;
+                }
+                .titlE{
+                    font-size: 1.3em;
+                    font-weight: lighter;
+                    color: #101f3c;
+                }
+                .nAv{
+                    display: flex;
+                    padding-left: 30px;
+                    .accepT{
+                        font-size: 1.0em;
+                        color: green;
+                        padding: 10px;
+                        cursor: pointer;
+
+                    }
+                    .declinE{
+                        font-size: 1.0em;
+                        color: tomato;
+                        padding: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
+
+
+
+
+
+
     .gradE{
+        margin-left: 20px;
         width: 60%;
-        background-color: firebrick;
+        // background-color: khaki;
+        h2{
+            font-weight: lighter;
+            font-size: 1.5em;
+            padding-left: 90px;
+            padding-bottom: 20px;
+        }
+        .n-icon{
+            padding-left: 10px;
+        }
+        .headinG{
+            background-color: khaki;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+            margin-left: 90px;
+            
+        }
+        .gradeCon{
+            display: flex;
+            flex-direction: column;
+            .grADE{
+                padding-top: 10px;
+                display: flex;
+                justify-content: space-around;
+                margin-left: 70PX;
+            }
+        }
     }
 
 }
