@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 import request from "../Helpers/requestMethods";
@@ -7,7 +8,8 @@ import Sidebar from "./Sidebar";
 
 const CreateQuiz = () => {
   const [correctAnswer, setCorrectAnswer] = useState("");
-
+  const location = useLocation();
+  const assessmentId = location.pathname.split("/")[3];
   const [formData, setFormData] = useState({
     question: "",
     answer1: "",
@@ -30,7 +32,7 @@ const CreateQuiz = () => {
       answers: [formData.answer1, formData.answer2, formData.answer3],
       correct_answer: correctAnswer,
       time_limit: formData.time,
-      assessment_id: 4,
+      assessment_id: assessmentId,
     };
     try {
       const { data } = await request.post("/quizzes", quizData);

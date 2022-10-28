@@ -7,6 +7,12 @@ import {
   addAssessmentStart,
   addAssessmentSuccess,
   addAssessmentFailure,
+  getAssessmentsStart,
+  getAssessmentsSuccess,
+  getAssessmentsFailure,
+  deleteAssessmentStart,
+  deleteAssessmentSuccess,
+  deleteAssessmentFailure,
 } from "./assessmentSlice";
 import {
   makeApiRequestToSendEmail,
@@ -47,5 +53,25 @@ export const addAssessment = async (assessment, dispatch) => {
     dispatch(addAssessmentSuccess(data));
   } catch (err) {
     dispatch(addAssessmentFailure());
+  }
+};
+
+export const getAssessments = async (dispatch) => {
+  dispatch(getAssessmentsStart());
+  try {
+    const { data } = await request.get("/assessments");
+    dispatch(getAssessmentsSuccess(data));
+  } catch (error) {
+    dispatch(getAssessmentsFailure());
+  }
+};
+
+export const deleteAssessment = async (id, dispatch) => {
+  dispatch(deleteAssessmentStart());
+  try {
+    await request.delete(`/assessments/${id}`);
+    dispatch(deleteAssessmentSuccess(id));
+  } catch (err) {
+    dispatch(deleteAssessmentFailure());
   }
 };

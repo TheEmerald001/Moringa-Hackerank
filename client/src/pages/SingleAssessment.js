@@ -2,20 +2,32 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SingleAssessmentSidebar from "../components/SingleAssessmentSidebar";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useLocation, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { shuffleAnswers } from "../Helpers/shuffleAnswers";
 
 const SingleAssessment = () => {
+  const location = useLocation();
+  const assessmentId = location.pathname.split("/")[3];
   const [isQuizExpanded, setQuizExpanded] = useState(false);
-  function expand() {
+  const assessment = useSelector((state) =>
+    state.assessment?.assessments.find(
+      (assessment) => assessment.id == assessmentId
+    )
+  );
+
+  const expand = () => {
     setQuizExpanded((isQuizExpanded) => !isQuizExpanded);
-  }
+  };
+  console.log(assessmentId);
   return (
     <Container>
       <SingleAssessmentSidebar />
       <AssessmentContainer>
         <Top>
           <AssessmentInfo>
-            <AssessmentTitle>Assessment One</AssessmentTitle>
-            <AssessmentDuedate>12 feb 2022</AssessmentDuedate>
+            <AssessmentTitle>{assessment?.title}</AssessmentTitle>
+            <AssessmentDuedate>{assessment?.duedate}</AssessmentDuedate>
           </AssessmentInfo>
         </Top>
         <Bottom>
@@ -29,41 +41,17 @@ const SingleAssessment = () => {
             </Task>
             {isQuizExpanded && (
               <QuestionContainer>
-                <Question>
-                  <Prompt>What does CSS stand for?</Prompt>
-                  <Answer>"Computer Style Sheets",</Answer>
-                  <Answer>Creative Style Sheets",</Answer>
-                  <Answer>Colorful Style Sheets,</Answer>
-                  <Answer>Cascading Style Sheets,</Answer>
-                </Question>
-                <Question>
-                  <Prompt>What does CSS stand for?</Prompt>
-                  <Answer>"Computer Style Sheets",</Answer>
-                  <Answer>Creative Style Sheets",</Answer>
-                  <Answer>Colorful Style Sheets,</Answer>
-                  <Answer>Cascading Style Sheets,</Answer>
-                </Question>
-                <Question>
-                  <Prompt>What does CSS stand for?</Prompt>
-                  <Answer>"Computer Style Sheets",</Answer>
-                  <Answer>Creative Style Sheets",</Answer>
-                  <Answer>Colorful Style Sheets,</Answer>
-                  <Answer>Cascading Style Sheets,</Answer>
-                </Question>
-                <Question>
-                  <Prompt>What does CSS stand for?</Prompt>
-                  <Answer>"Computer Style Sheets",</Answer>
-                  <Answer>Creative Style Sheets",</Answer>
-                  <Answer>Colorful Style Sheets,</Answer>
-                  <Answer>Cascading Style Sheets,</Answer>
-                </Question>
-                <Question>
-                  <Prompt>What does CSS stand for?</Prompt>
-                  <Answer>"Computer Style Sheets",</Answer>
-                  <Answer>Creative Style Sheets",</Answer>
-                  <Answer>Colorful Style Sheets,</Answer>
-                  <Answer>Cascading Style Sheets,</Answer>
-                </Question>
+                {assessment?.quizzes?.map((question) => {
+                  const answers = shuffleAnswers(question);
+                  return (
+                    <Question>
+                      <Prompt>{question.question}</Prompt>
+                      {answers.map((answer) => (
+                        <Answer>{answer}</Answer>
+                      ))}
+                    </Question>
+                  );
+                })}
               </QuestionContainer>
             )}
           </TaskContainer>

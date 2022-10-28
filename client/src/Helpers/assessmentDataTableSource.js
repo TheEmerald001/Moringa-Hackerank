@@ -3,7 +3,7 @@
 export const assessmentColumns = [
   { field: "id", headerName: "ID", width: 70 },
   {
-    field: "assessmentTitle",
+    field: "title",
     headerName: "Assessment Title",
     width: 250,
   },

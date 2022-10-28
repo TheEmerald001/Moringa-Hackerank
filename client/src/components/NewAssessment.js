@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import request from "../Helpers/requestMethods";
-import { addAssessment } from "../redux/apiCall";
-import { addQuiz } from "../redux/assessmentSlice";
+import { addAssessment, submitContactReqToServer } from "../redux/apiCall";
 import Sidebar from "./Sidebar";
 
 const NewAssessment = () => {
@@ -14,6 +12,7 @@ const NewAssessment = () => {
 
   const dispatch = useDispatch();
   const mentor = useSelector((state) => state.user?.currentUser?.mentor);
+  const { message, isFetching } = useSelector((state) => state.contact);
 
   const assessmentChange = (event) => {
     const { name, value } = event.target;
@@ -22,14 +21,18 @@ const NewAssessment = () => {
 
   const onAddAssessment = (event) => {
     event.preventDefault();
+    let emailData = {
+      title: assessmentInputs.title,
+      duedate: assessmentInputs.duedate,
+    };
     try {
       addAssessment(assessmentInputs, dispatch);
+      submitContactReqToServer(dispatch, emailData);
     } catch (error) {
       console.log(error);
     }
-
-    // setAssessment(assessmentInputs);
   };
+  console.log(message);
   return (
     <Container>
       <Sidebar />
@@ -59,11 +62,14 @@ const NewAssessment = () => {
                 placeholder="Due Date"
               />
             </FormInput>
-            <Button>Add</Button>
+            <Button disabled={isFetching}>Add</Button>
           </TopForm>
         </Top>
-        <AssessmentNumber>Assesment No: 1</AssessmentNumber>
-        <Bottom></Bottom>
+        {message.message && (
+          <AssessmentMessage>
+            <Message>{message.message}</Message>
+          </AssessmentMessage>
+        )}
       </Wrapper>
     </Container>
   );
@@ -155,10 +161,22 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   margin: 1rem;
+  &:disabled {
+    cursor: not-allowed;
+    color: #007cda;
+  }
 `;
 
-const AssessmentNumber = styled.div`
+const AssessmentMessage = styled.div`
   color: gray;
   font-size: 1rem;
   margin: 1.25rem;
+`;
+
+const Message = styled.div`
+  padding: 1.25rem;
+  border: 1px solid teal;
+  color: green;
+  font-weight: 600;
+  border-radius: 5px;
 `;

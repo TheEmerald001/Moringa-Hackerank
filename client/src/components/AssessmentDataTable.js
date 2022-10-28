@@ -2,16 +2,17 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { deleteAssessment } from "../redux/apiCall";
 
 const AssesmentDataTable = ({ data, columns, type }) => {
   const dispatch = useDispatch();
+
   const handleDelete = (id) => {
-    // deleteProduct(id, dispatch);
+    deleteAssessment(id, dispatch);
   };
 
   let actionColumn1;
   let actionColumn2;
-  let link;
 
   switch (type) {
     case "mentor":
@@ -23,7 +24,7 @@ const AssesmentDataTable = ({ data, columns, type }) => {
           renderCell: (params) => {
             return (
               <ActionCell>
-                <Link to={`/mentors/assessments/${params.row.id}`}>
+                <Link to={`/mentors/assessments/${params.row.id}/new-quiz`}>
                   <Button title="quiz">Quiz</Button>
                 </Link>
 
@@ -85,22 +86,11 @@ const AssesmentDataTable = ({ data, columns, type }) => {
       break;
   }
 
-  switch (type) {
-    case "users":
-      link = `/admin/users/new`;
-      break;
-    case "products":
-      link = `/admin/products/new`;
-      break;
-
-    default:
-      break;
-  }
   return (
     <Container>
       <TitleContainer>
         All Assessments
-        <Link to={link}>
+        <Link to="/mentors/assessments/new-assessment">
           <LinkText>Add New</LinkText>
         </Link>
       </TitleContainer>
