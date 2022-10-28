@@ -4,12 +4,13 @@
     background-color: #101f3c;
     display: flex;
     flex-direction: column;
+    
     .myLogo{
         
         
         img{
-            width: 200px;
-            padding-left: 10px;
+            width: 220px;
+            padding-left: 9px;
             padding-top: 5px;
         }
     }
@@ -20,6 +21,10 @@
         flex-direction: column;
         justify-content: center;
         padding: 0.625rem;
+        span{
+            font-size: 1.1em;
+        }
+        
        
         .tESTING{
             width: 4rem;
@@ -35,6 +40,9 @@
         .iCon{
             padding: 40px;
             cursor: pointer;
+            span{
+                font-size: 1.0em;
+            }
             &:hover{
                 margin-left: 0.9rem;
                 color: #EA501A;
@@ -49,6 +57,9 @@
         color: white;
         margin-top: 30px;
         padding-left: 40px;
+        span{
+            font-size: 1.0em;
+        }
         &:hover{
             margin-left: 0.9rem;
             color: #EA501A;
