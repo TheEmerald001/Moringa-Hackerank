@@ -1,13 +1,23 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
+
 import StudentSideBar from '../components/StudentSideBar'
+import studentDashboard from "../CSS/_studentDashboard.scss";
+import { BsFillBellFill } from 'react-icons/bs';
 
 function StudentDashboard() {
   return (
     <div className="asses">
       <StudentSideBar/>
       <div className="content">
-        Home content from shaki
+        <div className="A-title">
+          <h1>HOME</h1>
+        </div>
+        <div className='dashboarD'>
+          <div className='notI'>
+            <h2>Notifications <BsFillBellFill className='n-icon'/></h2>
+          </div>
+          <div className='gradE'>Grades</div>
+        </div>
       </div>
       
     </div>

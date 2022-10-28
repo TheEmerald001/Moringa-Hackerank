@@ -1,0 +1,24 @@
+.dashboarD{
+    padding-top: 30px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .notI{
+        width: 50%;
+        h2{
+            font-weight: lighter;
+            font-size: 1.5em;
+        }
+        .n-icon{
+            padding-left: 10px;
+        }
+    }
+    .gradE{
+        width: 60%;
+        background-color: firebrick;
+    }
+
+}
