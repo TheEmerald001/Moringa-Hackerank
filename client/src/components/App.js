@@ -53,6 +53,7 @@ function App() {
               }
             />
             <Route path="new-assessment" element={<NewAssessment />} />
+            <Route path="new-quiz" element={<CreateQuiz />} />
           </Route>
           <Route path="grades">
             <Route index element={<List />} />

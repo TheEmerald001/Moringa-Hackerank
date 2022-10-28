@@ -150,8 +150,9 @@ const Button = styled.button`
   width: 9.375rem;
   padding: 10px;
   border: none;
-  background-color: #1896ff;
-  color: #eff8ff;
+  background-color: #101f3c;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
   margin: 1rem;
 `;
