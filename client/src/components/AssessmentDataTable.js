@@ -24,15 +24,15 @@ const AssesmentDataTable = ({ data, columns, type }) => {
             return (
               <ActionCell>
                 <Link to={`/mentors/assessments/${params.row.id}`}>
-                  <ViewButton>Quiz</ViewButton>
+                  <Button title="quiz">Quiz</Button>
                 </Link>
 
                 <Link to={`/mentors/assessments/${params.row.id}`}>
-                  <ViewButton>Kata</ViewButton>
+                  <Button title="kata">Kata</Button>
                 </Link>
 
                 <Link to={`/mentors/assessments/${params.row.id}`}>
-                  <ViewButton>Prose</ViewButton>
+                  <Button title="prose">Prose</Button>
                 </Link>
               </ActionCell>
             );
@@ -133,6 +133,18 @@ const ViewButton = styled.div`
   border-radius: 5px;
   color: green;
   background-color: rgba(0, 128, 0, 0.2);
+  cursor: pointer;
+`;
+const Button = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: ${(props) =>
+    props.title === "quiz"
+      ? "#ea501a"
+      : props.title === "kata"
+      ? "#101f3c"
+      : "teal"};
   cursor: pointer;
 `;
 

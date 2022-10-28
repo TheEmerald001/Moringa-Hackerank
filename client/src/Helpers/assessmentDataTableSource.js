@@ -7,7 +7,7 @@ export const assessmentColumns = [
     headerName: "Assessment Title",
     width: 250,
   },
-  { field: "duedate", headerName: "DueDate", width: 250 },
+  { field: "duedate", headerName: "DueDate", width: 150 },
 ];
 
 export const assessmentRows = [
@@ -33,7 +33,7 @@ export const assessmentRows = [
   },
   {
     id: 5,
-    assessmentTitle: "Question Fivw",
+    assessmentTitle: "Question Five",
     duedate: "2022-08-19 12:23:54",
   },
 ];
