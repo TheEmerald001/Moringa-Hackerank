@@ -29,12 +29,13 @@ Assessment.create(tutor_id: 3, assessment_title: "Javascript Advanced")
 
 # Multiple Choice Question data
 puts "Mcqs⏳..."
-Mcq.create(assessment_id: 1, question: "What is the output of the following code? puts 'Hello World'", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"],student_answer:"Hello World", correct_answer:"Hello World")
-Mcq.create(assessment_id: 1, question: "How do we call a validation in a model?", answers: ["validate", "validates", "validate!", "::validates"],student_answer:"Hello World", correct_answer:"validates")
-Mcq.create(assessment_id: 1, question: "What version of Rails introduced Hotwire?", answers: ["Rails 6.1", "Rails 6.0", "Rails 7.0","Rails 5.1"],student_answer:"Hello World", correct_answer:"Rails 7.0")
-Mcq.create(assessment_id: 2, question: "What do WebSockets do?", answers: ["They allow for real time communication between the client and the server", "They allow for real time communication between the server and the client", "They allow for real time communication between the client and the client", "They allow real time communication between the server and the server"], correct_answer:"They allow for real time communication between the client and the server")
-Mcq.create(assessment_id: 2, question: "What is the output of the following code? console.log('Hello World')", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"],student_answer:"Hello World", correct_answer:"Hello World")
-Mcq.create(assessment_id: 2, question: "What is the output of the following code? console.log('Hello World')", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"],student_answer:"Hello World", correct_answer:"Hello World")
+
+Mcq.create(assessment_id: 1, question: "What is the output of the following code? puts 'Hello World'", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"], correct_answer: "Hello World", student_answer: "Hello World!")
+Mcq.create(assessment_id: 1, question: "How do we call a validation in a model?", answers: ["validate", "validates", "validate!", "::validates"], correct_answer: "validates", student_answer: "validates")
+Mcq.create(assessment_id: 1, question: "What version of Rails introduced Hotwire?", answers: ["Rails 6.1", "Rails 6.0", "Rails 7.0","Rails 5.1"], correct_answer: "Rails 7.0", student_answer: "Rails 7.0")
+Mcq.create(assessment_id: 2, question: "What do WebSockets do?", answers: ["They allow for real time communication between the client and the server", "They allow for real time communication between the server and the client", "They allow for real time communication between the client and the client", "They allow real time communication between the server and the server"], correct_answer: "They allow for real time communication between the client and the server", student_answer: "They allow for real time communication between the client and the server")
+Mcq.create(assessment_id: 2, question: "What is the output of the following code? console.log('Hello World')", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"], correct_answer: "Hello World", student_answer: "Hello World")
+Mcq.create(assessment_id: 2, question: "What is the output of the following code? console.log('Hello World')", answers: ["Hello World", "Hello World!", "Hello World!", "Hello World"], correct_answer: "Hello World", student_answer: "Hello World")
 
 # Kata Question data
 puts "katas⏳..."
