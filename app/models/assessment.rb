@@ -6,4 +6,5 @@ class Assessment < ApplicationRecord
   has_many :pros
   has_many :attempts
   has_many :totals
+  has_many :answers
 end

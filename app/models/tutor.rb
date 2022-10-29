@@ -5,6 +5,7 @@ class Tutor < ApplicationRecord
     has_many :students, through: :invites
     has_many :attempts
     has_one :tutorprofile
+    has_many :answers
     
     validates :work_id, presence: true, format: { with: /\A[A-Z]{2}\/\d{4}\/\d{3}\z/, message: "please use the correct work_id format"}
     validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, message: "please use the correct email format"}

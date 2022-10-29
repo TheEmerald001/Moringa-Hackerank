@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_28_064502) do
+ActiveRecord::Schema.define(version: 2022_10_29_145252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "kataa_response"
+    t.string "pro_response"
+    t.bigint "tutor_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "assessment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assessment_id"], name: "index_answers_on_assessment_id"
+    t.index ["student_id"], name: "index_answers_on_student_id"
+    t.index ["tutor_id"], name: "index_answers_on_tutor_id"
+  end
 
   create_table "assessments", force: :cascade do |t|
     t.bigint "tutor_id", null: false
@@ -138,6 +151,9 @@ ActiveRecord::Schema.define(version: 2022_10_28_064502) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "answers", "assessments"
+  add_foreign_key "answers", "students"
+  add_foreign_key "answers", "tutors"
   add_foreign_key "assessments", "tutors"
   add_foreign_key "attempts", "assessments"
   add_foreign_key "attempts", "students"
