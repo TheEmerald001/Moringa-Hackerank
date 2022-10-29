@@ -28,11 +28,11 @@ const AssesmentDataTable = ({ data, columns, type }) => {
                   <Button title="quiz">Quiz</Button>
                 </Link>
 
-                <Link to={`/mentors/assessments/${params.row.id}`}>
+                <Link to={`/mentors/assessments/${params.row.id}/new-kata`}>
                   <Button title="kata">Kata</Button>
                 </Link>
 
-                <Link to={`/mentors/assessments/${params.row.id}`}>
+                <Link to={`/mentors/assessments/${params.row.id}/new-prose`}>
                   <Button title="prose">Prose</Button>
                 </Link>
               </ActionCell>

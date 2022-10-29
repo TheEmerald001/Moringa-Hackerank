@@ -26,6 +26,7 @@ export default function Login({ inputs }) {
           <p>Enter your details below</p>
           {inputs?.map((input) => (
             <input
+              key={input.id}
               type={input.type}
               name={input.name}
               onChange={handleChange}

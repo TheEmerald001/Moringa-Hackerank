@@ -21,6 +21,8 @@ import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import SingleAssessment from "../pages/SingleAssessment";
 import { studentInputs, mentorInputs } from "../Helpers/loginSource";
+import { kataInputs, proseInputs } from "../Helpers/createFormSource";
+import New from "./New";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -56,6 +58,14 @@ function App() {
             <Route path=":id" element={<SingleAssessment />} />
             <Route path="new-assessment" element={<NewAssessment />} />
             <Route path=":id/new-quiz" element={<CreateQuiz />} />
+            <Route
+              path=":id/new-kata"
+              element={<New inputs={kataInputs} title="Add New Kata" />}
+            />
+            <Route
+              path=":id/new-prose"
+              element={<New inputs={proseInputs} title="Add New Prose" />}
+            />
           </Route>
           <Route path="grades">
             <Route index element={<List />} />
