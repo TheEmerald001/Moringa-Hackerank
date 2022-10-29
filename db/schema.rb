@@ -67,7 +67,8 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "assessment_id", null: false
     t.string "question"
     t.string "answers", default: [], array: true
-    t.string "correct_answers"
+    t.string "correct_answer"
+    t.string "student_answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_mcqs_on_assessment_id"
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "assessment_id", null: false
     t.string "question"
     t.string "instructions"
-    t.string "answers"
+    t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_pros_on_assessment_id"

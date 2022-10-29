@@ -39,6 +39,4 @@ def total_score
   self.kataa_score + self.pro_score + self.mcq_score
 end
 
-
-
 end
