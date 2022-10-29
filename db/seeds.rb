@@ -67,12 +67,20 @@ Invite.create(tutor_id: 1, student_id: 7, assessment_id: 2, status: false)
 
 #Attempt data
 puts "Attempts⏳..."
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 10, kataa_response: "test", kataa_score: 1, pro_response: "test", pro_score: 1, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 2, pro_response: "test", pro_score: 2, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 3, pro_response: "test", pro_score: 3, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 4, pro_response: "test", pro_score: 4, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 5, pro_response: "test", pro_score: 5, tutor_feedback: "Good!", total: 0)
-Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 6, pro_response: "test", pro_score: 6, tutor_feedback: "Good!", total: 0)
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 1, mcq_score: 10, kataa_response: "test", kataa_score: 1, pro_response: "test", pro_score: 1, tutor_feedback: "Good!")
+Attempt.create(assessment_id: 1, tutor_id: 1, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 2, pro_response: "test", pro_score: 2, tutor_feedback: "Good!")
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 3, pro_response: "test", pro_score: 3, tutor_feedback: "Good!")
+Attempt.create(assessment_id: 2, tutor_id: 2, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 4, pro_response: "test", pro_score: 4, tutor_feedback: "Good!")
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 1, mcq_score: 5, kataa_response: "test", kataa_score: 5, pro_response: "test", pro_score: 5, tutor_feedback: "Good!")
+Attempt.create(assessment_id: 3, tutor_id: 3, student_id: 2, mcq_score: 5, kataa_response: "test", kataa_score: 6, pro_response: "test", pro_score: 6, tutor_feedback: "Good!")
+
+puts "Totals⏳..."
+Total.create(attempt_id: 1, assessment_id: 1, student_id: 1, tutor_id: 1, mcq_score: 7, kataa_score: 5, pro_score: 2, total: 0)
+Total.create(attempt_id: 2, assessment_id: 1, student_id: 2, tutor_id: 1, mcq_score: 2, kataa_score: 2, pro_score: 6, total: 0)
+Total.create(attempt_id: 3, assessment_id: 2, student_id: 1, tutor_id: 2, mcq_score: 7, kataa_score: 3, pro_score: 5, total: 0)
+Total.create(attempt_id: 4, assessment_id: 2, student_id: 2, tutor_id: 2, mcq_score: 1, kataa_score: 0, pro_score: 6, total: 0)
+Total.create(attempt_id: 5, assessment_id: 3, student_id: 1, tutor_id: 3, mcq_score: 6, kataa_score: 5, pro_score: 1, total: 0)
+Total.create(attempt_id: 6, assessment_id: 3, student_id: 2, tutor_id: 3, mcq_score: 5, kataa_score: 8, pro_score: 3, total: 0)
 
 #Student profile
 Studentprofile.create(image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4AGU7PcdzwW1smKQuMMTgKj1yGlUMa84fDyt0SJWoeUG_o5QpbBdN_wP1oaYpHSQSJ4&usqp=CAU", phone: "0795225110",student_id: 1)
