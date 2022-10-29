@@ -1,7 +1,7 @@
 class AttemptsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  
+
     def order
         attemptlist = Attempt.where(assessment_id: params[:assessment_id])
         render json: { 
@@ -23,7 +23,7 @@ class AttemptsController < ApplicationController
     #GET/attempts/id
     def show
         attempt = Attempt.find(params[:id])
-        render json: attempt
+        render json: attempt, methods: [:mcqs_score]
     end
 
     #POST/attempts
