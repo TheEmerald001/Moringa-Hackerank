@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :totals
   resources :tutorprofiles, only:[:index,:show,:create]
   resources :studentprofiles,only:[:index,:show,:create]
   resources :attempts,only:[:index,:show,:create,:update]
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
   post "/signup" , to: "tutors#create"
   get "/me", to:"tutors#show"
   get '/tutors', to: "tutors#index"
+
+  # MCQ routes for specific assessment
+  get "/mcqs/:assessment_id", to: "mcqs#index"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
