@@ -4,6 +4,4 @@ class Attempt < ApplicationRecord
   belongs_to :tutor
   has_one :total
 
-
-
 end
