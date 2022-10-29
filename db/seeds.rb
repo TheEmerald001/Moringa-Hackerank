@@ -2,20 +2,20 @@ puts "Seeding DB⏳..."
 
 # Mentor data
 puts "Tutors⏳..."
-Tutor.create(firstname: "John", lastname: "Doe", work_id: "SE/2022/101", email: "johndoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Michael", lastname: "Hill", work_id: "SE/2022/002", email: "mikehill@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Matt", lastname: "Smith", work_id: "SE/2022/003", email: "mattsmith@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Jane", lastname: "Doe", work_id: "SE/2022/004", email: "janedoe@gmail.com", password: "123456", password_confirmation: "123456")
-Tutor.create(firstname: "Mary", lastname: "Smith", work_id: "SE/2022/005", email: "marysmith@gmail.com", password: "123456", password_confirmation: "123456")
+Tutor.create(firstname: "John", lastname: "Doe", work_id: "SE/2022/101", email: "johndoe@gmail.com", password: "#Friend12", password_confirmation: "#Friend12")
+Tutor.create(firstname: "Michael", lastname: "Hill", work_id: "SE/2022/002", email: "mikehill@gmail.com", password: "@P4ssword", password_confirmation: "@P4ssword")
+Tutor.create(firstname: "Matt", lastname: "Smith", work_id: "SE/2022/003", email: "mattsmith@gmail.com", password: "C!i4nt", password_confirmation: "C!i4nt")
+Tutor.create(firstname: "Jane", lastname: "Doe", work_id: "SE/2022/004", email: "janedoe@gmail.com", password: "#4Password", password_confirmation: "#4Password")
+Tutor.create(firstname: "Mary", lastname: "Smith", work_id: "SE/2022/005", email: "marysmith@gmail.com", password: "@Some0ne", password_confirmation: "@Some0ne")
 
 # Student data
 puts "Students⏳..."
-Student.create(firstname: "Wycliffe", lastname: "Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "123456", password_confirmation: "123456")
-Student.create(firstname: "Dennis" , lastname:"Shakava", email: "d.shakava@gmail.com", username: "dennishakava", password: "123456", password_confirmation: "123456")
-Student.create(firstname: "Stephen", lastname: "Lukanu", email: "s.lukanu@gmail.com", username: "stephenlukanu", password: "123456", password_confirmation: "123456")
-Student.create(firstname: "Michael", lastname: "Kaburu", email: "m.kaburu@gmail.com", username: "michaelkaburu", password: "123456", password_confirmation: "123456")
-Student.create(firstname: "Elvis" , lastname: "Kimani", email: "e.kimani@gmail.com", username: "elviskimani", password: "123456", password_confirmation: "123456")
-Student.create(firstname: "Maurice", lastname: "Nganga", email: "m.nganga@gmail.com", username: "mauricenganga", password: "123456", password_confirmation: "123456")
+Student.create(firstname: "Wycliffe", lastname: "Ndiba", email: "w.ndiba@gmail.com", username: "wycliffendiba", password: "$har4It", password_confirmation: "$har4It")
+Student.create(firstname: "Dennis" , lastname:"Shakava", email: "d.shakava@gmail.com", username: "dennishakava", password: "@Clone3", password_confirmation: "@Clone3")
+Student.create(firstname: "Stephen", lastname: "Lukanu", email: "s.lukanu@gmail.com", username: "stephenlukanu", password: "@Pass123", password_confirmation: "@Pass123")
+Student.create(firstname: "Michael", lastname: "Kaburu", email: "m.kaburu@gmail.com", username: "michaelkaburu", password: "!Passw0rd?", password_confirmation: "!Passw0rd?")
+Student.create(firstname: "Elvis" , lastname: "Kimani", email: "e.kimani@gmail.com", username: "elviskimani", password: "@Hack12", password_confirmation: "@Hack12")
+Student.create(firstname: "Maurice", lastname: "Nganga", email: "m.nganga@gmail.com", username: "mauricenganga", password: "$Home45", password_confirmation: "$Home45")
 
 # Assessment data
 puts "Assessments⏳..."
