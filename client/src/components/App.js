@@ -8,7 +8,7 @@ import List from "../pages/List";
 import Assignment from "../pages/Assignment";
 import Register from "../pages/signup/Register";
 import Login from "../pages/login/Login";
-import StudentLogin from "../pages/StudentLogin";
+
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
 import {
@@ -16,11 +16,11 @@ import {
   assessmentRows,
 } from "../Helpers/assessmentDataTableSource";
 import Single from "../pages/Single";
-import SendMail from "./SendMail";
 import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import SingleAssessment from "../pages/SingleAssessment";
+import { studentInputs, mentorInputs } from "../Helpers/loginSource";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -31,17 +31,17 @@ function App() {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="studentlogin" element={<StudentLogin />} />
           <Route path="access-account" element={<CombineLogin />} />
           <Route path="students">
             <Route index element={<StudentDashboard />} />
+            <Route path="login" element={<Login inputs={studentInputs} />} />
             <Route path="quiz" element={<QuizPage />} />
             <Route path="assignments" element={<Assignment />} />
           </Route>
         </Route>
         <Route path="mentors">
           <Route index element={<TmHome />} />
+          <Route path="login" element={<Login inputs={mentorInputs} />} />
           <Route path="assessments">
             <Route
               index

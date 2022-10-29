@@ -21,14 +21,14 @@ const Home = () => {
             <MentorLogin>
               <LoginTitle>For Mentors</LoginTitle>
               <LoginText>Create and grade assessments for students</LoginText>
-              <Link to="/login">
+              <Link to="/mentors/login">
                 <Button position="first">LOGIN AS MENTOR</Button>
               </Link>
             </MentorLogin>
             <StudentLogin>
               <LoginTitle>For Students</LoginTitle>
               <LoginText>Take assessments and get reviewed</LoginText>
-              <Link to="/studentlogin">
+              <Link to="/students/login">
                 <Button position="last">LOGIN AS STUDENT</Button>
               </Link>
             </StudentLogin>
