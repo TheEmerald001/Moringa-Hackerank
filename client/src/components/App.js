@@ -18,6 +18,7 @@ import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import Trial from "../pages/Trial";
+import Test from "../pages/Test";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -33,7 +34,7 @@ function App() {
           <Route path="access-account" element={<CombineLogin />} />
           <Route path="students">
             <Route index element={<StudentDashboard />} />
-            <Route path="quiz" element={<QuizPage />} />
+            <Route path="quiz" element={<Test />} />
             <Route path="assignments" element={<Assignment />} />
             <Route path="trial" element={<Trial />} />
           </Route>
