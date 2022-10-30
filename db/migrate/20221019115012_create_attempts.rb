@@ -10,7 +10,6 @@ class CreateAttempts < ActiveRecord::Migration[6.1]
       t.string :pro_response      
       t.integer :pro_score      
       t.string :tutor_feedback
-      t.integer :total
 
       t.timestamps
     end

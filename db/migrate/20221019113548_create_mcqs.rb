@@ -6,7 +6,7 @@ class CreateMcqs < ActiveRecord::Migration[6.1]
       t.string :answers, array: true, default: []
       t.string :correct_answer
       t.string :student_answer
-      
+
       t.timestamps
     end
   end
