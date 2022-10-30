@@ -7,8 +7,7 @@ import request from "../Helpers/requestMethods";
 
 import Sidebar from "./Sidebar";
 
-const CreateQuiz = () => {
-  const [correctAnswer, setCorrectAnswer] = useState("");
+const New = ({ inputs, title }) => {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
   const assessment = useSelector((state) =>
@@ -18,10 +17,8 @@ const CreateQuiz = () => {
   );
   const [formData, setFormData] = useState({
     question: "",
-    answer1: "",
-    answer2: "",
-    answer3: "",
-    time: null,
+    instructions: "",
+    answer: "",
   });
 
   const handleChange = (event) => {
@@ -33,15 +30,14 @@ const CreateQuiz = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let quizData = {
+    let newData = {
       question: formData.question,
-      answers: [formData.answer1, formData.answer2, formData.answer3],
-      correct_answer: correctAnswer,
-      time_limit: formData.time,
+      instructions: formData.instructions,
+      answer: formData.answer,
       assessment_id: assessmentId,
     };
     try {
-      const { data } = await request.post("/quizzes", quizData);
+      const { data } = await request.post("/kataas", newData);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +48,7 @@ const CreateQuiz = () => {
       <Sidebar />
       <Wrapper>
         <Top>
-          <Title>Add New Quiz</Title>
+          <Title>{title}</Title>
           <AssessmentContainer>
             <AssessmentTitle>{assessment.title}</AssessmentTitle>
             <AssessmentDuedate>{assessment.duedate}</AssessmentDuedate>
@@ -61,66 +57,17 @@ const CreateQuiz = () => {
 
         <Bottom>
           <BottomForm onSubmit={handleSubmit}>
-            <FormInput>
-              <Label htmlFor="question">Question</Label>
-              <Input
-                id="question"
-                type="text"
-                name="question"
-                onChange={handleChange}
-                placeholder="Question"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="answer1">Asnwer 1</Label>
-              <Input
-                id="answer1"
-                type="text"
-                name="answer1"
-                onChange={handleChange}
-                placeholder="Answer One"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="answer2">Answer 2</Label>
-              <Input
-                id="answer2"
-                type="text"
-                name="answer2"
-                onChange={handleChange}
-                placeholder="Answer Two"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="answer3">Answer 3</Label>
-              <Input
-                id="answer3"
-                type="text"
-                name="answer3"
-                onChange={handleChange}
-                placeholder="Answer Three"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="correct">Correct Answer</Label>
-              <Input
-                id="correct"
-                type="text"
-                name="correct"
-                onChange={(e) => setCorrectAnswer(e.target.value)}
-                placeholder="Correct Answer"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="time">Time Limit</Label>
-              <Input
-                id="time"
-                type="number"
-                name="time"
-                onChange={handleChange}
-                placeholder="Time Limit"
-              />
-            </FormInput>
+            {inputs.map((input) => (
+              <FormInput key={input.id}>
+                <Label>{input.label}</Label>
+                <Input
+                  type={input.type}
+                  name={input.name}
+                  onChange={handleChange}
+                  placeholder={input.placeholder}
+                />
+              </FormInput>
+            ))}
 
             <Button>Submit</Button>
           </BottomForm>
@@ -130,7 +77,7 @@ const CreateQuiz = () => {
   );
 };
 
-export default CreateQuiz;
+export default New;
 
 const Container = styled.main`
   display: flex;

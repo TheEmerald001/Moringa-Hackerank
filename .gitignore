@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/client/node_modules/*
 
 
 # Ignore node_modules

@@ -8,7 +8,7 @@ const quizSlice = createSlice({
     currentQuestionIndex: 0,
     showResults: false,
     correctAnswerCount: 0,
-    answers: shuffleAnswers(questions[0]),
+    // answers: shuffleAnswers(questions[0]),
     currentAnswer: "",
   },
   reducers: {
