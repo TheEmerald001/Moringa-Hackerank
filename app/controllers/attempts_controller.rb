@@ -47,7 +47,7 @@ class AttemptsController < ApplicationController
 
     def attempt_params
         params.permit(:assessment_id, :tutor_id, :student_id, :mcq_score, 
-            :kataa_score, :pro_score, :tutor_feedback, :total)
+            :kataa_score, :pro_score, :tutor_feedback)
     end
 
     def render_not_found_response
