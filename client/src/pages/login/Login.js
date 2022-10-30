@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/apiCall";
+import { loginMentor, loginStudent } from "../../redux/apiCall";
 
 export default function Login({ inputs }) {
   const [data, setData] = useState({});
@@ -15,7 +15,11 @@ export default function Login({ inputs }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(dispatch, data);
+    if (data.work_id) {
+      loginMentor(dispatch, data);
+    } else {
+      loginStudent(dispatch, data);
+    }
   };
 
   return (

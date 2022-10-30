@@ -1,11 +1,13 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import quizReducer from "./quizSlice";
 import contactReducer from "./contactSlice";
-import userReducer from "./userSlice";
+import mentorReducer from "./mentorSlice";
+import studentReducer from "./studentSlice";
 import assessmentReducer from "./assessmentSlice";
 
 const rootReducers = combineReducers({
-  user: userReducer,
+  mentor: mentorReducer,
+  student: studentReducer,
   quiz: quizReducer,
   assessment: assessmentReducer,
   contact: contactReducer,
