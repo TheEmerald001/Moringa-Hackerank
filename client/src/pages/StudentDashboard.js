@@ -1,7 +1,6 @@
 import React from 'react'
-
 import StudentSideBar from '../components/StudentSideBar'
-import studentDashboard from "../CSS/_studentDashboard.scss";
+// import studentDashboard from "../CSS/_studentDashboard.scss";
 import { BsFillBellFill } from 'react-icons/bs';
 import { MdGrade } from 'react-icons/md';
 

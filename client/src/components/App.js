@@ -24,6 +24,7 @@ import { studentInputs, mentorInputs } from "../Helpers/loginSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
+import StudentAssignment from "../pages/StudentAssignment";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
@@ -54,6 +55,7 @@ function App() {
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
+              <Route path="assignments/id" element={<StudentAssignment/>} />
               <Route path="assignments" element={<Assignment />} />
             </Route>
           {/* )} */}

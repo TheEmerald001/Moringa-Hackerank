@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import invite from '../CSS/_sendInvite.scss'
+// import invite from '../CSS/_sendInvite.scss'
 import Select from 'react-select';
 
 
