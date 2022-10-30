@@ -1,10 +1,12 @@
 .asses{
     display: flex;
     flex-direction: row;
+    
     .content{
         display: flex;
         flex-direction: column;
         flex: 7;
+        
         .A-title{
             background-color: #101f3c;
             color: white;
@@ -55,3 +57,6 @@
         }
     }
 }
+
+
+

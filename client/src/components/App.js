@@ -57,7 +57,7 @@ function App() {
               <Route path="assignments" element={<Assignment />} />
             </Route>
           {/* )} */}
-          {mentor && (
+          {/* {mentor && ( */}
             <Route path="mentors">
               <Route index element={<TmHome />} />
 
@@ -89,7 +89,7 @@ function App() {
                 <Route path=":studentId" element={<Single />} />
               </Route>
             </Route>
-          )}
+          {/* )} */}
         </Route>
       </Routes>
     </Router>

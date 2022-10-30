@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import MoringaImage from "../assests/images/hackerank.png";
+import MoringaImage from "../assests/images/team.png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
