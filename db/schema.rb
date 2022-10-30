@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2022_10_28_064502) do
     t.bigint "assessment_id", null: false
     t.string "question"
     t.string "instructions"
-    t.string "answers"
+    t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_pros_on_assessment_id"
