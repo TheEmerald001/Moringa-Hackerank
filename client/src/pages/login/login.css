@@ -29,7 +29,8 @@ background-size: cover;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-
+  width: 100%;
+  box-sizing: border-box;
   
 }
 h1{
@@ -40,9 +41,10 @@ h1{
 .input {
   flex: 1;
   border: 1px solid #0a1f4e;
-  min-width: 40%;
+  width: 100%;
   margin: 10px 0;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 

@@ -1,8 +1,7 @@
-import React from 'react'
-import StudentSideBar from '../components/StudentSideBar'
-import assignment from '../CSS/_studentAssignments.scss'
-import { GiSiren } from 'react-icons/gi';
-
+import React from "react";
+import StudentSideBar from "../components/StudentSideBar";
+import assignment from "../CSS/_studentAssignments.scss";
+import { GiSiren } from "react-icons/gi";
 
 function Assignment() {
   return (
@@ -14,277 +13,87 @@ function Assignment() {
         </div>
         <div className="topContainer">
           <div className="nOTICE">
-            <h2>Notice <GiSiren className='siren'/></h2>
+            <h2>
+              Notice <GiSiren className="siren" />
+            </h2>
             <h4>Don't be late</h4>
             <h5>No exceptions will be allowed</h5>
           </div>
-          <div className='searchbaR'>
-            <input type='text' placeholder='Search Assessment'/>
+          <div className="searchbaR">
+            <input type="text" placeholder="Search Assessment" />
           </div>
         </div>
-        <div className='labeL'>
+        <div className="labeL">
           <h1>ASSESSMENTS</h1>
         </div>
-        <div className='assesContainer'>
-          <div className='iteM'>
+        <div className="assesContainer">
+          <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className='view'>View</span>
+            <span className="view">View</span>
           </div>
 
-          <div className='iteM'>
+          <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className='view'>View</span>
+            <span className="view">View</span>
           </div>
 
-          <div className='iteM'>
+          <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className='view'>View</span>
+            <span className="view">View</span>
           </div>
-          
         </div>
       </div>
     </div>
   );
 }
 
-export default Assignment
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Assignment;
 
 // import styled from "styled-components";
 // import StudentSideBar from "../components/StudentSideBar";
 
 // const Assignment = () => {
 //   return (
-    // <Container>
-    //   <StudentSideBar />
-    //   <Wrapper>
-    //     <Left>
-    //       <Title>Notice</Title>
-    //       <Instruction>Don't be late</Instruction>
-    //       <Instruction>No exceptions will be allowed</Instruction>
-    //     </Left>
-    //     <Right>
-    //       <Assignments>
-    //         <AssignTitle>Assignment No: 4</AssignTitle>
-    //         <AssignDueDate>Due: 2022-06-27</AssignDueDate>
-    //         <AssignViewButton>View</AssignViewButton>
-    //       </Assignments>
-    //       <Assignments>
-    //         <AssignTitle>Assignment No: 7</AssignTitle>
-    //         <AssignDueDate>Due: 2022-08-07</AssignDueDate>
-    //         <AssignViewButton>View</AssignViewButton>
-    //       </Assignments>
-    //       <Assignments>
-    //         <AssignTitle>Assignment No: 9</AssignTitle>
-    //         <AssignDueDate>Due: 2022-10-12</AssignDueDate>
-    //         <AssignViewButton>View</AssignViewButton>
-    //       </Assignments>
-    //       <Assignments>
-    //         <AssignTitle>Assignment No: 14</AssignTitle>
-    //         <AssignDueDate>Due: 2022-11-10</AssignDueDate>
-    //         <AssignViewButton>View</AssignViewButton>
-    //       </Assignments>
-    //       <Assignments>
-    //         <AssignTitle>Assignment No: 16</AssignTitle>
-    //         <AssignDueDate>Due: 2022-11-22</AssignDueDate>
-    //         <AssignViewButton>View</AssignViewButton>
-    //       </Assignments>
-    //     </Right>
-    //   </Wrapper>
-    // </Container>
+// <Container>
+//   <StudentSideBar />
+//   <Wrapper>
+//     <Left>
+//       <Title>Notice</Title>
+//       <Instruction>Don't be late</Instruction>
+//       <Instruction>No exceptions will be allowed</Instruction>
+//     </Left>
+//     <Right>
+//       <Assignments>
+//         <AssignTitle>Assignment No: 4</AssignTitle>
+//         <AssignDueDate>Due: 2022-06-27</AssignDueDate>
+//         <AssignViewButton>View</AssignViewButton>
+//       </Assignments>
+//       <Assignments>
+//         <AssignTitle>Assignment No: 7</AssignTitle>
+//         <AssignDueDate>Due: 2022-08-07</AssignDueDate>
+//         <AssignViewButton>View</AssignViewButton>
+//       </Assignments>
+//       <Assignments>
+//         <AssignTitle>Assignment No: 9</AssignTitle>
+//         <AssignDueDate>Due: 2022-10-12</AssignDueDate>
+//         <AssignViewButton>View</AssignViewButton>
+//       </Assignments>
+//       <Assignments>
+//         <AssignTitle>Assignment No: 14</AssignTitle>
+//         <AssignDueDate>Due: 2022-11-10</AssignDueDate>
+//         <AssignViewButton>View</AssignViewButton>
+//       </Assignments>
+//       <Assignments>
+//         <AssignTitle>Assignment No: 16</AssignTitle>
+//         <AssignDueDate>Due: 2022-11-22</AssignDueDate>
+//         <AssignViewButton>View</AssignViewButton>
+//       </Assignments>
+//     </Right>
+//   </Wrapper>
+// </Container>
 //   );
 // };
 

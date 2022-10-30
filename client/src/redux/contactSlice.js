@@ -4,13 +4,13 @@ const contactSlice = createSlice({
   name: "contact",
   initialState: {
     message: {},
-    makeReq: false,
+   isFetching: false,
     errorRec: false,
     recvdResp: false,
   },
   reducers: {
     makeApiRequestToSendEmail: (state) => {
-      state.makeReq = true;
+      state.isFetching = true;
     },
     clearEmailDetails: (state) => {
       state.message = {};
@@ -20,9 +20,11 @@ const contactSlice = createSlice({
       state.recvdResp = true;
     },
     sentEmail: (state, action) => {
+      state.isFetching = false;
       state.message = action.payload;
     },
     errorEmail: (state) => {
+      state.isFetching = false;
       state.errorRec = true;
     },
   },
