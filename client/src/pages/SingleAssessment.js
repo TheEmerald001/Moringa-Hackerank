@@ -19,7 +19,7 @@ const SingleAssessment = () => {
   const expand = () => {
     setQuizExpanded((isQuizExpanded) => !isQuizExpanded);
   };
-  console.log(assessmentId);
+
   return (
     <Container>
       <SingleAssessmentSidebar />
@@ -81,11 +81,14 @@ export default SingleAssessment;
 
 const Container = styled.main`
   display: flex;
+  width: 100%;
   position: relative;
 `;
 
 const AssessmentContainer = styled.section`
-  flex: 6;
+  width: 70vw;
+  min-height: 100vh;
+  margin: 0 auto;
 `;
 
 const Top = styled.article``;

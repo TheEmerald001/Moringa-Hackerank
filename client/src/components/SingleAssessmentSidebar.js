@@ -22,12 +22,12 @@ const SingleAssessmentSidebar = () => {
 export default SingleAssessmentSidebar;
 
 const Container = styled.main`
-  flex: 2;
+  width: 10vw;
   background-color: #101f3c;
   border-right: 0.5px solid rgb(230, 227, 227);
   height: 100vh;
   color: #fff;
-  position: relative;
+  // position: fixed;
   padding: 3.75rem;
 `;
 
