@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tutorprofiles, only:[:index,:show,:create]
   resources :studentprofiles,only:[:index,:show,:create]
   resources :attempts,only:[:index,:show,:create,:update]
-  resources :invites,only:[:show,:create,:destroy]
+  resources :invites,only:[:show,:create,:destroy, :update]
   resources :mcqs, only: [:show, :create, :update, :destroy]
   resources :pros, only: [:show, :create, :update, :destroy]
   resources :kataas, only: [:show, :create, :update, :destroy]

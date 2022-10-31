@@ -41,9 +41,7 @@ ActiveRecord::Schema.define(version: 2022_10_29_145252) do
     t.bigint "student_id", null: false
     t.bigint "tutor_id", null: false
     t.integer "mcq_score"
-    t.string "kataa_response"
     t.integer "kataa_score"
-    t.string "pro_response"
     t.integer "pro_score"
     t.string "tutor_feedback"
     t.datetime "created_at", precision: 6, null: false

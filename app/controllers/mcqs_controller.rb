@@ -33,7 +33,7 @@ class McqsController < ApplicationController
     end 
 
     def find_mcq
-        Mcq.find(params[:id])
+        Mcq.where(assessment_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

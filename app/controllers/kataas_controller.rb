@@ -29,11 +29,11 @@ class KataasController < ApplicationController
     private
 
     def kataa_params
-        params.permit(:assessment_id, :question, :instructions,:answer)
+        params.permit(:assessment_id, :question, :instructions)
     end
 
     def find_kataa
-        Kataa.find(params[:id])
+        Kataa.where(assessment_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

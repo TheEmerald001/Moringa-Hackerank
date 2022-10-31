@@ -29,11 +29,11 @@ class ProsController < ApplicationController
     private
 
     def pro_params
-        params.permit(:assessment_id, :question, :instructions, :answer)
+        params.permit(:assessment_id, :question, :instructions)
     end
-
+    
     def find_pro
-        Pro.find(params[:id])
+        Pro.where(assessment_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

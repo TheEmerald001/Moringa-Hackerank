@@ -35,7 +35,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def find_assessment
-        Assessment.find(params[:id])
+        Assessment.where(tutor_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)
