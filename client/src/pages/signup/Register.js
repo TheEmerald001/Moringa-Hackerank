@@ -48,11 +48,11 @@ export default function Register({ inputs, type }) {
       break;
   }
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="register-container">
+      <div className="register-wrapper">
         <h1 className="header">Create Account</h1>
         <p>Fill in the form below</p>
-        <form className="registerForm" onSubmit={handleSubmit}>
+        <div className="registerForm" onSubmit={handleSubmit}>
           {inputs?.map((input) => (
             <input
               key={input.id}
@@ -60,6 +60,7 @@ export default function Register({ inputs, type }) {
               name={input.name}
               onChange={handleChange}
               placeholder={input.placeholder}
+              className="register-input"
             />
           ))}
           <input
@@ -67,6 +68,7 @@ export default function Register({ inputs, type }) {
             name="confirm_password"
             onChange={(event) => setConfirmPass(event.target.value)}
             placeholder="Confirm Password"
+            className="register-input"
           />
 
           <span>
@@ -81,7 +83,7 @@ export default function Register({ inputs, type }) {
               Login
             </Link>
           </span>
-        </form>
+        </div>
       </div>
     </div>
   );

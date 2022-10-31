@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginMentor, loginStudent } from "../../redux/apiCall";
 
-export default function Login({ inputs }) {
+export default function Login({ inputs, type }) {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
 
@@ -21,6 +21,19 @@ export default function Login({ inputs }) {
       loginStudent(dispatch, data);
     }
   };
+
+  let link;
+
+  switch (type) {
+    case "student":
+      link = "/students/register";
+      break;
+    case "mentor":
+      link = "/mentors/register";
+      break;
+    default:
+      break;
+  }
 
   return (
     <div className="container">
@@ -41,7 +54,7 @@ export default function Login({ inputs }) {
           <button className="login-button">LOGIN</button>
           <p className="mt-2">
             Dont have an account?{" "}
-            <Link to="/register" className="log">
+            <Link to={link} className="log">
               SignUp
             </Link>
           </p>

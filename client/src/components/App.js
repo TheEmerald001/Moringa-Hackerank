@@ -51,12 +51,22 @@ function App() {
 
           <Route
             path="/mentors/login"
-            element={mentor ? <TmHome /> : <Login inputs={mentorInputs} />}
+            element={
+              mentor ? (
+                <TmHome />
+              ) : (
+                <Login inputs={mentorInputs} type="mentor" />
+              )
+            }
           />
           <Route
             path="/students/login"
             element={
-              student ? <StudentDashboard /> : <Login inputs={studentInputs} />
+              student ? (
+                <StudentDashboard />
+              ) : (
+                <Login inputs={studentInputs} type="student" />
+              )
             }
           />
           <Route
