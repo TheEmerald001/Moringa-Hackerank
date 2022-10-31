@@ -30,7 +30,7 @@ h1{
 .registerForm {
   display: flex;
   flex-wrap: wrap;
- position: relative;;
+ position: relative;
 
 }
 
@@ -55,8 +55,4 @@ h1{
 span {
   font-size: 12px;
   margin: 10px 0;
-}
-.mt-2{
-  position: absolute;
-  bottom: 0;
 }

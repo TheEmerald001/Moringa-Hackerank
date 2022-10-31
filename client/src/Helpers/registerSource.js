@@ -48,7 +48,7 @@ export const mentorRegisterInputs = [
     id: 3,
     type: "text",
     name: "work_id",
-    placeholder: "Work",
+    placeholder: "Work Id",
   },
   {
     id: 4,
