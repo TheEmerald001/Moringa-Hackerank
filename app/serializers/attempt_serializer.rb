@@ -4,5 +4,4 @@ class AttemptSerializer < ActiveModel::Serializer
   has_one :assessment
   has_one :student
   has_one :tutor
-  has_one :total
 end
