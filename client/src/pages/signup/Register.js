@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import request from "../../Helpers/requestMethods";
 
-export default function Register() {
-  const [inputs, setInputs] = useState({});
+export default function Register({ inputs, type }) {
+  const [input, setInput] = useState({});
   const [confirmPassword, setConfirmPass] = useState("");
   const [error, setError] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setInputs({ ...inputs, [name]: value });
+    setInput({ ...input, [name]: value });
   };
 
   const handleSubmit = async (event) => {
@@ -19,9 +18,15 @@ export default function Register() {
     setError(false);
 
     try {
-      if (inputs.password === confirmPassword) {
-        const { data } = await request.post("/students/register", inputs);
-        inputs && window.location.replace("/students/login");
+      if (input.password === confirmPassword) {
+        if (input.username) {
+          const { data } = await request.post("/students/register", input);
+          data && window.location.replace("/students/login");
+        }
+        if (input.work_id) {
+          const { data } = await request.post("/mentors/register", input);
+          data && window.location.replace("/mentors/login");
+        }
       } else {
         setError(true);
       }
@@ -29,51 +34,41 @@ export default function Register() {
       console.log(error);
     }
   };
+
+  let link;
+
+  switch (type) {
+    case "student":
+      link = "/students/login";
+      break;
+    case "mentor":
+      link = "/mentors/login";
+      break;
+    default:
+      break;
+  }
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="register-container">
+      <div className="register-wrapper">
         <h1 className="header">Create Account</h1>
         <p>Fill in the form below</p>
-        <form className="registerForm" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="first_name"
-            placeholder="First Name"
-          />
-
-          <input
-            type="text"
-            onChange={handleChange}
-            name="last_name"
-            placeholder="Last Name"
-          />
-          <input
-            type="text"
-            onChange={handleChange}
-            name="username"
-            placeholder="Username"
-          />
-
-          <input
-            type="text"
-            onChange={handleChange}
-            name="email"
-            placeholder="Email"
-          />
-
+        <div className="registerForm" onSubmit={handleSubmit}>
+          {inputs?.map((input) => (
+            <input
+              key={input.id}
+              type={input.type}
+              name={input.name}
+              onChange={handleChange}
+              placeholder={input.placeholder}
+              className="register-input"
+            />
+          ))}
           <input
             type="password"
-            onChange={handleChange}
-            name="password"
-            placeholder="Password"
-          />
-
-          <input
-            type="password"
+            name="confirm_password"
             onChange={(event) => setConfirmPass(event.target.value)}
-            name="confirm password"
             placeholder="Confirm Password"
+            className="register-input"
           />
 
           <span>
@@ -84,11 +79,11 @@ export default function Register() {
           <button className="fluid ui button blue">CREATE</button>
           <span className="mt-2">
             Have an account?{" "}
-            <Link to="/students/login" className="log">
+            <Link to={link} className="log">
               Login
             </Link>
           </span>
-        </form>
+        </div>
       </div>
     </div>
   );

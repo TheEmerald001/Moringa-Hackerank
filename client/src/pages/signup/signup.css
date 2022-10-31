@@ -1,8 +1,8 @@
 
-.container {
+.register-container {
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   background: linear-gradient(
     rgba(16,31,60, 0.5),
@@ -15,7 +15,7 @@ background-size: cover;
   justify-content: center;
 }
 
-.wrapper {
+.register-wrapper {
   width: 40%;
   padding: 20px;
   color: #0a1f4e;
@@ -30,18 +30,19 @@ h1{
 .registerForm {
   display: flex;
   flex-wrap: wrap;
-
+ position: relative;
 
 }
 
-.registerForm > input{
+.registerForm > .register-input{
   flex: 1;
   min-width: 40%;
-  border-bottom: 1px solid #0a1f4e;
+  margin: 20px 10px 0 0;
   padding: 10px;
+  border: 1px solid #0a1f4e;
 }
 
-button {
+.fluid  {
   background: #ea501a;
   color: white;
   border-radius: 5px;

@@ -17,15 +17,19 @@ import {
 } from "../Helpers/assessmentDataTableSource";
 import { attemptColumns, attemptRows } from "../Helpers/attemptsSource";
 import Single from "../pages/Single";
-import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import SingleAssessment from "../pages/SingleAssessment";
 import { studentInputs, mentorInputs } from "../Helpers/loginSource";
+import {
+  studentRegisterInputs,
+  mentorRegisterInputs,
+} from "../Helpers/registerSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
 import StudentAttempt from "../pages/StudentAttempt";
+import StudentAssignment from "../pages/StudentAssignment";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
@@ -35,37 +39,54 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route
-            index
-            element={
-              <StudentAttempt
-                data={attemptRows}
-                columns={attemptColumns}
-                type="mentor"
-              />
-            }
-          />
-          <Route
-            path="register"
-            element={student ? <StudentDashboard /> : <Register />}
-          />
+          <Route index element={<Home />} />
+
           <Route
             path="/mentors/login"
-            element={mentor ? <TmHome /> : <Login inputs={mentorInputs} />}
+            element={
+              mentor ? (
+                <TmHome />
+              ) : (
+                <Login inputs={mentorInputs} type="mentor" />
+              )
+            }
           />
           <Route
             path="/students/login"
             element={
-              student ? <StudentDashboard /> : <Login inputs={studentInputs} />
+              student ? (
+                <StudentDashboard />
+              ) : (
+                <Login inputs={studentInputs} type="student" />
+              )
             }
           />
-          <Route path="access-account" element={<CombineLogin />} />
+          <Route
+            path="/students/register"
+            element={
+              student ? (
+                <StudentDashboard />
+              ) : (
+                <Register inputs={studentRegisterInputs} type="student" />
+              )
+            }
+          />
+          <Route
+            path="/mentors/register"
+            element={
+              mentor ? (
+                <TmHome />
+              ) : (
+                <Register inputs={mentorRegisterInputs} type="mentor" />
+              )
+            }
+          />
           {student && (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              <Route path="assignments/id/*" element={<StudentAssignment />} />
+              <Route path="assignments/id" element={<StudentAssignment />} />
               <Route path="assignments" element={<Assignment />} />
             </Route>
           )}
@@ -98,7 +119,16 @@ function App() {
               </Route>
               <Route path="grades">
                 <Route index element={<List />} />
-                <Route path=":studentId" element={<Single />} />
+                <Route
+                  path=":studentId"
+                  element={
+                    <Single
+                      data={attemptRows}
+                      columns={attemptColumns}
+                      type="mentors"
+                    />
+                  }
+                />
               </Route>
             </Route>
           )}
