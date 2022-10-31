@@ -16,30 +16,25 @@ const Navbar = () => {
           <div>
             <span>LOGIN</span>
             <ul>
-              <NavLink to='/mentors/login'>
+              <NavLink to="/mentors/login">
                 <li>Login as TM</li>
               </NavLink>
-              <NavLink to='/students/login'>
+              <NavLink to="/students/login">
                 <li>Login as Student</li>
               </NavLink>
-             
             </ul>
           </div>
           <div>
             <span>REGISTER</span>
             <ul>
-              <NavLink to='/mentors/register'>
+              <NavLink to="/mentors/register">
                 <li>Register as TM</li>
               </NavLink>
-              <NavLink to='/students/register'>
+              <NavLink to="/students/register">
                 <li>Register as Student</li>
               </NavLink>
-              
             </ul>
           </div>
-
-          {/* <Button href="/access-account">Login</Button>
-          <Button href="/register">Register</Button> */}
         </Right>
       </Wrapper>
     </Container>

@@ -1,18 +1,34 @@
 import { DataGrid } from "@mui/x-data-grid";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import request from "../Helpers/requestMethods";
 import { deleteAssessment } from "../redux/apiCall";
 
 const AssesmentDataTable = ({ data, columns, type }) => {
+  const mentor = useSelector((state) => state.user?.currentUser?.mentor);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     deleteAssessment(id, dispatch);
   };
 
+  const sendInvite = async (assessment) => {
+    let inviteData = {
+      assessment_id: assessment.id,
+      mentor: mentor,
+      duedate: assessment.duedate,
+    };
+    try {
+      const { data } = await request.post("/invites", inviteData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   let actionColumn1;
   let actionColumn2;
+  let actionColumn3;
 
   switch (type) {
     case "mentor":
@@ -42,6 +58,22 @@ const AssesmentDataTable = ({ data, columns, type }) => {
       ];
       actionColumn2 = [
         {
+          field: "invites",
+          headerName: "Invite Students",
+          width: 100,
+          renderCell: (params) => {
+            return (
+              <ActionCell>
+                <InviteButton onClick={() => sendInvite(params.row)}>
+                  Invite
+                </InviteButton>
+              </ActionCell>
+            );
+          },
+        },
+      ];
+      actionColumn3 = [
+        {
           field: "action",
           headerName: "Action",
           width: 200,
@@ -59,6 +91,7 @@ const AssesmentDataTable = ({ data, columns, type }) => {
           },
         },
       ];
+
       break;
     case "student":
       actionColumn2 = [
@@ -96,7 +129,7 @@ const AssesmentDataTable = ({ data, columns, type }) => {
       </TitleContainer>
       <DataGrid
         rows={data}
-        columns={columns.concat(actionColumn1, actionColumn2)}
+        columns={columns.concat(actionColumn1, actionColumn2, actionColumn3)}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
@@ -139,6 +172,13 @@ const Button = styled.div`
 `;
 
 const DeleteButton = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: crimson;
+  background-color: rgba(255, 0, 0, 0.2);
+  cursor: pointer;
+`;
+const InviteButton = styled.div`
   padding: 2px 5px;
   border-radius: 5px;
   color: crimson;

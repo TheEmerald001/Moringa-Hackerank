@@ -15,12 +15,16 @@ import {
   assessmentColumns,
   assessmentRows,
 } from "../Helpers/assessmentDataTableSource";
+import { attemptColumns, attemptRows } from "../Helpers/attemptsSource";
 import Single from "../pages/Single";
-import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import SingleAssessment from "../pages/SingleAssessment";
 import { studentInputs, mentorInputs } from "../Helpers/loginSource";
+import {
+  studentRegisterInputs,
+  mentorRegisterInputs,
+} from "../Helpers/registerSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
@@ -34,8 +38,17 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
-          
+          <Route
+            index
+            element={
+              <Single
+                data={attemptRows}
+                columns={attemptColumns}
+                type="mentors"
+              />
+            }
+          />
+
           <Route
             path="/mentors/login"
             element={mentor ? <TmHome /> : <Login inputs={mentorInputs} />}
@@ -46,16 +59,35 @@ function App() {
               student ? <StudentDashboard /> : <Login inputs={studentInputs} />
             }
           />
-          <Route path="/students/register" element={student ? <StudentDashboard /> : <Register />} />
+          <Route
+            path="/students/register"
+            element={
+              student ? (
+                <StudentDashboard />
+              ) : (
+                <Register inputs={studentRegisterInputs} type="student" />
+              )
+            }
+          />
+          <Route
+            path="/mentors/register"
+            element={
+              mentor ? (
+                <TmHome />
+              ) : (
+                <Register inputs={mentorRegisterInputs} type="mentor" />
+              )
+            }
+          />
           {student && (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              <Route path="assignments/id" element={<StudentAssignment/>} />
+              <Route path="assignments/id" element={<StudentAssignment />} />
               <Route path="assignments" element={<Assignment />} />
             </Route>
-           )}
+          )}
           {mentor && (
             <Route path="mentors">
               <Route index element={<TmHome />} />
@@ -85,10 +117,19 @@ function App() {
               </Route>
               <Route path="grades">
                 <Route index element={<List />} />
-                <Route path=":studentId" element={<Single />} />
+                <Route
+                  path=":studentId"
+                  element={
+                    <Single
+                      data={attemptRows}
+                      columns={attemptColumns}
+                      type="mentors"
+                    />
+                  }
+                />
               </Route>
             </Route>
-          )} 
+          )}
         </Route>
       </Routes>
     </Router>

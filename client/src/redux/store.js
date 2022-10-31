@@ -4,16 +4,41 @@ import contactReducer from "./contactSlice";
 import mentorReducer from "./mentorSlice";
 import studentReducer from "./studentSlice";
 import assessmentReducer from "./assessmentSlice";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const rootReducers = combineReducers({
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+};
+
+const rootReducer = combineReducers({
   mentor: mentorReducer,
   student: studentReducer,
   quiz: quizReducer,
   assessment: assessmentReducer,
   contact: contactReducer,
 });
-const store = configureStore({
-  reducer: rootReducers,
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-export default store;
+export let persistor = persistStore(store);
