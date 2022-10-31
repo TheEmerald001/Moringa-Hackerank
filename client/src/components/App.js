@@ -38,7 +38,16 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
+          <Route
+            index
+            element={
+              <Single
+                data={attemptRows}
+                columns={attemptColumns}
+                type="mentors"
+              />
+            }
+          />
 
           <Route
             path="/mentors/login"
