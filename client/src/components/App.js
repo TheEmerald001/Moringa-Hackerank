@@ -15,6 +15,7 @@ import {
   assessmentColumns,
   assessmentRows,
 } from "../Helpers/assessmentDataTableSource";
+import { attemptColumns, attemptRows } from "../Helpers/attemptsSource";
 import Single from "../pages/Single";
 import CombineLogin from "../pages/CombineLogin";
 import CreateQuiz from "./CreateQuiz";
@@ -24,6 +25,7 @@ import { studentInputs, mentorInputs } from "../Helpers/loginSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
+import StudentAttempt from "../pages/StudentAttempt";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
@@ -33,7 +35,16 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
+          <Route
+            index
+            element={
+              <StudentAttempt
+                data={attemptRows}
+                columns={attemptColumns}
+                type="mentor"
+              />
+            }
+          />
           <Route
             path="register"
             element={student ? <StudentDashboard /> : <Register />}
@@ -49,15 +60,15 @@ function App() {
             }
           />
           <Route path="access-account" element={<CombineLogin />} />
-          {/* {student && ( */}
+          {student && (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
               <Route path="assignments" element={<Assignment />} />
             </Route>
-          {/* )} */}
-          {/* {mentor && ( */}
+          )}
+          {mentor && (
             <Route path="mentors">
               <Route index element={<TmHome />} />
 
@@ -89,7 +100,7 @@ function App() {
                 <Route path=":studentId" element={<Single />} />
               </Route>
             </Route>
-          {/* )} */}
+          )}
         </Route>
       </Routes>
     </Router>

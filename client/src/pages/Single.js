@@ -2,7 +2,7 @@ import styled from "styled-components";
 import AnswerTable from "../components/AnswerTable";
 import Sidebar from "../components/Sidebar";
 
-const Single = () => {
+const Single = ({ data, columns, type }) => {
   return (
     <Container>
       <Sidebar />
@@ -35,8 +35,8 @@ const Single = () => {
           <Right>Details</Right>
         </Top>
         <Bottom>
-          <ListTitle>Student's Answer</ListTitle>
-          <AnswerTable />
+          <ListTitle>Student's Attempts</ListTitle>
+          <AnswerTable data={data} columns={columns} type={type} />
         </Bottom>
       </Wrapper>
     </Container>
