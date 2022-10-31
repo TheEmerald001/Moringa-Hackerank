@@ -33,7 +33,7 @@ class KataasController < ApplicationController
     end
 
     def find_kataa
-        Kataa.find(params[:id])
+        Kataa.where(assessment_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

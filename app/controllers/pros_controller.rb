@@ -33,7 +33,7 @@ class ProsController < ApplicationController
     end
 
     def find_pro
-        Pro.find(params[:id])
+        Pro.where(assessment_id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+    skip_before_action :authorize ,only: [:create]
+    
     #POST /login
     def create
         user = Student.find_by(username: params[:username]) || user = Tutor.find_by(work_id: params[:work_id])
