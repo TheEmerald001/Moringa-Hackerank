@@ -29,7 +29,7 @@ class ProsController < ApplicationController
     private
 
     def pro_params
-        params.permit(:assessment_id, :question, :instructions, :answer)
+        params.permit(:assessment_id, :question, :instructions)
     end
 
     def find_pro

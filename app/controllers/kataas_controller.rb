@@ -29,7 +29,7 @@ class KataasController < ApplicationController
     private
 
     def kataa_params
-        params.permit(:assessment_id, :question, :instructions,:answer)
+        params.permit(:assessment_id, :question, :instructions)
     end
 
     def find_kataa

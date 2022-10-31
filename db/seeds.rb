@@ -38,21 +38,21 @@ Mcq.create(assessment_id: 2, question: "What is the output of the following code
 
 # Kata Question data
 puts "katas⏳..."
-Kataa.create(assessment_id: 1, question: "Write a program that prints 'Hello World' to the console", instructions: "In the windows alongside, write your solution and click submit", answer:"")
-Kataa.create(assessment_id: 2, question: "Write a program that adds two numbers", instructions: "In the windows alongside, write your solution and click submit",answer:"")
-Kataa.create(assessment_id: 3, question: "Write a program that multiplies two numbers", instructions: "In the windows alongside, write your solution and click submit",answer:"")
-Kataa.create(assessment_id: 1, question: "Write a program that replaces all the vowels in a string with an exclamation mark", instructions: "In the windows alongside, write your solution and click submit",answer:"")
-Kataa.create(assessment_id: 2, question: "Write a program that removes all the vowels in a string", instructions: "In the windows alongside, write your solution and click submit",answer:"")
-Kataa.create(assessment_id: 3, question: "Write a program that returns the sum of all the numbers in an array", instructions: "In the windows alongside, write your solution and click submit",answer:"")
+Kataa.create(assessment_id: 1, question: "Write a program that prints 'Hello World' to the console", instructions: "In the windows alongside, write your solution and click submit")
+Kataa.create(assessment_id: 2, question: "Write a program that adds two numbers", instructions: "In the windows alongside, write your solution and click submit")
+Kataa.create(assessment_id: 3, question: "Write a program that multiplies two numbers", instructions: "In the windows alongside, write your solution and click submit")
+Kataa.create(assessment_id: 1, question: "Write a program that replaces all the vowels in a string with an exclamation mark", instructions: "In the windows alongside, write your solution and click submit")
+Kataa.create(assessment_id: 2, question: "Write a program that removes all the vowels in a string", instructions: "In the windows alongside, write your solution and click submit")
+Kataa.create(assessment_id: 3, question: "Write a program that returns the sum of all the numbers in an array", instructions: "In the windows alongside, write your solution and click submit")
 
 # Code Question data
 puts "Pros⏳..."
-Pro.create(assessment_id: 1, question: "Define security in a development context", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
-Pro.create(assessment_id: 2, question: "Scalability is a key determinant in startups, give your take", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
-Pro.create(assessment_id: 3, question: "Hiring perfection is not attainable. What are pointers to hire quality?", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
-Pro.create(assessment_id: 1, question: "What is your understanding or ORMs in the modern dev world", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
-Pro.create(assessment_id: 2, question: "Discuss the impact of automation in bid data firms", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
-Pro.create(assessment_id: 3, question: "How would you resolve and mitigate an employer employee conflict sparked by policy misinterpretation?", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked",answer:"")
+Pro.create(assessment_id: 1, question: "Define security in a development context", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
+Pro.create(assessment_id: 2, question: "Scalability is a key determinant in startups, give your take", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
+Pro.create(assessment_id: 3, question: "Hiring perfection is not attainable. What are pointers to hire quality?", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
+Pro.create(assessment_id: 1, question: "What is your understanding or ORMs in the modern dev world", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
+Pro.create(assessment_id: 2, question: "Discuss the impact of automation in bid data firms", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
+Pro.create(assessment_id: 3, question: "How would you resolve and mitigate an employer employee conflict sparked by policy misinterpretation?", instructions: "Answer, by providing relevant examples and pointers, your understandin and or tale on the questions asked")
 
 
 # Invitation data
