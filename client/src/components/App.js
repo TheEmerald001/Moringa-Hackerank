@@ -22,6 +22,10 @@ import CreateQuiz from "./CreateQuiz";
 import { useSelector } from "react-redux";
 import SingleAssessment from "../pages/SingleAssessment";
 import { studentInputs, mentorInputs } from "../Helpers/loginSource";
+import {
+  studentRegisterInputs,
+  mentorRegisterInputs,
+} from "../Helpers/registerSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
@@ -46,8 +50,20 @@ function App() {
             }
           />
           <Route
-            path="register"
-            element={student ? <StudentDashboard /> : <Register />}
+            path="students/register"
+            element={
+              student ? (
+                <StudentDashboard />
+              ) : (
+                <Register inputs={studentRegisterInputs} />
+              )
+            }
+          />
+          <Route
+            path="mentors/register"
+            element={
+              mentor ? <TmHome /> : <Register inputs={mentorRegisterInputs} />
+            }
           />
           <Route
             path="/mentors/login"

@@ -3,14 +3,14 @@ import "./signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function Register() {
-  const [inputs, setInputs] = useState({});
+export default function Register({ inputs }) {
+  const [input, setInput] = useState({});
   const [confirmPassword, setConfirmPass] = useState("");
   const [error, setError] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setInputs({ ...inputs, [name]: value });
+    setInput({ ...input, [name]: value });
   };
 
   const handleSubmit = async (event) => {
@@ -18,9 +18,9 @@ export default function Register() {
     setError(false);
 
     try {
-      if (inputs.password === confirmPassword) {
-        // const { data } = await axios.post("/register", inputs);
-        inputs && window.location.replace("/login");
+      if (input.password === confirmPassword) {
+        const { data } = await request.post("/register", input);
+        data && window.location.replace("/login");
       } else {
         setError(true);
       }
@@ -71,7 +71,7 @@ export default function Register() {
           <input
             type="password"
             onChange={(event) => setConfirmPass(event.target.value)}
-            name="confirm password"
+            name="confirm_password"
             placeholder="Confirm Password"
           />
 
