@@ -1,9 +1,11 @@
 import React from "react";
 import StudentSideBar from "../components/StudentSideBar";
-import assignment from "../CSS/_studentAssignments.scss";
+// import assignment from "../CSS/_studentAssignments.scss";
 import { GiSiren } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 function Assignment() {
+  let navigate = useNavigate();
   return (
     <div className="asses">
       <StudentSideBar />
@@ -30,19 +32,19 @@ function Assignment() {
           <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className="view">View</span>
+            <span className="view" onClick={() => {navigate("id")}}>View</span>
           </div>
 
           <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className="view">View</span>
+            <span className="view" onClick={() => {navigate("id")}}>View</span>
           </div>
 
           <div className="iteM">
             <h5>Assesment one</h5>
             <span>Due to 12/10/22</span>
-            <span className="view">View</span>
+            <span className="view" onClick={() => {navigate("id")}}>View</span>
           </div>
         </div>
       </div>

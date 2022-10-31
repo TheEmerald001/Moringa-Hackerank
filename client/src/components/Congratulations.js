@@ -1,5 +1,5 @@
 import React from 'react'
-import congrats from '../CSS/_congratulations.scss'
+// import congrats from '../CSS/_congratulations.scss'
 import confeti from '../assests/images/confeti.png'
 import { useNavigate } from "react-router-dom";
 

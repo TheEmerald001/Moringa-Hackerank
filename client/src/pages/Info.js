@@ -1,6 +1,6 @@
 export const sample =  {
     "quizTitle": "React Quiz Component Demo",
-    "quizSynopsis": "YOu have 10 minutes to do this quiz(Basically into info)",
+    "quizSynopsis": "You have 10 minutes to do this quiz(Basically into info)",
     "nrOfQuestions": "4",
     "appLocale": {
       "landingHeaderText": "<questionLength> Questions",

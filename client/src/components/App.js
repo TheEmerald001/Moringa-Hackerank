@@ -24,6 +24,7 @@ import { studentInputs, mentorInputs } from "../Helpers/loginSource";
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
+import StudentAssignment from "../pages/StudentAssignment";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
@@ -34,10 +35,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route
-            path="register"
-            element={student ? <StudentDashboard /> : <Register />}
-          />
+          
           <Route
             path="/mentors/login"
             element={mentor ? <TmHome /> : <Login inputs={mentorInputs} />}
@@ -48,16 +46,17 @@ function App() {
               student ? <StudentDashboard /> : <Login inputs={studentInputs} />
             }
           />
-          <Route path="access-account" element={<CombineLogin />} />
-          {/* {student && ( */}
+          <Route path="/students/register" element={student ? <StudentDashboard /> : <Register />} />
+          {student && (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
+              <Route path="assignments/id" element={<StudentAssignment/>} />
               <Route path="assignments" element={<Assignment />} />
             </Route>
-          {/* )} */}
-          {/* {mentor && ( */}
+           )}
+          {mentor && (
             <Route path="mentors">
               <Route index element={<TmHome />} />
 
@@ -89,7 +88,7 @@ function App() {
                 <Route path=":studentId" element={<Single />} />
               </Route>
             </Route>
-          {/* )} */}
+          )} 
         </Route>
       </Routes>
     </Router>

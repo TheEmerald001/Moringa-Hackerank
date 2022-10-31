@@ -1,7 +1,7 @@
 import React from 'react'
 import Calendar from 'react-calendar';
 import Sidebar from '../components/Sidebar';
-import dashboard from '../CSS/_dashboard.scss'
+// import dashboard from '../CSS/_dashboard.scss'
 import 'react-calendar/dist/Calendar.css';
 
 function TmHome() {

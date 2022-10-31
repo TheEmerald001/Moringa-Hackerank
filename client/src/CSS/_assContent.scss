@@ -1,0 +1,34 @@
+.obscure{
+    
+    display: flex;
+    flex-direction: row;
+    flex: 7;
+}
+.leFT{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    
+    .miniNav{
+        background-color: khaki;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        span{
+            font-size: 1.2em;
+            &:hover{
+                margin-left: 0.9rem;
+                color: #EA501A;
+            }
+        }
+    }
+}
+.riGHT{
+    padding-left: 20px;
+    width: 90%;
+    height: 90vh;
+    overflow: hidden;
+    overflow-y: auto;
+}

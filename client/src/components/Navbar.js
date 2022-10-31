@@ -13,8 +13,33 @@ const Navbar = () => {
           </NavLink>
         </Left>
         <Right>
-          <Button href="/access-account">Login</Button>
-          <Button href="/register">Register</Button>
+          <div>
+            <span>LOGIN</span>
+            <ul>
+              <NavLink to='/mentors/login'>
+                <li>Login as TM</li>
+              </NavLink>
+              <NavLink to='/students/login'>
+                <li>Login as Student</li>
+              </NavLink>
+             
+            </ul>
+          </div>
+          <div>
+            <span>REGISTER</span>
+            <ul>
+              <NavLink to='/mentors/register'>
+                <li>Register as TM</li>
+              </NavLink>
+              <NavLink to='/students/register'>
+                <li>Register as Student</li>
+              </NavLink>
+              
+            </ul>
+          </div>
+
+          {/* <Button href="/access-account">Login</Button>
+          <Button href="/register">Register</Button> */}
         </Right>
       </Wrapper>
     </Container>
@@ -49,6 +74,47 @@ const Right = styled.article`
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  div{
+    margin-right:3em;
+    postion:relative;
+    cursor:pointer;
+    &:hover{
+      ul{
+        display:block
+      }
+    }
+    span{
+      font-size: 1.1em;
+      
+      
+    }
+
+    ul{
+      
+      display:none;
+      position:absolute;
+      min-width:100px;
+      z-index:2;
+      background-color: #f5f5f5;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      &:first-child{
+        padding-top:8px;
+      }
+      li{
+        
+        padding: 10px 16px;
+        cursor:pointer;
+        min-width:100px;
+        display:block;
+        &:hover{
+          background-color: white;
+          color:#EA501A;
+          transform: scale(1.1 1.5s ease)
+          font-weight: 700;
+        }
+      }
+    }
+  }
 `;
 
 const Button = styled.a`

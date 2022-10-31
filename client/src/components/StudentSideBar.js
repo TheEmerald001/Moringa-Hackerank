@@ -1,5 +1,5 @@
 import React from "react";
-import sidebar from "../CSS/_sidebar.scss";
+// import sidebar from "../CSS/_sidebar.scss";
 import image from "../assests/images/logo.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { AiOutlineHome } from "react-icons/ai";
@@ -7,8 +7,10 @@ import { SlBookOpen } from "react-icons/sl";
 import { BiLogOutCircle } from "react-icons/bi";
 import { BsHexagonHalf } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function StudentSideBar() {
+  const student = useSelector((state) => state.student?.currentUser?.student);
   return (
     <div className="side-nav">
       <Link to="/">
@@ -26,7 +28,7 @@ function StudentSideBar() {
           />
           <AvatarFallback delayMs={600}>CT</AvatarFallback>
         </Avatar>
-        <span>username</span>
+        <span>{student.username}</span>
       </div>
       <div className="icon-container">
         <Link to="/students">
