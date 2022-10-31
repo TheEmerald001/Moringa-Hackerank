@@ -38,7 +38,7 @@ function App() {
           <Route
             index
             element={
-              <StudentAttempt
+              <Single
                 data={attemptRows}
                 columns={attemptColumns}
                 type="mentor"
