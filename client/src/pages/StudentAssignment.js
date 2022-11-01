@@ -14,13 +14,13 @@ function StudentAssignment() {
       <div className='obscure'>
         <div className='leFT'>
           <div className='miniNav'>
-            <Link to='students/assignments/id/quiz'>
+            <Link to='/students/assignments/:id/quiz'>
               <span>QUIZ</span>
             </Link>
-            <Link to='students/assignments/id/kata'>
+            <Link to='/students/assignments/:id/kata'>
               <span>KATA</span>
             </Link>
-            <Link to='students/assignments/id/pros'>
+            <Link to='/students/assignments/:id/pros'>
               <span>PROS</span>
             </Link>
             
@@ -28,14 +28,7 @@ function StudentAssignment() {
           </div>
         </div>
         <div className='riGHT'>
-          {/* <Test/> */}
-          
-           <Routes>
-                 <Route index  path='students/assignments/id/quiz' element={<Squiz/>}/>
-                 <Route  path='students/assignments/id/kata' element={< Skata />}/>
-                 <Route  path='students/assignments/id/pros' element={< Spros />}/>
-            </Routes>
-          
+          <Squiz/>
         </div>
       </div>
     </div>

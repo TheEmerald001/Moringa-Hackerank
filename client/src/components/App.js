@@ -26,6 +26,8 @@ import Trial from "../pages/Trial";
 import New from "./New";
 import StudentAssignment from "../pages/StudentAssignment";
 import Skata from "./Skata";
+import Spros from "./Spros";
+import Squiz from "./Squiz";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
@@ -53,7 +55,14 @@ function App() {
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              <Route path="assignments/id/*"  element={<StudentAssignment />}/>
+              <Route path="assignments/:id"  >
+                {/* <Route index element={<StudentAssignment />}/> */}
+                <Route index element={<Squiz />}/>
+                <Route path="kata"  element={<Skata />}/>
+                <Route path="quiz"  element={<Squiz />}/>
+                <Route path="pros"  element={<Spros />}/>
+              </Route>
+              
               <Route path="assignments" element={<Assignment />} />
             </Route>
            )}
