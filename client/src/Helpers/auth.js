@@ -1,7 +1,13 @@
-export const logoutFunc =()=>{
-    localStorage.removeItem("token")
-}
+import axios from "axios";
 
-export const setupLogin = token =>{
-    localStorage.setItem("token", token)
-}
+export const logoutFunc = async () => {
+  try {
+    await axios.delete("/logout");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const setupLogin = (token) => {
+  localStorage.setItem("token", token);
+};

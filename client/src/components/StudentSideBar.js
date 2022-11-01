@@ -35,7 +35,7 @@ function StudentSideBar() {
           />
           <AvatarFallback delayMs={600}>CT</AvatarFallback>
         </Avatar>
-        <span>{student.username}</span>
+        <span>{student?.username}</span>
       </div>
       <div className="icon-container">
         <Link to="/students">

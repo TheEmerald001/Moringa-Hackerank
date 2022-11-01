@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -10,15 +11,20 @@ import Sidebar from "./Sidebar";
 const New = ({ inputs, title }) => {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
-  const assessment = useSelector((state) =>
-    state.assessment?.assessments.find(
-      (assessment) => assessment.id == assessmentId
-    )
-  );
+  const type = location.pathname.split("/")[4];
+  const [assessment, setAssessment] = useState({});
+
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
+
   const [formData, setFormData] = useState({
     question: "",
     instructions: "",
-    answer: "",
   });
 
   const handleChange = (event) => {
@@ -28,18 +34,32 @@ const New = ({ inputs, title }) => {
       [name]: value,
     });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     let newData = {
       question: formData.question,
       instructions: formData.instructions,
-      answer: formData.answer,
       assessment_id: assessmentId,
     };
-    try {
-      const { data } = await request.post("/kataas", newData);
-    } catch (error) {
-      console.log(error);
+
+    switch (type) {
+      case "new-prose":
+        try {
+          const { data } = await axios.post("/pros", newData);
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+      case "new-kata":
+        try {
+          const { data } = await axios.post("/kataas", newData);
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+      default:
+        break;
     }
   };
 
@@ -50,7 +70,7 @@ const New = ({ inputs, title }) => {
         <Top>
           <Title>{title}</Title>
           <AssessmentContainer>
-            <AssessmentTitle>{assessment.title}</AssessmentTitle>
+            <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>
             <AssessmentDuedate>{assessment.duedate}</AssessmentDuedate>
           </AssessmentContainer>
         </Top>

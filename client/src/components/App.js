@@ -11,10 +11,7 @@ import Login from "../pages/login/Login";
 
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
-import {
-  assessmentColumns,
-  assessmentRows,
-} from "../Helpers/assessmentDataTableSource";
+import { assessmentColumns } from "../Helpers/assessmentDataTableSource";
 import { attemptColumns, attemptRows } from "../Helpers/attemptsSource";
 import Single from "../pages/Single";
 import CreateQuiz from "./CreateQuiz";
@@ -30,10 +27,11 @@ import Trial from "../pages/Trial";
 import New from "./New";
 import StudentAttempt from "../pages/StudentAttempt";
 import StudentAssignment from "../pages/StudentAssignment";
+import SendInvite from "./SendInvite";
 
 function App() {
-  const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
-  const student = useSelector((state) => state.student?.currentUser?.student);
+  const mentor = useSelector((state) => state.mentor?.currentUser?.work_id);
+  const student = useSelector((state) => state.student?.currentUser?.username);
 
   return (
     <Router>
@@ -98,11 +96,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Assessments
-                      data={assessmentRows}
-                      columns={assessmentColumns}
-                      type="mentor"
-                    />
+                    <Assessments columns={assessmentColumns} type="mentor" />
                   }
                 />
                 <Route path=":id" element={<SingleAssessment />} />
@@ -116,6 +110,7 @@ function App() {
                   path=":id/new-prose"
                   element={<New inputs={proseInputs} title="Add New Prose" />}
                 />
+                <Route path=":id/new-invite" element={<SendInvite />} />
               </Route>
               <Route path="grades">
                 <Route index element={<List />} />

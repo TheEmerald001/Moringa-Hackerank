@@ -29,6 +29,15 @@ class StudentsController < ApplicationController
         end
     end
 
+# /search for a student
+def search
+    student = Student.find_by(email: params[:email])
+    if student
+        render json: {"student_id" => student.id, "name" => student.lastname}
+    else
+        render json: { errors: "student not in batch" }
+    end
+end
     #DELETE /student/id
     def destroy
         student= Student.find(params[:id])

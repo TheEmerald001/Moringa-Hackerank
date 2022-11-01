@@ -1,5 +1,10 @@
 class McqsController < ApplicationController
 
+    def index
+        
+        render json: Mcq.all
+    end
+
     # GET /mcqs/1
     def show
         mcq = find_mcq
@@ -29,7 +34,7 @@ class McqsController < ApplicationController
     private
 
     def mcq_params
-        params.permit(:assessment_id, :question, {:answers => []}, :correct_answers)
+        params.permit(:assessment_id, :question, {:answers => []}, :correct_answer)
     end 
 
     def find_mcq

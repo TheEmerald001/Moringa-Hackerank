@@ -2,6 +2,11 @@ class AssessmentsController < ApplicationController
 
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
+    # GET 
+    def index
+        
+        render json: Assessment.all
+    end
     # GET /assessments/1
     def show
         assessment = find_assessment
@@ -35,7 +40,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def find_assessment
-        Assessment.where(tutor_id: params[:id])
+        Assessment.find_by(id: params[:id])
     end
 
     def render_unprocessable_entity_response(exception)

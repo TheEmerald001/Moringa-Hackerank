@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SingleAssessmentSidebar from "../components/SingleAssessmentSidebar";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { shuffleAnswers } from "../Helpers/shuffleAnswers";
+import axios from "axios";
 
 const SingleAssessment = () => {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
   const [isQuizExpanded, setQuizExpanded] = useState(false);
-  const assessment = useSelector((state) =>
-    state.assessment?.assessments.find(
-      (assessment) => assessment.id == assessmentId
-    )
-  );
+  const [assessment, setAssessment] = useState({});
+  // const assessment = useSelector((state) =>
+  //   state.assessment?.assessments.find(
+  //     (assessment) => assessment.id == assessmentId
+  //   )
+  // );
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
 
   const expand = () => {
     setQuizExpanded((isQuizExpanded) => !isQuizExpanded);
@@ -26,7 +35,7 @@ const SingleAssessment = () => {
       <AssessmentContainer>
         <Top>
           <AssessmentInfo>
-            <AssessmentTitle>{assessment?.title}</AssessmentTitle>
+            <AssessmentTitle>{assessment?.assessment_title}</AssessmentTitle>
             <AssessmentDuedate>{assessment?.duedate}</AssessmentDuedate>
           </AssessmentInfo>
         </Top>
@@ -41,7 +50,7 @@ const SingleAssessment = () => {
             </Task>
             {isQuizExpanded && (
               <QuestionContainer>
-                {assessment?.quizzes?.map((question) => {
+                {assessment?.mcqs?.map((question) => {
                   const answers = shuffleAnswers(question);
                   return (
                     <Question>

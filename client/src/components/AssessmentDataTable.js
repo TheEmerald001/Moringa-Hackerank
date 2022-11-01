@@ -6,24 +6,10 @@ import request from "../Helpers/requestMethods";
 import { deleteAssessment } from "../redux/apiCall";
 
 const AssesmentDataTable = ({ data, columns, type }) => {
-  const mentor = useSelector((state) => state.user?.currentUser?.mentor);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     deleteAssessment(id, dispatch);
-  };
-
-  const sendInvite = async (assessment) => {
-    let inviteData = {
-      assessment_id: assessment.id,
-      mentor: mentor,
-      duedate: assessment.duedate,
-    };
-    try {
-      const { data } = await request.post("/invites", inviteData);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   let actionColumn1;
@@ -64,9 +50,9 @@ const AssesmentDataTable = ({ data, columns, type }) => {
           renderCell: (params) => {
             return (
               <ActionCell>
-                <InviteButton onClick={() => sendInvite(params.row)}>
-                  Invite
-                </InviteButton>
+                <Link to={`/mentors/assessments/${params.row.id}/new-invite`}>
+                  <InviteButton>Invite</InviteButton>
+                </Link>
               </ActionCell>
             );
           },

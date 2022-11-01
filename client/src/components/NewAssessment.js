@@ -11,28 +11,33 @@ const NewAssessment = () => {
   });
 
   const dispatch = useDispatch();
-  const mentor = useSelector((state) => state.user?.currentUser?.mentor);
+  const mentor = useSelector((state) => state.mentor?.currentUser);
   const { message, isFetching } = useSelector((state) => state.contact);
 
   const assessmentChange = (event) => {
     const { name, value } = event.target;
-    setAssessmentInputs({ ...assessmentInputs, [name]: value, mentor: mentor });
+
+    setAssessmentInputs({ ...assessmentInputs, [name]: value });
   };
 
   const onAddAssessment = (event) => {
     event.preventDefault();
-    let emailData = {
-      title: assessmentInputs.title,
-      duedate: assessmentInputs.duedate,
+    let assessmentData = {
+      assessment_title: assessmentInputs.title,
+      tutor_id: mentor.id,
     };
+    // let emailData = {
+    //   title: assessmentInputs.title,
+    //   duedate: assessmentInputs.duedate,
+    // };
     try {
-      addAssessment(assessmentInputs, dispatch);
-      submitContactReqToServer(dispatch, emailData);
+      addAssessment(assessmentData, dispatch);
+      // submitContactReqToServer(dispatch, emailData);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(message);
+
   return (
     <Container>
       <Sidebar />
@@ -67,7 +72,7 @@ const NewAssessment = () => {
         </Top>
         {message.message && (
           <AssessmentMessage>
-            <Message>{message.message}</Message>
+            {/* <Message>{message.message}</Message> */}
           </AssessmentMessage>
         )}
       </Wrapper>

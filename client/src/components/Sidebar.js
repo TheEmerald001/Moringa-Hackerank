@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logMentorOut } from "../redux/mentorSlice";
 
 function Sidebar() {
-  const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
+  const mentor = useSelector((state) => state.mentor?.currentUser);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -36,7 +36,10 @@ function Sidebar() {
           />
           <AvatarFallback delayMs={600}>CT</AvatarFallback>
         </Avatar>
-        <span>{mentor?.first_name}</span>
+        <span>
+          {mentor?.firstname}
+          {mentor?.lastname}
+        </span>
       </div>
       <div className="icon-container">
         <Link to="/mentors">

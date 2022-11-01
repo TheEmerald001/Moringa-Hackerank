@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :mcqs, only: [:show, :create, :update, :destroy]
   resources :pros, only: [:show, :create, :update, :destroy]
   resources :kataas, only: [:show, :create, :update, :destroy]
-  resources :assessments, only: [:show, :create, :update, :destroy]
+  resources :assessments, only: [:index, :show, :create, :update, :destroy]
   resources :students,only:[:index,:show,:create,:destroy] do
     resources :assessments, only: [:show, :create, :update, :destroy]
   end
@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   post "/signup" , to: "tutors#create"
   get "/me", to:"tutors#show"
   get '/tutors', to: "tutors#index"
-  
+  #custom route for serching students
+post "/inviteme", to: "students#search"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

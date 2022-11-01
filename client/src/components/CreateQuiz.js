@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -11,17 +12,21 @@ const CreateQuiz = () => {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
-  const assessment = useSelector((state) =>
-    state.assessment?.assessments.find(
-      (assessment) => assessment.id == assessmentId
-    )
-  );
+  const [assessment, setAssessment] = useState({});
+
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
+
   const [formData, setFormData] = useState({
     question: "",
     answer1: "",
     answer2: "",
     answer3: "",
-    time: null,
   });
 
   const handleChange = (event) => {
@@ -37,11 +42,11 @@ const CreateQuiz = () => {
       question: formData.question,
       answers: [formData.answer1, formData.answer2, formData.answer3],
       correct_answer: correctAnswer,
-      time_limit: formData.time,
       assessment_id: assessmentId,
     };
+
     try {
-      const { data } = await request.post("/quizzes", quizData);
+      const { data } = await axios.post("/mcqs", quizData);
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +59,7 @@ const CreateQuiz = () => {
         <Top>
           <Title>Add New Quiz</Title>
           <AssessmentContainer>
-            <AssessmentTitle>{assessment.title}</AssessmentTitle>
+            <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>
             <AssessmentDuedate>{assessment.duedate}</AssessmentDuedate>
           </AssessmentContainer>
         </Top>
@@ -106,19 +111,9 @@ const CreateQuiz = () => {
               <Input
                 id="correct"
                 type="text"
-                name="correct"
+                name="correct_answer"
                 onChange={(e) => setCorrectAnswer(e.target.value)}
                 placeholder="Correct Answer"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="time">Time Limit</Label>
-              <Input
-                id="time"
-                type="number"
-                name="time"
-                onChange={handleChange}
-                placeholder="Time Limit"
               />
             </FormInput>
 

@@ -47,8 +47,8 @@ export const submitContactReqToServer = async (dispatch, mail) => {
 export const loginMentor = async (dispatch, user) => {
   dispatch(loginMentorStart());
   try {
-    const { data } = await request.post("/mentors/login", user);
-    setupLogin(data?.token);
+    const { data } = await axios.post("/login", user);
+    // setupLogin(data?.token);
     dispatch(loginMentorSuccess(data));
   } catch (error) {
     dispatch(loginMentorFailure());
@@ -59,8 +59,8 @@ export const loginMentor = async (dispatch, user) => {
 export const loginStudent = async (dispatch, user) => {
   dispatch(loginStudentStart());
   try {
-    const { data } = await request.post("/students/login", user);
-    setupLogin(data?.token);
+    const { data } = await axios.post("/login", user);
+    // setupLogin(data?.token);
     dispatch(loginStudentSuccess(data));
   } catch (error) {
     dispatch(loginStudentFailure());
@@ -71,7 +71,7 @@ export const loginStudent = async (dispatch, user) => {
 export const addAssessment = async (assessment, dispatch) => {
   dispatch(addAssessmentStart());
   try {
-    const { data } = await request.post(`/assessments`, assessment);
+    const { data } = await axios.post(`/assessments`, assessment);
     dispatch(addAssessmentSuccess(data));
   } catch (err) {
     dispatch(addAssessmentFailure());

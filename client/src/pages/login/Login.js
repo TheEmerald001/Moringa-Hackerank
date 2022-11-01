@@ -3,22 +3,46 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginMentor, loginStudent } from "../../redux/apiCall";
+import axios from "axios";
+import { loginMentorSuccess } from "../../redux/mentorSlice";
+import { loginStudentSuccess } from "../../redux/studentSlice";
 
 export default function Login({ inputs, type }) {
-  const [data, setData] = useState({});
+  const [input, setinput] = useState({});
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setData({ ...data, [name]: value });
+    setinput({ ...input, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (data.work_id) {
-      loginMentor(dispatch, data);
-    } else {
-      loginStudent(dispatch, data);
+    if (input.work_id) {
+      try {
+        const { data } = await axios.post("/login", input);
+        // setupLogin(input?.token);
+        dispatch(loginMentorSuccess(data));
+      } catch (error) {
+        // dispatch(loginMentorFailure());
+        // logoutFunc();
+        console.log(error);
+      }
+      // loginMentor(dispatch, input);
+      // // window.location.replace("/mentors");
+    }
+    if (input.username) {
+      try {
+        const { data } = await axios.post("/login", input);
+        // setupLogin(input?.token);
+        dispatch(loginStudentSuccess(data));
+      } catch (error) {
+        // dispatch(loginMentorFailure());
+        // logoutFunc();
+        console.log(error);
+      }
+      // loginStudent(dispatch, input);
+      // // window.location.replace("/students");
     }
   };
 

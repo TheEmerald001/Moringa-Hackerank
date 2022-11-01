@@ -13,13 +13,6 @@ export const kataInputs = [
     name: "instructions",
     placeholder: "Instructions",
   },
-  {
-    id: 3,
-    label: "Answer",
-    type: "text",
-    name: "answer",
-    placeholder: "Answer",
-  },
 ];
 
 export const proseInputs = [
@@ -36,12 +29,5 @@ export const proseInputs = [
     type: "text",
     name: "instructions",
     placeholder: "Instructions",
-  },
-  {
-    id: 3,
-    label: "Answer",
-    type: "text",
-    name: "answer",
-    placeholder: "Answer",
   },
 ];

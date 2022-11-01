@@ -21,7 +21,7 @@ class KataasController < ApplicationController
 
     # DELETE /kataas/1
     def destroy
-        kataa = find_kataa
+        kataa = Kataa.find_by(id: params[:id])
         kataa.destroy
         head :no_content
     end
