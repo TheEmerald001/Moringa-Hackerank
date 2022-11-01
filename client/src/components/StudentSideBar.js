@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logStudentOut } from "../redux/studentSlice";
 
 function StudentSideBar() {
-  const student = useSelector((state) => state.student?.currentUser?.student);
+  const student = useSelector((state) => state.student?.currentUser);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {

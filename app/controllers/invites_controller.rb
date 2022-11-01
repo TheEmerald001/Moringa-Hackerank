@@ -1,6 +1,14 @@
 class InvitesController < ApplicationController
+    skip_before_action :authorize, only: [:index, :update]
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+
+    
+
+    def index
+        invites = Invite.all
+        render json: invites
+    end
 
     #GET/invites/id
     def show
@@ -19,7 +27,7 @@ class InvitesController < ApplicationController
      #PATCH/invites/id
      def update
         invite = Invite.find(params[:id])
-        invite.update!(invite_params)
+        invite.update!(status: params[:status])
         render json: { message: 'You have accepted the invitation, Click attempt when ready to attempt' }, status: 201
     rescue ActiveRecord::RecordInvalid => e
         render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity

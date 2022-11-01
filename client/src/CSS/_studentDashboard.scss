@@ -55,9 +55,25 @@
                         cursor: pointer;
                     }
                 }
+                .feedback{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                }
+                
+                .attempt{
+                    border: 1px solid green;
+                    font-size: 1.0em;
+                    color: green;
+                    padding: 10px;
+                    cursor: pointer;
+
+                }
             }
         }
     }
+
+
 
 
 
