@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import DataTable from "../components/DataTable";
 import Sidebar from "../components/Sidebar";
+import request from "../Helpers/requestMethods";
 
 const List = () => {
+  const [listOfStudents, setList] = useState([]);
+
+  useEffect(() => {
+    const getStudents = async () => {
+      const { data } = await request.get("/students");
+      setList(data);
+    };
+    getStudents();
+  }, []);
+
   return (
     <Container>
       <Sidebar />
       <Wrapper>
-        <DataTable />
+        <DataTable data={listOfStudents} />
       </Wrapper>
     </Container>
   );

@@ -3,16 +3,16 @@ import { DataGrid } from "@mui/x-data-grid";
 import { studentColumns, studentRows } from "../Helpers/dataTableSource";
 import { Link } from "react-router-dom";
 
-const DataTable = () => {
+const DataTable = ({ data }) => {
   const actionColumn = [
     {
       field: "action",
       headerName: "Action",
       width: 100,
-      renderCell: () => {
+      renderCell: (params) => {
         return (
           <ActionCell>
-            <Link to={``}>
+            <Link to={`/mentors/grades/${params.row.id}`}>
               <ViewButton>View</ViewButton>
             </Link>
           </ActionCell>
@@ -35,7 +35,7 @@ const DataTable = () => {
         </Filter>
       </FilterContainer>
       <DataGrid
-        rows={studentRows}
+        rows={data}
         columns={studentColumns.concat(actionColumn)}
         pageSize={5}
         rowsPerPageOptions={[5]}

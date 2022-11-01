@@ -52,7 +52,7 @@ export default function Register({ inputs, type }) {
       <div className="register-wrapper">
         <h1 className="header">Create Account</h1>
         <p>Fill in the form below</p>
-        <div className="registerForm" onSubmit={handleSubmit}>
+        <div className="registerForm">
           {inputs?.map((input) => (
             <input
               key={input.id}
@@ -76,7 +76,9 @@ export default function Register({ inputs, type }) {
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </span>
-          <button className="fluid ui button blue">CREATE</button>
+          <button onClick={handleSubmit} className="fluid ui button blue">
+            CREATE
+          </button>
           <span className="mt-2">
             Have an account?{" "}
             <Link to={link} className="log">

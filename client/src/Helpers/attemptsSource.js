@@ -1,15 +1,15 @@
 // temporary data
 
 export const attemptColumns = [
-  { field: "id", headerName: "Attempt Id", width: 100 },
+  { field: "id", headerName: "Invite Id", width: 100 },
   {
-    field: "attempt",
-    headerName: "Attempt Title",
+    field: "duedate",
+    headerName: "Due Date",
     width: 250,
   },
   {
-    field: "assessment",
-    headerName: "Assessment Title",
+    field: "accepted",
+    headerName: "Status",
     width: 250,
   },
   { field: "score", headerName: "Score", width: 100 },

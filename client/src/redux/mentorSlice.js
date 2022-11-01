@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { logoutFunc } from "../Helpers/auth.js";
 const mentorSlice = createSlice({
   name: "mentor",
   initialState: {
@@ -19,9 +19,17 @@ const mentorSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    logMentorOut: (state) => {
+      state.currentUser = null;
+      logoutFunc();
+    },
   },
 });
 
-export const { loginMentorStart, loginMentorSuccess, loginMentorFailure } =
-  mentorSlice.actions;
+export const {
+  loginMentorStart,
+  loginMentorSuccess,
+  loginMentorFailure,
+  logMentorOut,
+} = mentorSlice.actions;
 export default mentorSlice.reducer;

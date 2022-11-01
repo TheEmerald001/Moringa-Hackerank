@@ -7,11 +7,18 @@ import { FaBook } from "react-icons/fa";
 import { MdGrade } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logMentorOut } from "../redux/mentorSlice";
 
 function Sidebar() {
-  const mentor = useSelector((state) => state.mentor?.currentUser?.mentor)
-  
+  const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logMentorOut());
+    window.location.replace("/");
+  };
+
   return (
     <div className="side-nav">
       <Link to="/">
@@ -29,7 +36,7 @@ function Sidebar() {
           />
           <AvatarFallback delayMs={600}>CT</AvatarFallback>
         </Avatar>
-        <span>{mentor.first_name}</span>
+        <span>{mentor?.first_name}</span>
       </div>
       <div className="icon-container">
         <Link to="/mentors">
@@ -51,7 +58,7 @@ function Sidebar() {
           </div>
         </Link>
       </div>
-      <div className="logof">
+      <div onClick={handleLogOut} className="logof">
         {" "}
         <BiLogOutCircle className="iCON" /> <span>Logout</span>
       </div>

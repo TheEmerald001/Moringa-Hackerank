@@ -120,7 +120,7 @@ function App() {
               <Route path="grades">
                 <Route index element={<List />} />
                 <Route
-                  path=":studentId"
+                  path=":id"
                   element={
                     <Single
                       data={attemptRows}

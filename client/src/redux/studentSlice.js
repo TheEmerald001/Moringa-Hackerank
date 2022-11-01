@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { logoutFunc } from "../Helpers/auth.js";
 
 const studentSlice = createSlice({
   name: "student",
@@ -19,9 +20,17 @@ const studentSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    logStudentOut: (state) => {
+      state.currentUser = null;
+      logoutFunc();
+    },
   },
 });
 
-export const { loginStudentStart, loginStudentSuccess, loginStudentFailure } =
-  studentSlice.actions;
+export const {
+  loginStudentStart,
+  loginStudentSuccess,
+  loginStudentFailure,
+  logStudentOut,
+} = studentSlice.actions;
 export default studentSlice.reducer;
