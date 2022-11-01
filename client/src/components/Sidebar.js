@@ -29,18 +29,24 @@ function Sidebar() {
         <span>username</span>
       </div>
       <div className="icon-container">
-        <div className="iCon">
-          {" "}
-          <AiFillHome className="iCON" /> <span>Home</span>
-        </div>
-        <div className="iCon">
-          {" "}
-          <FaBook className="iCON" /> <span>Assesments</span>
-        </div>
-        <div className="iCon">
-          {" "}
-          <MdGrade className="iCON" /> <span>Grades</span>
-        </div>
+        <Link to="/mentors">
+          <div className="iCon">
+            <AiFillHome className="iCON" /> <span>Home</span>
+          </div>
+        </Link>
+        <Link to="/mentors/assessments">
+          <div className="iCon">
+            {" "}
+            <FaBook className="iCON" /> <span>Assesments</span>
+          </div>
+        </Link>
+
+        <Link to="/mentors/grades">
+          <div className="iCon">
+            {" "}
+            <MdGrade className="iCON" /> <span>Grades</span>
+          </div>
+        </Link>
       </div>
       <div className="logof">
         {" "}
