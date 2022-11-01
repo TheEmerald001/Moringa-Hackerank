@@ -38,16 +38,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/">
-          <Route
-            index
-            element={
-              <Single
-                data={attemptRows}
-                columns={attemptColumns}
-                type="mentors"
-              />
-            }
-          />
+          <Route index element={<Home />} />
 
           <Route
             path="/mentors/login"
@@ -128,7 +119,7 @@ function App() {
               <Route path="grades">
                 <Route index element={<List />} />
                 <Route
-                  path=":studentId"
+                  path=":id"
                   element={
                     <Single
                       data={attemptRows}

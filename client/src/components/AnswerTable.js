@@ -20,15 +20,15 @@ const AnswerTable = ({ data, columns, type }) => {
           renderCell: (params) => {
             return (
               <ActionCell>
-                <Link to={`/mentors/assessments/${params.row.id}/new-quiz`}>
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-quiz`}>
                   <Button title="quiz">Quiz</Button>
                 </Link>
 
-                <Link to={`/mentors/assessments/${params.row.id}/new-kata`}>
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-kata`}>
                   <Button title="kata">Kata</Button>
                 </Link>
 
-                <Link to={`/mentors/assessments/${params.row.id}/new-prose`}>
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-prose`}>
                   <Button title="prose">Prose</Button>
                 </Link>
               </ActionCell>
@@ -44,7 +44,7 @@ const AnswerTable = ({ data, columns, type }) => {
           renderCell: (params) => {
             return (
               <ActionCell>
-                <DeleteButton onClick={() => handleDelete(params.row.id)}>
+                <DeleteButton onClick={() => handleDelete(params?.row?.id)}>
                   Delete
                 </DeleteButton>
               </ActionCell>
@@ -62,10 +62,10 @@ const AnswerTable = ({ data, columns, type }) => {
           renderCell: (params) => {
             return (
               <ActionCell>
-                <Link to={`/students/assessments/${params.row.id}`}>
+                <Link to={`/students/assessments/${params?.row?.id}`}>
                   <ViewButton>View</ViewButton>
                 </Link>
-                <DeleteButton onClick={() => handleDelete(params.row.id)}>
+                <DeleteButton onClick={() => handleDelete(params?.row?.id)}>
                   Delete
                 </DeleteButton>
               </ActionCell>
@@ -84,7 +84,7 @@ const AnswerTable = ({ data, columns, type }) => {
       <TitleContainer>Jon Snow's Attempts</TitleContainer>
       <DataGrid
         rows={data}
-        columns={columns.concat(actionColumn1, actionColumn2)}
+        columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
