@@ -11,8 +11,14 @@ export const studentColumns = [
     renderCell: (params) => {
       return (
         <CellWithImage>
-          <Image src={params.row.image} alt="avatar" />
-          {params.row.fullName}
+          <Image
+            src={
+              params.row.image ||
+              "https://e7.pngegg.com/pngimages/1011/702/png-clipart-computer-icons-graphics-iconfinder-administrator-icon-monochrome-black.png"
+            }
+            alt="avatar"
+          />
+          {params.row.username}
         </CellWithImage>
       );
     },
@@ -25,7 +31,7 @@ export const studentColumns = [
 export const studentRows = [
   {
     id: 1,
-    fullName: "Snow Jon",
+    username: "Snow Jon",
     age: 25,
     email: "snow@email.com",
     score: 10,
@@ -34,7 +40,7 @@ export const studentRows = [
   },
   {
     id: 2,
-    fullName: "Lannister Cersei",
+    username: "Lannister Cersei",
     age: 22,
     email: "cersei@email.com",
     score: 8,
@@ -43,7 +49,7 @@ export const studentRows = [
   },
   {
     id: 3,
-    fullName: "Lannister Jaime",
+    username: "Lannister Jaime",
     age: 25,
     email: "jamie@email.com",
     score: 7,
@@ -52,7 +58,7 @@ export const studentRows = [
   },
   {
     id: 4,
-    fullName: "Stark Arya",
+    username: "Stark Arya",
     age: 26,
     email: "arya@email.com",
     score: 10,
@@ -60,7 +66,7 @@ export const studentRows = [
   },
   {
     id: 5,
-    fullName: "Targaryen Daenerys",
+    username: "Targaryen Daenerys",
     age: null,
     email: "dany@email.com",
     score: 8,

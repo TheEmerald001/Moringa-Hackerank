@@ -1,10 +1,10 @@
-.container {
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoringaschool.com%2Fwp-content%2Fthemes%2Fmoringa%2Fpublic%2Fimages%2Flogo-white.png&f=1&nofb=1&ipt=f92396d7bd1e04f82eb9b5422129b401c260567a04bc08c11a8bcb99899ae48d&ipo=images');
-}
+/* body {
+  background-color: white;
+} */
 
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
    display: flex;
    background: linear-gradient(
     rgba(16,31,60, 0.5),
@@ -30,6 +30,9 @@ background-size: cover;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  
 }
 
 input {
@@ -44,9 +47,10 @@ input {
 .input {
   flex: 1;
   border: 1px solid #0a1f4e;
-  min-width: 40%;
+  width: 100%;
   margin: 10px 0;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 

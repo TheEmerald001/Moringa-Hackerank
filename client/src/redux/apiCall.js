@@ -2,11 +2,27 @@ import axios from "axios";
 import request from "../Helpers/requestMethods";
 import { setupLogin } from "../Helpers/auth.js";
 import { logoutFunc } from "../Helpers/auth.js";
-import { loginStart, loginSuccess, loginFailure } from "./userSlice";
+import {
+  loginMentorStart,
+  loginMentorSuccess,
+  loginMentorFailure,
+} from "./mentorSlice";
+import {
+  loginStudentStart,
+  loginStudentSuccess,
+  loginStudentFailure,
+} from "./studentSlice";
+
 import {
   addAssessmentStart,
   addAssessmentSuccess,
   addAssessmentFailure,
+  getAssessmentsStart,
+  getAssessmentsSuccess,
+  getAssessmentsFailure,
+  deleteAssessmentStart,
+  deleteAssessmentSuccess,
+  deleteAssessmentFailure,
 } from "./assessmentSlice";
 import {
   makeApiRequestToSendEmail,
@@ -28,14 +44,26 @@ export const submitContactReqToServer = async (dispatch, mail) => {
   }
 };
 
-export const login = async (dispatch, user) => {
-  dispatch(loginStart());
+export const loginMentor = async (dispatch, user) => {
+  dispatch(loginMentorStart());
   try {
-    const { data } = await request.post("/login", user);
+    const { data } = await request.post("/mentors/login", user);
     setupLogin(data?.token);
-    dispatch(loginSuccess(data));
+    dispatch(loginMentorSuccess(data));
   } catch (error) {
-    dispatch(loginFailure());
+    dispatch(loginMentorFailure());
+    logoutFunc();
+  }
+};
+
+export const loginStudent = async (dispatch, user) => {
+  dispatch(loginStudentStart());
+  try {
+    const { data } = await request.post("/students/login", user);
+    setupLogin(data?.token);
+    dispatch(loginStudentSuccess(data));
+  } catch (error) {
+    dispatch(loginStudentFailure());
     logoutFunc();
   }
 };
@@ -47,5 +75,25 @@ export const addAssessment = async (assessment, dispatch) => {
     dispatch(addAssessmentSuccess(data));
   } catch (err) {
     dispatch(addAssessmentFailure());
+  }
+};
+
+export const getAssessments = async (dispatch) => {
+  dispatch(getAssessmentsStart());
+  try {
+    const { data } = await request.get("/assessments");
+    dispatch(getAssessmentsSuccess(data));
+  } catch (error) {
+    dispatch(getAssessmentsFailure());
+  }
+};
+
+export const deleteAssessment = async (id, dispatch) => {
+  dispatch(deleteAssessmentStart());
+  try {
+    await request.delete(`/assessments/${id}`);
+    dispatch(deleteAssessmentSuccess(id));
+  } catch (err) {
+    dispatch(deleteAssessmentFailure());
   }
 };

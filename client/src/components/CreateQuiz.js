@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+
 import styled from "styled-components";
 import request from "../Helpers/requestMethods";
-import { addAssessment } from "../redux/apiCall";
-import { addQuiz } from "../redux/assessmentSlice";
+
 import Sidebar from "./Sidebar";
 
 const CreateQuiz = () => {
-  const [assessment, setAssessment] = useState({});
   const [correctAnswer, setCorrectAnswer] = useState("");
-
-  const [assessmentInputs, setAssessmentInputs] = useState({
-    title: "",
-    duedate: "",
-  });
-
+  const location = useLocation();
+  const assessmentId = location.pathname.split("/")[3];
+  const assessment = useSelector((state) =>
+    state.assessment?.assessments.find(
+      (assessment) => assessment.id == assessmentId
+    )
+  );
   const [formData, setFormData] = useState({
     question: "",
     answer1: "",
@@ -23,24 +24,6 @@ const CreateQuiz = () => {
     time: null,
   });
 
-  const dispatch = useDispatch();
-  const mentor = useSelector((state) => state.user?.currentUser?.mentor);
-
-  const assessmentChange = (event) => {
-    const { name, value } = event.target;
-    setAssessmentInputs({ ...assessmentInputs, [name]: value, mentor: mentor });
-  };
-
-  const onAddAssessment = (event) => {
-    event.preventDefault();
-    try {
-      addAssessment(assessmentInputs, dispatch);
-    } catch (error) {
-      console.log(error);
-    }
-
-    // setAssessment(assessmentInputs);
-  };
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -55,12 +38,10 @@ const CreateQuiz = () => {
       answers: [formData.answer1, formData.answer2, formData.answer3],
       correct_answer: correctAnswer,
       time_limit: formData.time,
-      assessment_id: 4,
+      assessment_id: assessmentId,
     };
     try {
       const { data } = await request.post("/quizzes", quizData);
-
-      dispatch(addQuiz(data));
     } catch (error) {
       console.log(error);
     }
@@ -72,34 +53,12 @@ const CreateQuiz = () => {
       <Wrapper>
         <Top>
           <Title>Add New Quiz</Title>
-          <TopForm onSubmit={onAddAssessment}>
-            <FormInput>
-              <Label htmlFor="assTitle">Assessment Title</Label>
-              <Input
-                id="assTitle"
-                type="text"
-                name="title"
-                value={assessmentInputs.title}
-                onChange={assessmentChange}
-                placeholder="Title"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="duedate">Due Date</Label>
-              <Input
-                id="duedate"
-                type="datetime-local"
-                name="duedate"
-                value={assessmentInputs.duedate}
-                style={{ cursor: "pointer" }}
-                onChange={assessmentChange}
-                placeholder="Due Date"
-              />
-            </FormInput>
-            <Button>Add</Button>
-          </TopForm>
+          <AssessmentContainer>
+            <AssessmentTitle>{assessment.title}</AssessmentTitle>
+            <AssessmentDuedate>{assessment.duedate}</AssessmentDuedate>
+          </AssessmentContainer>
         </Top>
-        <AssessmentNumber>Assesment No: 1</AssessmentNumber>
+
         <Bottom>
           <BottomForm onSubmit={handleSubmit}>
             <FormInput>
@@ -207,14 +166,15 @@ const Bottom = styled.section`
   -moz-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
 `;
 
-const TopForm = styled.form`
+const AssessmentContainer = styled.article`
   display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  box-sizing: border-box;
+  align-items: center;
+  margin: 1.25rem 0;
+  width: 40%;
+  justify-content: space-between;
 `;
+const AssessmentTitle = styled.article``;
+const AssessmentDuedate = styled.article``;
 
 const BottomForm = styled.form`
   display: flex;
@@ -247,14 +207,9 @@ const Button = styled.button`
   width: 9.375rem;
   padding: 10px;
   border: none;
-  background-color: #1896ff;
-  color: #eff8ff;
+  background-color: #ea501a;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
-`;
-
-const AssessmentNumber = styled.div`
-  color: gray;
-  font-size: 1rem;
-  margin: 1.25rem;
 `;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import question from '../CSS/_question.scss'
+// import question from '../CSS/_question.scss'
 import { GoDiffAdded } from 'react-icons/go';
 
 function Quiz({page, setPage, setMcq}) {

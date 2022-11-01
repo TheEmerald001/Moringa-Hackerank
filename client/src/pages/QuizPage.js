@@ -49,7 +49,7 @@ const Container = styled.main`
 `;
 
 const QuizContainer = styled.section`
-  flex: 8;
+  flex: 7;
   display: flex;
   align-items: center;
   flex-direction: column;

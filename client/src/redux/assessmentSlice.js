@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const assignmentSlice = createSlice({
   name: "assessment",
   initialState: {
-    assessments: null,
+    assessments: [],
     isFetching: false,
     error: false,
   },
@@ -20,12 +20,35 @@ const assignmentSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    addQuiz: (state, action) => {
-      const quizzes = state.assessments.quizzes.push(action.payload);
-      state.assessments = {
-        ...state.assessments,
-        quizzes,
-      };
+    // Get all assessments
+    getAssessmentsStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    getAssessmentsSuccess: (state, action) => {
+      state.isFetching = false;
+      state.assessments = action.payload;
+    },
+    getAssessmentsFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
+    // Delete assessment
+    deleteAssessmentStart: (state) => {
+      state.isFetching = true;
+    },
+    deleteAssessmentSuccess: (state, action) => {
+      state.isFetching = false;
+      state.assessments.splice(
+        state.assessments.findIndex(
+          (assessment) => assessment.id === action.payload
+        ),
+        1
+      );
+    },
+    deleteAssessmentFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
     },
   },
 });
@@ -34,6 +57,11 @@ export const {
   addAssessmentStart,
   addAssessmentSuccess,
   addAssessmentFailure,
-  addQuiz,
+  getAssessmentsStart,
+  getAssessmentsSuccess,
+  getAssessmentsFailure,
+  deleteAssessmentStart,
+  deleteAssessmentSuccess,
+  deleteAssessmentFailure,
 } = assignmentSlice.actions;
 export default assignmentSlice.reducer;

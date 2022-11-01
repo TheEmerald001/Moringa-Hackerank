@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import MoringaImage from "../assests/images/hackerank.png";
+import MoringaImage from "../assests/images/pair1.png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
@@ -21,14 +21,14 @@ const Home = () => {
             <MentorLogin>
               <LoginTitle>For Mentors</LoginTitle>
               <LoginText>Create and grade assessments for students</LoginText>
-              <Link to="/login">
+              <Link to="/mentors/login">
                 <Button position="first">LOGIN AS MENTOR</Button>
               </Link>
             </MentorLogin>
             <StudentLogin>
               <LoginTitle>For Students</LoginTitle>
               <LoginText>Take assessments and get reviewed</LoginText>
-              <Link to="/studentlogin">
+              <Link to="/students/login">
                 <Button position="last">LOGIN AS STUDENT</Button>
               </Link>
             </StudentLogin>

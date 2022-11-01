@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import assesment from "../CSS/_assesment.scss";
+// import assesment from "../CSS/_assesment.scss";
 import { BiBookAdd } from "react-icons/bi";
 import { MdModeEditOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";

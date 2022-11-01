@@ -1,76 +1,155 @@
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { DataGrid } from "@mui/x-data-grid";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-const rows = [
-  {
-    id: 1,
-    name: "What is the sum of ...",
-    answer: 2100999,
-    correctAnswer: 2100999,
-    answerThree: 59003,
-    answerFour: 290013,
-  },
-  {
-    id: 2,
-    name: "What is the sum of ...",
-    answer: 900,
-    correctAnswer: 9099,
-    answerThree: 5003,
-    answerFour: 2013,
-  },
-  {
-    id: 3,
-    name: "What is the sum of ...",
-    answer: 5,
-    correctAnswer: 5,
-    answerThree: 59,
-    answerFour: 3,
-  },
-  {
-    id: 4,
-    name: "What is the sum of ...",
-    answer: 9,
-    correctAnswer: 2100999,
-    answerThree: 9003,
-    answerFour: 290013,
-  },
-];
+const AnswerTable = ({ data, columns, type }) => {
+  const handleDelete = (id) => {
+    // deleteAssessment(id, dispatch);
+  };
+  let actionColumn1;
+  let actionColumn2;
 
-const AnswerTable = () => {
+  switch (type) {
+    case "mentor":
+      actionColumn1 = [
+        {
+          field: "view",
+          headerName: "View",
+          width: 200,
+          renderCell: (params) => {
+            return (
+              <ActionCell>
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-quiz`}>
+                  <Button title="quiz">Quiz</Button>
+                </Link>
+
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-kata`}>
+                  <Button title="kata">Kata</Button>
+                </Link>
+
+                <Link to={`/mentors/assessments/${params?.row?.id}/new-prose`}>
+                  <Button title="prose">Prose</Button>
+                </Link>
+              </ActionCell>
+            );
+          },
+        },
+      ];
+      actionColumn2 = [
+        {
+          field: "action",
+          headerName: "Action",
+          width: 200,
+          renderCell: (params) => {
+            return (
+              <ActionCell>
+                <DeleteButton onClick={() => handleDelete(params?.row?.id)}>
+                  Delete
+                </DeleteButton>
+              </ActionCell>
+            );
+          },
+        },
+      ];
+      break;
+    case "student":
+      actionColumn2 = [
+        {
+          field: "action",
+          headerName: "Action",
+          width: 200,
+          renderCell: (params) => {
+            return (
+              <ActionCell>
+                <Link to={`/students/assessments/${params?.row?.id}`}>
+                  <ViewButton>View</ViewButton>
+                </Link>
+                <DeleteButton onClick={() => handleDelete(params?.row?.id)}>
+                  Delete
+                </DeleteButton>
+              </ActionCell>
+            );
+          },
+        },
+      ];
+      break;
+
+    default:
+      break;
+  }
+
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Question Id</TableCell>
-            <TableCell>Questions</TableCell>
-            <TableCell>Selected Answer</TableCell>
-            <TableCell>Correct Answer</TableCell>
-            <TableCell>Answer Three</TableCell>
-            <TableCell>Answer Four</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.answer}</TableCell>
-              <TableCell>{row.correctAnswer}</TableCell>
-              <TableCell>{row.answerThree}</TableCell>
-              <TableCell>{row.answerFour}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Container>
+      <TitleContainer>Jon Snow's Attempts</TitleContainer>
+      <DataGrid
+        rows={data}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
+    </Container>
   );
 };
 
 export default AnswerTable;
+
+const Container = styled.main`
+  height: 37.5rem;
+  padding: 1.25rem;
+`;
+
+const ActionCell = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const ViewButton = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: green;
+  background-color: rgba(0, 128, 0, 0.2);
+  cursor: pointer;
+`;
+const Button = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: ${(props) =>
+    props.title === "quiz"
+      ? "#ea501a"
+      : props.title === "kata"
+      ? "#101f3c"
+      : "teal"};
+  cursor: pointer;
+`;
+
+const DeleteButton = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: crimson;
+  background-color: rgba(255, 0, 0, 0.2);
+  cursor: pointer;
+`;
+
+const TitleContainer = styled.article`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.25rem;
+  color: gray;
+  margin-bottom: 1.25rem;
+`;
+
+const LinkText = styled.span`
+  color: green;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+`;

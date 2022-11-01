@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import AnswerTable from "../components/AnswerTable";
 import Sidebar from "../components/Sidebar";
+import request from "../Helpers/requestMethods";
 
-const Single = () => {
+const Single = ({ columns, type }) => {
+  const location = useLocation();
+  const studentId = location.pathname.split("/")[3];
+  const [student, setStudent] = useState({});
+
+  useEffect(() => {
+    const getStudent = async () => {
+      try {
+        const { data } = await request.get(`/students/${studentId}`);
+        setStudent(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getStudent();
+  }, [studentId]);
+
+  console.log(student);
+
   return (
     <Container>
       <Sidebar />
@@ -16,14 +37,16 @@ const Single = () => {
                 alt="studentImg"
               />
               <Details>
-                <StudentName>Daenerys Targeryen</StudentName>
+                <StudentName>
+                  {student.first_name} {student.last_name}
+                </StudentName>
                 <DetailStudent>
                   <StudentKey>Email:</StudentKey>
-                  <StudentValue>dany@email.com</StudentValue>
+                  <StudentValue>{student.email}</StudentValue>
                 </DetailStudent>
                 <DetailStudent>
-                  <StudentKey>Age:</StudentKey>
-                  <StudentValue>26</StudentValue>
+                  <StudentKey>Username:</StudentKey>
+                  <StudentValue>{student.username}</StudentValue>
                 </DetailStudent>
                 <DetailStudent>
                   <StudentKey>Score:</StudentKey>
@@ -35,8 +58,8 @@ const Single = () => {
           <Right>Details</Right>
         </Top>
         <Bottom>
-          <ListTitle>Student's Answer</ListTitle>
-          <AnswerTable />
+          <ListTitle>Student's Attempts</ListTitle>
+          <AnswerTable data={student?.invites} columns={columns} type={type} />
         </Bottom>
       </Wrapper>
     </Container>
