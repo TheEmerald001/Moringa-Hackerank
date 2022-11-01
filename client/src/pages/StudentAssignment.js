@@ -1,4 +1,8 @@
 import React from 'react'
+import { Link, Route, Router, Routes } from 'react-router-dom'
+import Skata from '../components/Skata'
+import Spros from '../components/Spros'
+import Squiz from '../components/Squiz'
 import StudentSideBar from '../components/StudentSideBar'
 import Test from './Test'
 
@@ -10,13 +14,21 @@ function StudentAssignment() {
       <div className='obscure'>
         <div className='leFT'>
           <div className='miniNav'>
-            <span>QUIZ</span>
-            <span>KATA</span>
-            <span>PROS</span>
+            <Link to='/students/assignments/:id/quiz'>
+              <span>QUIZ</span>
+            </Link>
+            <Link to='/students/assignments/:id/kata'>
+              <span>KATA</span>
+            </Link>
+            <Link to='/students/assignments/:id/pros'>
+              <span>PROS</span>
+            </Link>
+            
+            
           </div>
         </div>
         <div className='riGHT'>
-          <Test/>
+          <Squiz/>
         </div>
       </div>
     </div>

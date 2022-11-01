@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import request from "../../Helpers/requestMethods";
 
 export default function Register() {
   const [inputs, setInputs] = useState({});
@@ -19,8 +20,8 @@ export default function Register() {
 
     try {
       if (inputs.password === confirmPassword) {
-        // const { data } = await axios.post("/register", inputs);
-        inputs && window.location.replace("/login");
+        const { data } = await request.post("/students/register", inputs);
+        inputs && window.location.replace("/students/login");
       } else {
         setError(true);
       }
@@ -83,7 +84,7 @@ export default function Register() {
           <button className="fluid ui button blue">CREATE</button>
           <span className="mt-2">
             Have an account?{" "}
-            <Link to="/login" className="log">
+            <Link to="/students/login" className="log">
               Login
             </Link>
           </span>
