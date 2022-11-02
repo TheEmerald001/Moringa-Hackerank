@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { addAssessment, submitContactReqToServer } from "../redux/apiCall";
 import Sidebar from "./Sidebar";
@@ -12,7 +13,7 @@ const NewAssessment = () => {
 
   const dispatch = useDispatch();
   const mentor = useSelector((state) => state.mentor?.currentUser);
-  const { message, isFetching } = useSelector((state) => state.contact);
+  const [success, setSuccess] = useState(false);
 
   const assessmentChange = (event) => {
     const { name, value } = event.target;
@@ -33,6 +34,11 @@ const NewAssessment = () => {
     try {
       addAssessment(assessmentData, dispatch);
       // submitContactReqToServer(dispatch, emailData);
+      setSuccess((success) => !success);
+      setAssessmentInputs({
+        title: "",
+        duedate: "",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -44,36 +50,48 @@ const NewAssessment = () => {
       <Wrapper>
         <Top>
           <Title>Add New Assessment</Title>
-          <TopForm onSubmit={onAddAssessment}>
-            <FormInput>
-              <Label htmlFor="assTitle">Assessment Title</Label>
-              <Input
-                id="assTitle"
-                type="text"
-                name="title"
-                value={assessmentInputs.title}
-                onChange={assessmentChange}
-                placeholder="Title"
-              />
-            </FormInput>
-            <FormInput>
-              <Label htmlFor="duedate">Due Date</Label>
-              <Input
-                id="duedate"
-                type="datetime-local"
-                name="duedate"
-                value={assessmentInputs.duedate}
-                onChange={assessmentChange}
-                placeholder="Due Date"
-              />
-            </FormInput>
-            <Button disabled={isFetching}>Add</Button>
-          </TopForm>
+          {!success && (
+            <TopForm onSubmit={onAddAssessment}>
+              <FormInput>
+                <Label htmlFor="assTitle">Assessment Title</Label>
+                <Input
+                  id="assTitle"
+                  type="text"
+                  name="title"
+                  value={assessmentInputs.title}
+                  onChange={assessmentChange}
+                  placeholder="Title"
+                />
+              </FormInput>
+              <FormInput>
+                <Label htmlFor="duedate">Due Date</Label>
+                <Input
+                  id="duedate"
+                  type="datetime-local"
+                  name="duedate"
+                  value={assessmentInputs.duedate}
+                  onChange={assessmentChange}
+                  placeholder="Due Date"
+                />
+              </FormInput>
+              <Button>Add</Button>
+            </TopForm>
+          )}
         </Top>
-        {message.message && (
-          <AssessmentMessage>
-            {/* <Message>{message.message}</Message> */}
-          </AssessmentMessage>
+        {success && (
+          <MessageWrapper>
+            <Message>
+              Action has been performed successfully, send{" "}
+              <MessageButton onClick={() => setSuccess(!success)}>
+                another
+              </MessageButton>{" "}
+              or go{" "}
+              <Link to="/mentors/assessments">
+                <MessageButton>back</MessageButton>
+              </Link>{" "}
+              to assessments?
+            </Message>
+          </MessageWrapper>
         )}
       </Wrapper>
     </Container>
@@ -178,10 +196,28 @@ const AssessmentMessage = styled.div`
   margin: 1.25rem;
 `;
 
+const MessageWrapper = styled.main`
+  font-size: 1rem;
+  margin: 1.25rem;
+`;
+
 const Message = styled.div`
   padding: 1.25rem;
   border: 1px solid teal;
-  color: green;
-  font-weight: 600;
   border-radius: 5px;
+`;
+
+const MessageButton = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid #101f3c;
+  &:last-child {
+    color: #ea501a;
+    border-bottom: 1px solid #ea501a;
+  }
+  &:hover {
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: scale(1.1 1.5s ease);
+  }
 `;
