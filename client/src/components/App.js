@@ -82,7 +82,7 @@ function App() {
           />
           {student && (
             <Route path="students">
-              <Route index element={<Skata />} />
+              <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
               <Route path="assignments/id" element={<StudentAssignment />} />
