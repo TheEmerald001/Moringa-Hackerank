@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "styled-components";
-import request from "../Helpers/requestMethods";
 import Sidebar from "./Sidebar";
-import Success from "./Success";
 
 const SendInvite = () => {
   const location = useLocation();
@@ -14,6 +12,7 @@ const SendInvite = () => {
   const mentor = useSelector((state) => state.mentor?.currentUser);
   const [email, setEmail] = useState("");
   const [student, setStudent] = useState(null);
+  const [success, setSuccess] = useState(false);
   const [assessment, setAssessment] = useState({});
 
   useEffect(() => {
@@ -48,6 +47,9 @@ const SendInvite = () => {
 
     try {
       const { data } = await axios.post("/invites", inviteData);
+      setSuccess((success) => !success);
+      setEmail("");
+      setStudent(null);
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +75,7 @@ const SendInvite = () => {
                 <Input
                   type="text"
                   name="email"
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Student Email"
                 />
@@ -90,7 +93,21 @@ const SendInvite = () => {
               </>
             )}
           </BottomForm>
-          <Success />
+          {success && (
+            <MessageWrapper>
+              <Message>
+                Action has been performed successfully, send{" "}
+                <MessageButton onClick={() => setSuccess(!success)}>
+                  another
+                </MessageButton>{" "}
+                or go{" "}
+                <Link to="/mentors/assessments">
+                  <MessageButton>back</MessageButton>
+                </Link>{" "}
+                to assessments?
+              </Message>
+            </MessageWrapper>
+          )}
         </Bottom>
       </Wrapper>
     </Container>
@@ -129,6 +146,8 @@ const Bottom = styled.section`
   margin: 1.25rem auto;
   width: 70%;
   display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   -moz-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -156,6 +175,7 @@ const BottomForm = styled.form`
   width: 100%;
   flex-wrap: wrap;
   flex-direction: column;
+  box-sizing: border-box;
   gap: 1.875rem;
   justify-content: space-around;
 `;
@@ -203,4 +223,30 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+`;
+
+const MessageWrapper = styled.main`
+  font-size: 1rem;
+  margin: 1.25rem;
+`;
+
+const Message = styled.div`
+  padding: 1.25rem;
+  border: 1px solid teal;
+  border-radius: 5px;
+`;
+
+const MessageButton = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid #101f3c;
+  &:last-child {
+    color: #ea501a;
+    border-bottom: 1px solid #ea501a;
+  }
+  &:hover {
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: scale(1.1 1.5s ease);
+  }
 `;
