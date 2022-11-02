@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "styled-components";
 import Sidebar from "./Sidebar";
+import { addAssessment, submitContactReqToServer } from "../redux/apiCall";
 
 const SendInvite = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const SendInvite = () => {
   const [student, setStudent] = useState(null);
   const [success, setSuccess] = useState(false);
   const [assessment, setAssessment] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getAssessment = async () => {
@@ -45,8 +47,16 @@ const SendInvite = () => {
       student_id: student.student_id,
     };
 
+    let emailDetails = {
+      title: assessment.assessment_title,
+      email: email,
+      firstname: mentor?.firstname,
+      lastname: mentor?.lastname,
+    };
+
     try {
       const { data } = await axios.post("/invites", inviteData);
+      submitContactReqToServer(dispatch, emailDetails);
       setSuccess((success) => !success);
       setEmail("");
       setStudent(null);

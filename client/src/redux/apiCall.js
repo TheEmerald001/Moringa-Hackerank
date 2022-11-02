@@ -36,7 +36,7 @@ export const submitContactReqToServer = async (dispatch, mail) => {
   dispatch(makeApiRequestToSendEmail());
   dispatch(clearEmailDetails());
   try {
-    const { data } = await axios.post("http://localhost:3000/contacts", mail);
+    const { data } = await axios.post("/contacts", mail);
     dispatch(receivedResponse());
     dispatch(sentEmail(data));
   } catch (error) {
