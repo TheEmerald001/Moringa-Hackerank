@@ -28,6 +28,9 @@ import New from "./New";
 import StudentAttempt from "../pages/StudentAttempt";
 import StudentAssignment from "../pages/StudentAssignment";
 import SendInvite from "./SendInvite";
+import Skata from "./Skata";
+import Squiz from "./Squiz";
+import Spros from "./Spros";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.work_id);
@@ -84,8 +87,19 @@ function App() {
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              <Route path="assignments/id" element={<StudentAssignment />} />
-              <Route path="assignments" element={<Assignment />} />
+              
+
+            
+
+              <Route path="assessments"  >
+                <Route index element={<Assignment />} />
+                <Route path=":id" element={<StudentAssignment />}/>
+                <Route path=':id/kata' element={<Skata />} />
+                <Route path=':id/quiz' element={<Squiz />} />
+                <Route path=':id/pros' element={<Spros />} />
+                
+
+              </Route>
             </Route>
           )}
           {mentor && (

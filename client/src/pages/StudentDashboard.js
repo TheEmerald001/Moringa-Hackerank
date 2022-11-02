@@ -5,6 +5,7 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { MdGrade } from 'react-icons/md';
 import axios from 'axios';
 import data from '../Helpers/data';
+import { Link } from 'react-router-dom';
 
 function StudentDashboard() {
   const [invites, setInvites] = useState([])
@@ -69,7 +70,10 @@ function StudentDashboard() {
                  {accepted && 
                  <div className='feedback'>
                    <p className='message'>{message.message}</p>
-                   <span className='attempt'>Attempt</span>
+                   <Link to={`/students/assessments/${invite.assessment.id}`}>
+                    <span className='attempt'>Attempt</span>
+                   </Link>
+                   
                   </div>}
                </div>
 

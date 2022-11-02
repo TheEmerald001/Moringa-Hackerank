@@ -1,43 +1,56 @@
-// import React from 'react'
-// import { Link, Route, Router, Routes } from 'react-router-dom'
-// import Skata from '../components/Skata'
-// import Spros from '../components/Spros'
-// import Squiz from '../components/Squiz'
-// import StudentSideBar from '../components/StudentSideBar'
-// import Test from './Test'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, Route, Router, Routes, useLocation } from 'react-router-dom'
+import Skata from '../components/Skata'
+import Spros from '../components/Spros'
+import Squiz from '../components/Squiz'
+import StudentSideBar from '../components/StudentSideBar'
+import Test from './Test'
 
-// function StudentAssignment() {
-//   return (
-//     <div className='asses'>
-//       <StudentSideBar/>
-//       <div className='obscure'>
-//         <div className='leFT'>
-//           <div className='miniNav'>
-//             <Link to='students/assignments/id/quiz'>
-//               <span>QUIZ</span>
-//             </Link>
-//             <Link to='students/assignments/id/kata'>
-//               <span>KATA</span>
-//             </Link>
-//             <Link to='students/assignments/id/pros'>
-//               <span>PROS</span>
-//             </Link>
+function StudentAssignment() {
+ const location = useLocation();
+ const assessmentId = location.pathname.split("/")[3];
+  
+  const [assessment, setAssessment] = useState({});
+ 
+  useEffect(() => {
+    const getAssessment = async () => {
+    const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
 
-//           </div>
-//         </div>
-//         <div className='riGHT'>
-//           {/* <Test/> */}
+  
+  return (
+    <div className='asses'>
+      <StudentSideBar/>
+      <div className='obscure'>
+        <div className='leFT'>
+          <div className='miniNav'>
+            <Link to={`/students/assessments/${assessmentId}/quiz`}>
+              <span>QUIZ</span>
+            </Link>
+            <Link to={`/students/assessments/${assessmentId}/kata`}>
+              <span>KATA</span>
+            </Link>
+            <Link to={`/students/assessments/${assessmentId}/pros`}>
+              <span>PROS</span>
+            </Link>
 
-//            <Routes>
-//                  <Route index  path='students/assignments/id/quiz' element={<Squiz/>}/>
-//                  <Route  path='students/assignments/id/kata' element={< Skata />}/>
-//                  <Route  path='students/assignments/id/pros' element={< Spros />}/>
-//             </Routes>
+          </div>
+        </div>
+        <div className='riGHT'>
+          <div>
+              YOu can attempt either the mcq ,kata or pros
+          </div>
 
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
+         
 
-// export default StudentAssignment
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default StudentAssignment

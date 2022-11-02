@@ -43,10 +43,10 @@ function StudentSideBar() {
             <AiOutlineHome className="iCON" /> <span>Home</span>
           </div>
         </Link>
-        <Link to="/students/assignments">
+        <Link to="/students/assessments">
           <div className="iCon">
             {" "}
-            <SlBookOpen className="iCON" /> <span>Assesments</span>
+            <SlBookOpen className="iCON" /> <span>Assessments</span>
           </div>
         </Link>
 

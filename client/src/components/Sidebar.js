@@ -50,7 +50,7 @@ function Sidebar() {
         <Link to="/mentors/assessments">
           <div className="iCon">
             {" "}
-            <FaBook className="iCON" /> <span>Assesments</span>
+            <FaBook className="iCON" /> <span>Assessments</span>
           </div>
         </Link>
 

@@ -12,11 +12,7 @@ const SingleAssessment = () => {
   const assessmentId = location.pathname.split("/")[3];
   const [isQuizExpanded, setQuizExpanded] = useState(false);
   const [assessment, setAssessment] = useState({});
-  // const assessment = useSelector((state) =>
-  //   state.assessment?.assessments.find(
-  //     (assessment) => assessment.id == assessmentId
-  //   )
-  // );
+ 
   useEffect(() => {
     const getAssessment = async () => {
       const { data } = await axios.get(`/assessments/${assessmentId}`);

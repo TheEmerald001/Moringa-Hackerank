@@ -14,7 +14,7 @@ function QuizPage() {
 
   return (
     <Container>
-      <StudentSideBar />
+      
       <QuizContainer>
         {showResults && (
           <Results>

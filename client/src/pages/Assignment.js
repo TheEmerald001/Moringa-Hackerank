@@ -1,6 +1,6 @@
 import React from "react";
 import StudentSideBar from "../components/StudentSideBar";
-// import assignment from "../CSS/_studentAssignments.scss";
+
 import { GiSiren } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 

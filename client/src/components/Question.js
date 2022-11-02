@@ -6,7 +6,7 @@ import { selectedAnswer } from "../redux/quizSlice";
 
 const Question = () => {
   const { questions, currentQuestionIndex, answers, currentAnswer } =
-    useSelector((state) => state.quiz);
+  useSelector((state) => state.quiz);
   const dispatch = useDispatch();
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -21,8 +21,8 @@ const Question = () => {
         </TopWrapper>
       </Top>
       <Bottom>
-        <Prompt>{currentQuestion.question}</Prompt>
-        {answers.map((answer, index) => (
+        <Prompt>{currentQuestion?.question}</Prompt>
+        {answers?.map((answer, index) => (
           <Answer
             key={index}
             answerText={answer}
