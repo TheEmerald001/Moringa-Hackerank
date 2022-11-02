@@ -10,7 +10,7 @@ function Spros() {
   const [assessment, setAssessment] = useState({});
   const [answers , setAnswers] = useState('')
 
-  const formdata = '';
+  // const formdata = '';
  
   useEffect(() => {
     const getAssessment = async () => {
@@ -23,10 +23,10 @@ function Spros() {
   function handleChange (event){
     const name = event.target.name;
     let value = event.target.value;
-    // setAnswers({
-    //     ...newInfo,
-    //     [name]:value
-    // })
+    setAnswers({
+        ...answers,
+        [name]:value
+    })
 }
   return (
     <div className="asses">

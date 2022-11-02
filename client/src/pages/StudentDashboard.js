@@ -36,6 +36,18 @@ function StudentDashboard() {
      }
      
    }
+   const createAttempt= async (invite) =>{
+     let attemptData = {assessment_id:invite.assessment.id, tutor_id:invite.tutor.id, student_id:invite.student.id}
+     console.log(invite)
+    //  try {
+    //    const {data} = await axios.post(`/attempts`,attemptData )
+    //   //  data && window.location.replace(`/students/assessments/${invite.assessment.id}`);
+    //   console.log(data)
+       
+    //  } catch (error) {
+    //    console.log(error)
+    //  }
+   }
   
   return (
     <div className="asses">
@@ -62,7 +74,7 @@ function StudentDashboard() {
                    {!accepted &&
                    <>
                     <span className='accepT' onClick={()=> acceptInvite(invite.id)}>Accept</span>
-                    <span className='declinE'>Decline</span>
+                    <span onClick={()=> createAttempt(invite)} className='declinE'>Decline</span>
                    </>
                   
                    }
@@ -70,10 +82,10 @@ function StudentDashboard() {
                  {accepted && 
                  <div className='feedback'>
                    <p className='message'>{message.message}</p>
-                   <Link to={`/students/assessments/${invite.assessment.id}`}>
-                    <span className='attempt'>Attempt</span>
-                   </Link>
                    
+                    <span className='attempt'>Attempt</span>
+                  
+                  
                   </div>}
                </div>
 

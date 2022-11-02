@@ -2,6 +2,18 @@ class Attempt < ApplicationRecord
   belongs_to :assessment
   belongs_to :student
   belongs_to :tutor
+  
+  
+
+  attribute :mcq_score, default: 0
+  attribute :pros_score, default: 0
+  attribute :kataa_score, default: 0
+  attribute :kataa_response, default: nil
+  attribute :pro_response, default: nil
+  attribute :tutor_feedback, default: nil
+  attribute :total, default: 0
+  
+
 
   #mcqs_score
   def mcqs_score
