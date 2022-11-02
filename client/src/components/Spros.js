@@ -53,7 +53,7 @@ function Spros() {
         </div>
         <div className="riGHT">
           <div>
-            <div className="TItle">Assesment Name</div>
+            <div className="TItle">{assessment?.assessment_title}</div>
             <div className="qCONTAINER">
             {assessment?.pros?.map((pros)=>(
                  <div className="qONE">

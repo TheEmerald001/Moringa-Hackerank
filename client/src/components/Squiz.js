@@ -43,8 +43,8 @@ function Squiz() {
           </div>
         </div>
         <div className="riGHT">
-          <div className="TItle">Assesment Name</div>
-          <QuizPage />
+          <div className="TItle">{assessment?.assessment_title}</div>
+          <QuizPage assessment={assessment}/>
         </div>
       </div>
     </div>

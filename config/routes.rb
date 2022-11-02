@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   #custom route for serching students
 post "/inviteme", to: "students#search"
   # Routing logic: fallback requests for React Router.
+  # Custom routes for displaying assessments
+  # get "/my_assessments", to: "invites#student_assessment"
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
+

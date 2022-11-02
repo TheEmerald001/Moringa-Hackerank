@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import StudentSideBar from "../components/StudentSideBar";
-
 import { GiSiren } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Assignment() {
   let navigate = useNavigate();
+  const [assessments, setAssessment] =useState({})
+
+  useEffect(()=>{
+    
+    const getAssessments = async()=>{
+      const {data} = await axios.get('/invites')
+      setAssessment(data) 
+    }
+    getAssessments ();
+  },[])
+
+
   return (
     <div className="asses">
       <StudentSideBar />
@@ -29,11 +41,21 @@ function Assignment() {
           <h1>ASSESSMENTS</h1>
         </div>
         <div className="assesContainer">
-          <div className="iteM">
-            <h5>Assesment one</h5>
-            <span>Due to 12/10/22</span>
-            <span className="view" onClick={() => {navigate("id")}}>View</span>
-          </div>
+
+          {/* {assessments.map((assessment)=> (
+            <div className="iteM" key={assessment?.id}>
+              <h5>{assessment?.assessment_title}</h5>
+              <span>Due to 12/10/22</span>
+              <span className="view" onClick={() => {navigate("id")}}>View</span>
+            </div>
+
+          // ))} */}
+          <div className="iteM" >
+              <h5>Assessment one</h5>
+              <span>Due to 12/10/22</span>
+              <span className="view" onClick={() => {navigate("id")}}>View</span>
+            </div>
+          
 
          
 

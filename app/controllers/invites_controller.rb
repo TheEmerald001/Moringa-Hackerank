@@ -28,10 +28,14 @@ class InvitesController < ApplicationController
      def update
         invite = Invite.find(params[:id])
         invite.update!(status: params[:status])
-        render json: { message: 'You have accepted the invitation, Click attempt when ready to attempt' }, status: 201
+        render json: invite
+        # render json:  { message: 'You have accepted the invitation, Click attempt when ready to attempt' } 
     rescue ActiveRecord::RecordInvalid => e
         render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end
+
+
+   
 
     #DELETE /invites/id
     def destroy
@@ -39,6 +43,8 @@ class InvitesController < ApplicationController
         invite.destroy
         head :not_found
     end
+
+   
 
     private
 

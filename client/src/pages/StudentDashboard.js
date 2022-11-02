@@ -12,24 +12,24 @@ function StudentDashboard() {
   const [message, setMessage] = useState({})
   const [accepted, setAccepted] =useState(false)
   
+  
 
   useEffect(()=>{
     
     const getInvites = async()=>{
       const {data} = await axios.get('/invites')
       setInvites(data)
-      
     }
     getInvites();
   },[])
    const acceptInvite = async (id)=> {
      let updateStatus= {status:true}
-
      setAccepted(true)
+
      try {
        
        const {data} = await axios.patch(`/invites/${id}`, updateStatus)
-       setMessage(data)
+       setMessage(data.message.message)
        
      } catch (error) {
        console.log(error)
@@ -38,7 +38,7 @@ function StudentDashboard() {
    }
    const createAttempt= async (invite) =>{
      let attemptData = {assessment_id:invite.assessment.id, tutor_id:invite.tutor.id, student_id:invite.student.id}
-     console.log(invite)
+    //  console.log(invite)
     //  try {
     //    const {data} = await axios.post(`/attempts`,attemptData )
     //   //  data && window.location.replace(`/students/assessments/${invite.assessment.id}`);

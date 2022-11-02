@@ -5,7 +5,7 @@ import Question from "../components/Question";
 import StudentSideBar from "../components/StudentSideBar";
 import { nextQuestion, restart } from "../redux/quizSlice";
 
-function QuizPage() {
+function QuizPage({assessment}) {
   const { questions, correctAnswerCount, showResults } = useSelector(
     (state) => state.quiz
   );
