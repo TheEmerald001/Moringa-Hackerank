@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { addAssessment, submitContactReqToServer } from "../redux/apiCall";
+import { addAssessment } from "../redux/apiCall";
 import Sidebar from "./Sidebar";
 
 const NewAssessment = () => {
@@ -27,13 +27,10 @@ const NewAssessment = () => {
       assessment_title: assessmentInputs.title,
       tutor_id: mentor.id,
     };
-    // let emailData = {
-    //   title: assessmentInputs.title,
-    //   duedate: assessmentInputs.duedate,
-    // };
+
     try {
       addAssessment(assessmentData, dispatch);
-      // submitContactReqToServer(dispatch, emailData);
+
       setSuccess((success) => !success);
       setAssessmentInputs({
         title: "",

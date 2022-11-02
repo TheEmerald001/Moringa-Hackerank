@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :assessments, only: [:show, :create, :update, :destroy]
   end
   resources :tutors, only: [:show, :create]
-
+ 
+  resources "contacts", only: [ :create]
+  
   #custome route for assessment
   get "/attemptlist/:assessment_id",to: "attempts#order"
 

@@ -87,18 +87,13 @@ function App() {
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              
 
-            
-
-              <Route path="assessments"  >
+              <Route path="assessments">
                 <Route index element={<Assignment />} />
-                <Route path=":id" element={<StudentAssignment />}/>
-                <Route path=':id/kata' element={<Skata />} />
-                <Route path=':id/quiz' element={<Squiz />} />
-                <Route path=':id/pros' element={<Spros />} />
-                
-
+                <Route path=":id" element={<StudentAssignment />} />
+                <Route path=":id/kata" element={<Skata />} />
+                <Route path=":id/quiz" element={<Squiz />} />
+                <Route path=":id/pros" element={<Spros />} />
               </Route>
             </Route>
           )}
