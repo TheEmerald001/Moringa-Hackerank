@@ -10,7 +10,7 @@ function Spros() {
   const [assessment, setAssessment] = useState({});
   const [answers , setAnswers] = useState('')
 
-  // const formdata = '';
+  
  
   useEffect(() => {
     const getAssessment = async () => {
@@ -21,13 +21,18 @@ function Spros() {
   }, [assessmentId]);
 
   function handleChange (event){
-    const name = event.target.name;
+    // const name = event.target.name;
     let value = event.target.value;
-    setAnswers({
-        ...answers,
-        [name]:value
-    })
-}
+    setAnswers(value)
+ }
+ function handleSubmit (event){
+   
+   try {
+     
+   } catch (error) {
+     
+   }
+ }
   return (
     <div className="asses">
       <StudentSideBar/>
@@ -60,7 +65,7 @@ function Spros() {
               
             </div>
             <div className="qBUtton">
-              <span>SUBMIT</span>
+              <span onClick={handleSubmit}>SUBMIT</span>
             </div>
           </div>
         </div>

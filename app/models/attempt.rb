@@ -5,6 +5,7 @@ class Attempt < ApplicationRecord
   
   
 
+
   attribute :mcq_score, default: 0
   attribute :pros_score, default: 0
   attribute :kataa_score, default: 0
