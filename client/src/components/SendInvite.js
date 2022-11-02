@@ -12,7 +12,7 @@ const SendInvite = () => {
   const assessmentId = location.pathname.split("/")[3];
   const mentor = useSelector((state) => state.mentor?.currentUser);
   const [email, setEmail] = useState("");
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState(null);
   const [assessment, setAssessment] = useState({});
 
   useEffect(() => {
@@ -80,10 +80,14 @@ const SendInvite = () => {
                 </div>
               </div>
             </FormInput>
-            <StudentName>
-              {student?.firstname} {student?.name}
-            </StudentName>
-            <Button>Submit</Button>
+            {student && (
+              <>
+                <StudentName>
+                  {student.errors ? student.errors : student?.name}
+                </StudentName>
+                {!student.errors && <Button>Submit</Button>}
+              </>
+            )}
           </BottomForm>
         </Bottom>
       </Wrapper>
@@ -141,6 +145,8 @@ const AssessmentDuedate = styled.article``;
 const StudentName = styled.article`
   padding: 0.5rem;
   background-color: #f5f5f5;
+  color: #101f3c;
+  font-weight: 600;
 `;
 
 const BottomForm = styled.form`
@@ -157,6 +163,7 @@ const FormInput = styled.article`
   position: relative;
   .searchStudent {
     display: flex;
+
     margin-top: 0.5rem;
   }
   .searchIcon {
