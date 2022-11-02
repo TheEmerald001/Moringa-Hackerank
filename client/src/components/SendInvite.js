@@ -6,6 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import styled from "styled-components";
 import request from "../Helpers/requestMethods";
 import Sidebar from "./Sidebar";
+import Success from "./Success";
 
 const SendInvite = () => {
   const location = useLocation();
@@ -89,6 +90,7 @@ const SendInvite = () => {
               </>
             )}
           </BottomForm>
+          <Success />
         </Bottom>
       </Wrapper>
     </Container>
