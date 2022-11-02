@@ -4,6 +4,7 @@ import contactReducer from "./contactSlice";
 import mentorReducer from "./mentorSlice";
 import studentReducer from "./studentSlice";
 import assessmentReducer from "./assessmentSlice";
+import attemptReducer from "./attemptSlice";
 
 import {
   persistStore,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   quiz: quizReducer,
   assessment: assessmentReducer,
   contact: contactReducer,
+  attempt: attemptReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

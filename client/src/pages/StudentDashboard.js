@@ -6,11 +6,14 @@ import { MdGrade } from "react-icons/md";
 import axios from "axios";
 import data from "../Helpers/data";
 import { Link } from "react-router-dom";
+import { addAttempt } from "../redux/apiCall";
+import { useDispatch, useSelector } from "react-redux";
 
 function StudentDashboard() {
   const [invites, setInvites] = useState([]);
   const [message, setMessage] = useState({});
   const [accepted, setAccepted] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getInvites = async () => {
@@ -19,6 +22,7 @@ function StudentDashboard() {
     };
     getInvites();
   }, []);
+
   const acceptInvite = async (id) => {
     let updateStatus = { status: true };
     setAccepted(true);
@@ -29,6 +33,16 @@ function StudentDashboard() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const createAttempt = async (invite) => {
+    let attemptData = {
+      assessment_id: invite.assessment.id,
+      tutor_id: invite.tutor.id,
+      student_id: invite.student.id,
+    };
+
+    addAttempt(attemptData, dispatch);
   };
 
   return (

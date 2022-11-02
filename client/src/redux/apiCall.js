@@ -32,6 +32,15 @@ import {
   errorEmail,
 } from "./contactSlice";
 
+import {
+  getAttemptStart,
+  getAttemptSuccess,
+  getAttemptFailure,
+  addAttemptStart,
+  addAttemptSuccess,
+  addAttemptFailure,
+} from "./attemptSlice";
+
 export const submitContactReqToServer = async (dispatch, mail) => {
   dispatch(makeApiRequestToSendEmail());
   dispatch(clearEmailDetails());
@@ -65,6 +74,16 @@ export const loginStudent = async (dispatch, user) => {
   } catch (error) {
     dispatch(loginStudentFailure());
     logoutFunc();
+  }
+};
+
+export const addAttempt = async (attempt, dispatch) => {
+  dispatch(addAttemptStart());
+  try {
+    const { data } = await axios.post(`/attempts`, attempt);
+    dispatch(addAttemptSuccess(data));
+  } catch (err) {
+    dispatch(addAttemptFailure());
   }
 };
 
