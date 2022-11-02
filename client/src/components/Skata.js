@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import axios from "axios";
+import StudentSideBar from "./StudentSideBar";
+import { Link, useLocation } from "react-router-dom";
 
 function Skata() {
+  const location = useLocation();
+  const assessmentId = location.pathname.split("/")[3];
+  
+  const [assessment, setAssessment] = useState({});
   const [code, setCode] = useState();
+
   const onChange = React.useCallback((value, viewUpdate) => {
     setCode(value);
   }, []);
+
+  useEffect(() => {
+    const getAssessment = async () => {
+    const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
 
   const submitCode = async () => {
     try {
@@ -23,22 +38,37 @@ function Skata() {
 
   return (
     <Container>
+      <StudentSideBar />
+     
       <Wrapper>
+       <div className='miniNav'>
+            <Link to={`/students/assessments/${assessmentId}/quiz`}>
+              <span>QUIZ</span>
+            </Link>
+            <Link to={`/students/assessments/${assessmentId}/kata`}>
+              <span>KATA</span>
+            </Link>
+            <Link to={`/students/assessments/${assessmentId}/pros`}>
+              <span>PROS</span>
+            </Link>
+        </div>
         <Top>
-          <Title>Assessment</Title>
+          <Title>KATA</Title>
           <AssessmentContainer>
-            <AssessmentTitle>Ass</AssessmentTitle>
-            <AssessmentDuedate>du</AssessmentDuedate>
+            <AssessmentTitle>{assessment?.assessment_title}</AssessmentTitle>
           </AssessmentContainer>
         </Top>
         <Bottom>
-          <Left>
+         {assessment?.kataas?.map((kata)=>(
+           <>
+           <Left>
+            
             <Instruction>
-              Create a function that adds two numbers in Javascript
+              {kata.instructions}
             </Instruction>
           </Left>
           <Right>
-            <Task>Create a function that adds two numbers in Javascript</Task>
+            <Task>{kata.question}</Task>
             <CodeMirror
               value={code}
               height="300px"
@@ -48,6 +78,11 @@ function Skata() {
             />
             <Button onClick={submitCode}>Submit</Button>
           </Right>
+ 
+           </>
+           
+         ))}
+          
         </Bottom>
       </Wrapper>
     </Container>
@@ -56,9 +91,15 @@ function Skata() {
 
 export default Skata;
 
-const Container = styled.main``;
+const Container = styled.main`
+display: flex;
 
-const Wrapper = styled.section``;
+
+`;
+
+const Wrapper = styled.section`
+flex:8
+`;
 
 const Top = styled.section`
   padding: 1.25rem;

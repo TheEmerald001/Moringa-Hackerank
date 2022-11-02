@@ -5,7 +5,7 @@ import StudentSideBar from './StudentSideBar';
 
 function Spros() {
   const location = useLocation();
- const assessmentId = location.pathname.split("/")[3];
+  const assessmentId = location.pathname.split("/")[3];
   
   const [assessment, setAssessment] = useState({});
   const [answers , setAnswers] = useState('')
