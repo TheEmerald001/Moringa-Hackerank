@@ -23,6 +23,23 @@ function TmHome() {
             <MentorId>WID: {mentor.work_id}</MentorId>
           </MentorContainer>
         </Bottom>
+        <Task>
+          <div className="mentor-title">Recent Tasks</div>
+          <div className="todo">
+            <div className="task-title">TASK</div>
+            <div className="task">
+              Create an assesment for students to undertake
+            </div>
+            <div className="task">
+              Send invites to the students to notify them on the assessment
+            </div>
+            <div className="task">Review and publish an assessment</div>
+            <div className="task">
+              Review and grade student attempts on the assessment
+            </div>
+            <div className="task">Give feedback to the students</div>
+          </div>
+        </Task>
       </Wrapper>
     </Container>
   );
@@ -36,7 +53,7 @@ const Container = styled.main`
 `;
 
 const Wrapper = styled.section`
-  flex: 8;
+  flex: 7;
 `;
 
 const Top = styled.section`
@@ -78,29 +95,34 @@ const Bottom = styled.section`
   display: flex;
 `;
 
-const Left = styled.article`
-  flex: 1;
+const Task = styled.article`
   padding: 1.25rem;
-  background-color: #101f3c;
-  color: white;
-`;
+  margin: 1.25rem;
+  display: flex;
 
-const Right = styled.article`
-  flex: 2;
-  padding: 0 1.25rem;
-`;
+  flex-direction: column;
+  box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-sizing: border-box;
 
-const Task = styled.div`
-  margin-bottom: 0.5rem;
-`;
+  .mentor-title {
+    color: #39424e;
+    font-size: 1.2rem;
+    font-weight: 600;
 
-const Button = styled.div`
-  background-color: teal;
-  color: white;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  width: 10%;
-  margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #f3f7f7;
+  }
+  .task-title {
+    color: #39424e;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  .task {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 `;

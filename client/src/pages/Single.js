@@ -59,22 +59,24 @@ const Single = () => {
         </Top>
         <Bottom>
           <ListTitle>Student's Attempts</ListTitle>
-          <AssessmentContainer>
-            <AssessmentLeft>
-              <AssessmentTitle>Assessment one</AssessmentTitle>
-            </AssessmentLeft>
-            <AssessmentRight>
-              {/* <Link to={`/mentors/students/${assessment.id}/quiz`}> */}
-              <ViewButton title="quiz">Quiz</ViewButton>
-              {/* </Link> */}
-              {/* <Link to={`/mentors/students/${assessment.id}/kata`}> */}
-              <ViewButton title="kata">Kata</ViewButton>
-              {/* </Link> */}
-              {/* <Link to={`/mentors/students/${assessment.id}/prose`}> */}
-              <ViewButton title="prose">Prose</ViewButton>
-              {/* </Link> */}
-            </AssessmentRight>
-          </AssessmentContainer>
+          {student.assessments.map((assessment) => (
+            <AssessmentContainer key={assessment.id}>
+              <AssessmentLeft>
+                <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>
+              </AssessmentLeft>
+              <AssessmentRight>
+                <Link to={`/mentors/students/${assessment.id}/quiz`}>
+                  <ViewButton title="quiz">Quiz</ViewButton>
+                </Link>
+                <Link to={`/mentors/students/${assessment.id}/kata`}>
+                  <ViewButton title="kata">Kata</ViewButton>
+                </Link>
+                <Link to={`/mentors/students/${assessment.id}/prose`}>
+                  <ViewButton title="prose">Prose</ViewButton>
+                </Link>
+              </AssessmentRight>
+            </AssessmentContainer>
+          ))}
         </Bottom>
       </Wrapper>
     </Container>
