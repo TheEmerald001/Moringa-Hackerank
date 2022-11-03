@@ -1,0 +1,88 @@
+.obscure{
+    
+    display: flex;
+    flex-direction: row;
+    flex: 7;
+}
+.leFT{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    
+    .miniNav{
+        background-color: khaki;
+        display: flex;
+        height: 350px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        span{
+            font-size: 1.2em;
+            &:hover{
+                margin-left: 0.9rem;
+                color: #EA501A;
+            }
+        }
+    }
+}
+.riGHT{
+    background-color: #f1ebeb;
+    // border: 1px solid black;
+    padding-left: 20px;
+    width: 90%;
+    height: 90vh;
+    overflow: hidden;
+    overflow-y: auto;
+    
+}
+.TItle{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+.qCONTAINER{
+    height: 60vh;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 20px;
+    .qONE{
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        span{
+            font-size: 1.2em;
+        }
+        em{
+            font-weight: 600;
+        }
+        input{
+            margin-top: 20px;
+            padding: 20px 60px;
+            border-radius: 5px;
+            background-color: none;
+            border: 1px solid #EA501A;
+        }
+    }
+}
+.qBUtton{
+    span{
+        margin-left: 20px;
+        background: #EA501A;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,61 @@
+
+.register-container {
+
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(
+    rgba(16,31,60, 0.5),
+    rgba(16,31,60, 0.5)
+  ),
+  url("https://blog.hackerrank.com/wp-content/uploads/HackerRank_RemoteHiringUpdates.png")
+    center;
+background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-wrapper {
+  width: 40%;
+  padding: 20px;
+  color: #0a1f4e;
+  background: white;
+  border-radius: 10px;
+}
+h1{
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.registerForm {
+  display: flex;
+  flex-wrap: wrap;
+ position: relative;
+
+}
+
+.registerForm > .register-input{
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0 0;
+  padding: 10px;
+  border: 1px solid #0a1f4e;
+}
+
+.fluid  {
+  background: #ea501a;
+  color: white;
+  border-radius: 5px;
+  width: 40%;
+  padding: 15px 20px;
+  cursor: pointer;
+  border: none;
+}
+.register-span{
+  color: red;
+  font-weight: 600;
+}
+span {
+  font-size: 12px;
+  margin: 10px 0;
+}

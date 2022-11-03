@@ -1,0 +1,42 @@
+.calender{
+    
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+    .cal{
+        width: 70%;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        background-color: black;
+
+    }
+}
+.stats{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    justify-content: center;
+    .stat1{
+        height: 200px;
+        width: 200px;
+        border-radius: 10px;
+        background-color: #EA501A;
+        text-align: center;
+        color: white;
+        margin-right: 100px;
+        display: flex;
+        flex-direction: column;
+        h5{
+            padding-top: 20px;
+        }
+        p{
+            margin: auto;
+            color: black;
+        }
+
+    }
+}
