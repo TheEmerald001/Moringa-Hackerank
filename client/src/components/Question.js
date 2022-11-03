@@ -6,7 +6,7 @@ import { selectedAnswer } from "../redux/quizSlice";
 
 const Question = () => {
   const { questions, currentQuestionIndex, answers, currentAnswer } =
-  useSelector((state) => state.quiz);
+    useSelector((state) => state.quiz);
   const dispatch = useDispatch();
   const currentQuestion = questions[currentQuestionIndex];
 

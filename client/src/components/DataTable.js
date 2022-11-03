@@ -12,7 +12,7 @@ const DataTable = ({ data }) => {
       renderCell: (params) => {
         return (
           <ActionCell>
-            <Link to={`/mentors/grades/${params.row.id}`}>
+            <Link to={`/mentors/students/${params.row.id}`}>
               <ViewButton>View</ViewButton>
             </Link>
           </ActionCell>
@@ -23,17 +23,9 @@ const DataTable = ({ data }) => {
   return (
     <Container>
       <Top>
-        <Title>Grades</Title>
+        <Title>Students</Title>
       </Top>
-      <FilterContainer>
-        <Filter>
-          <FilterText>Select Assesment:</FilterText>
-          <Select name="assessment">
-            <Option value="latest">Assesment 1</Option>
-            <Option value="oldest">Assesment 2</Option>
-          </Select>
-        </Filter>
-      </FilterContainer>
+
       <DataGrid
         rows={data}
         columns={studentColumns.concat(actionColumn)}

@@ -54,10 +54,10 @@ function Sidebar() {
           </div>
         </Link>
 
-        <Link to="/mentors/grades">
+        <Link to="/mentors/students">
           <div className="iCon">
             {" "}
-            <MdGrade className="iCON" /> <span>Grades</span>
+            <MdGrade className="iCON" /> <span>Students</span>
           </div>
         </Link>
       </div>

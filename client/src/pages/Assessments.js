@@ -19,7 +19,7 @@ const Assessments = ({ columns, type }) => {
     };
     fetchAssessments();
   }, []);
-  console.log(assessments);
+
   return (
     <Container>
       <Sidebar />

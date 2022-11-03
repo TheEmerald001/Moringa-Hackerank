@@ -4,11 +4,21 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginMentor, loginStudent } from "../../redux/apiCall";
 import axios from "axios";
-import { loginMentorSuccess } from "../../redux/mentorSlice";
-import { loginStudentSuccess } from "../../redux/studentSlice";
+import {
+  loginMentorFailure,
+  loginMentorStart,
+  loginMentorSuccess,
+} from "../../redux/mentorSlice";
+import {
+  loginStudentFailure,
+  loginStudentStart,
+  loginStudentSuccess,
+} from "../../redux/studentSlice";
 
 export default function Login({ inputs, type }) {
   const [input, setinput] = useState({});
+  const [isFetching, setFetching] = useState(false);
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -19,30 +29,28 @@ export default function Login({ inputs, type }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (input.work_id) {
+      setFetching(true);
+      dispatch(loginMentorStart());
       try {
+        setFetching(false);
         const { data } = await axios.post("/login", input);
-        // setupLogin(input?.token);
         dispatch(loginMentorSuccess(data));
       } catch (error) {
-        // dispatch(loginMentorFailure());
-        // logoutFunc();
-        console.log(error);
+        dispatch(loginMentorFailure());
+        setError(true);
       }
-      // loginMentor(dispatch, input);
-      // // window.location.replace("/mentors");
     }
     if (input.username) {
+      setFetching(true);
+      dispatch(loginStudentStart());
       try {
+        setFetching(false);
         const { data } = await axios.post("/login", input);
-        // setupLogin(input?.token);
         dispatch(loginStudentSuccess(data));
       } catch (error) {
-        // dispatch(loginMentorFailure());
-        // logoutFunc();
-        console.log(error);
+        dispatch(loginStudentFailure());
+        setError(true);
       }
-      // loginStudent(dispatch, input);
-      // // window.location.replace("/students");
     }
   };
 
@@ -75,7 +83,12 @@ export default function Login({ inputs, type }) {
               className="input"
             />
           ))}
-          <button className="login-button">LOGIN</button>
+          <button disabled={isFetching} className="login-button">
+            LOGIN
+          </button>
+          {error && (
+            <span className="button-span">Wrong username or password</span>
+          )}
           <p className="mt-2">
             Dont have an account?{" "}
             <Link to={link} className="log">

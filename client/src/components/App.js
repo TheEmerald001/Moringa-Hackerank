@@ -25,12 +25,13 @@ import {
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
-import StudentAttempt from "../pages/StudentAttempt";
+import StudentProseAttempt from "../pages/StudentProseAttempt";
 import StudentAssignment from "../pages/StudentAssignment";
 import SendInvite from "./SendInvite";
 import Skata from "./Skata";
 import Squiz from "./Squiz";
 import Spros from "./Spros";
+import StudentKataAttempt from "../pages/StudentKataAttempt";
 
 function App() {
   const mentor = useSelector((state) => state.mentor?.currentUser?.work_id);
@@ -121,18 +122,11 @@ function App() {
                 />
                 <Route path=":id/new-invite" element={<SendInvite />} />
               </Route>
-              <Route path="grades">
+              <Route path="students">
                 <Route index element={<List />} />
-                <Route
-                  path=":id"
-                  element={
-                    <Single
-                      data={attemptRows}
-                      columns={attemptColumns}
-                      type="mentors"
-                    />
-                  }
-                />
+                <Route path=":id" element={<Single />} />
+                <Route path=":id/prose" element={<StudentProseAttempt />} />
+                <Route path=":id/kata" element={<StudentKataAttempt />} />
               </Route>
             </Route>
           )}

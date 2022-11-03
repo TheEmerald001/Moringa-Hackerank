@@ -1,8 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import request from "../Helpers/requestMethods";
 import { deleteAssessment } from "../redux/apiCall";
 
 const AssesmentDataTable = ({ data, columns, type }) => {

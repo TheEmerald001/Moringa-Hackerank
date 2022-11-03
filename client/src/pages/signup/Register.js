@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
-import request from "../../Helpers/requestMethods";
+
 import axios from "axios";
 
 export default function Register({ inputs, type }) {
@@ -22,6 +22,7 @@ export default function Register({ inputs, type }) {
       if (input.password === confirmPassword) {
         if (input.username) {
           const { data } = await axios.post("/students", input);
+
           data && window.location.replace("/students/login");
         }
         if (input.work_id) {
@@ -80,6 +81,9 @@ export default function Register({ inputs, type }) {
           <button onClick={handleSubmit} className="fluid ui button blue">
             CREATE
           </button>
+          {error && (
+            <span className="register-span">Password does not match!</span>
+          )}
           <span className="mt-2">
             Have an account?{" "}
             <Link to={link} className="log">

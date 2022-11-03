@@ -1,6 +1,5 @@
 import axios from "axios";
-import request from "../Helpers/requestMethods";
-import { setupLogin } from "../Helpers/auth.js";
+
 import { logoutFunc } from "../Helpers/auth.js";
 import {
   loginMentorStart,
@@ -100,7 +99,7 @@ export const addAssessment = async (assessment, dispatch) => {
 export const getAssessments = async (dispatch) => {
   dispatch(getAssessmentsStart());
   try {
-    const { data } = await request.get("/assessments");
+    const { data } = await axios.get("/assessments");
     dispatch(getAssessmentsSuccess(data));
   } catch (error) {
     dispatch(getAssessmentsFailure());
@@ -110,7 +109,7 @@ export const getAssessments = async (dispatch) => {
 export const deleteAssessment = async (id, dispatch) => {
   dispatch(deleteAssessmentStart());
   try {
-    await request.delete(`/assessments/${id}`);
+    await axios.delete(`/assessments/${id}`);
     dispatch(deleteAssessmentSuccess(id));
   } catch (err) {
     dispatch(deleteAssessmentFailure());

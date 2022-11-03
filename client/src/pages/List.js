@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import DataTable from "../components/DataTable";
 import Sidebar from "../components/Sidebar";
-import request from "../Helpers/requestMethods";
+import axios from "axios";
 
 const List = () => {
   const [listOfStudents, setList] = useState([]);
 
   useEffect(() => {
     const getStudents = async () => {
-      const { data } = await request.get("/students");
+      const { data } = await axios.get("/students");
       setList(data);
     };
     getStudents();

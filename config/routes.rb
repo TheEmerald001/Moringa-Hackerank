@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :tutorprofiles, only:[:index,:show,:create]
   resources :studentprofiles,only:[:index,:show,:create]
-  resources :attempts,only:[:index,:show,:create,:update]
+  resources :attempts,only:[:index,:show,:create,:update, :destroy]
   resources :invites,only:[:show,:create,:update,:destroy, :update, :index]
   resources :mcqs, only: [:show, :create, :update, :destroy]
   resources :pros, only: [:show, :create, :update, :destroy]
@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :assessments, only: [:show, :create, :update, :destroy]
   end
   resources :tutors, only: [:show, :create]
- 
+  
+  # get "/student_assessments", to: "students#stud"
+
   resources "contacts", only: [ :create]
   
   #custome route for assessment

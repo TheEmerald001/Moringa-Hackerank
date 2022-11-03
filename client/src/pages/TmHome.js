@@ -4,22 +4,24 @@ import Sidebar from "../components/Sidebar";
 // import dashboard from '../CSS/_dashboard.scss'
 import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 function TmHome() {
+  const mentor = useSelector((state) => state.mentor?.currentUser);
   return (
     <Container>
       <Sidebar />
       <Wrapper>
         <Top>
-          <Title>Assessment</Title>
-          <AssessmentContainer>
-            <AssessmentTitle>Ass</AssessmentTitle>
-            <AssessmentDuedate>du</AssessmentDuedate>
-          </AssessmentContainer>
+          <Title>Mentor Dashboard</Title>
         </Top>
         <Bottom>
-          <Left></Left>
-          <Right></Right>
+          <MentorContainer>
+            <MentorTitle>
+              Welcome back, {mentor.firstname} {mentor.lastname}!
+            </MentorTitle>
+            <MentorId>WID: {mentor.work_id}</MentorId>
+          </MentorContainer>
         </Bottom>
       </Wrapper>
     </Container>
@@ -30,6 +32,7 @@ export default TmHome;
 
 const Container = styled.main`
   display: flex;
+  background-color: #f3f7f7;
 `;
 
 const Wrapper = styled.section`
@@ -49,19 +52,25 @@ const Top = styled.section`
 `;
 
 const Title = styled.h1`
-  color: gray;
-  font-size: 1.25rem;
+  color: #101f3c;
+  font-size: 2.25rem;
 `;
 
-const AssessmentContainer = styled.article`
-  display: flex;
-  align-items: center;
+const MentorContainer = styled.article`
   margin: 1.25rem 0;
   width: 40%;
-  justify-content: space-between;
 `;
-const AssessmentTitle = styled.article``;
-const AssessmentDuedate = styled.article``;
+const MentorTitle = styled.article`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #101f3c;
+`;
+const MentorId = styled.article`
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #39424e;
+`;
 
 const Bottom = styled.section`
   padding: 1.25rem;
@@ -75,8 +84,6 @@ const Left = styled.article`
   background-color: #101f3c;
   color: white;
 `;
-
-const Instruction = styled.div``;
 
 const Right = styled.article`
   flex: 2;

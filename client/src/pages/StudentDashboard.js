@@ -8,6 +8,7 @@ import data from "../Helpers/data";
 import { Link } from "react-router-dom";
 import { addAttempt } from "../redux/apiCall";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
 function StudentDashboard() {
   const [invites, setInvites] = useState([]);
@@ -29,7 +30,7 @@ function StudentDashboard() {
 
     try {
       const { data } = await axios.patch(`/invites/${id}`, updateStatus);
-      setMessage(data.message.message);
+      setMessage(data);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +53,18 @@ function StudentDashboard() {
         <div className="A-title">
           <h1>HOME</h1>
         </div>
+        {message?.message?.message && (
+          <MessageWrapper>
+            <Message>
+              {message?.message?.message}
+              <MessageButton>another</MessageButton> or go{" "}
+              <Link to="/mentors/assessments">
+                <MessageButton>back</MessageButton>
+              </Link>{" "}
+              to assessments?
+            </Message>
+          </MessageWrapper>
+        )}
         <div className="dashboarD">
           <div className="notI">
             <h2>
@@ -87,20 +100,13 @@ function StudentDashboard() {
                       </>
                     )}
                   </div>
-                  {accepted && (
-                    <div className="feedback">
-                      <p className="message">{message.message}</p>
-
-                      <span className="attempt">Attempt</span>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
           </div>
           <div className="gradE">
             <h2>
-              Grades <MdGrade className="n-icon" />
+              Students <MdGrade className="n-icon" />
             </h2>
             <div className="headinG">
               <span>ASSESSMENT NAME</span>
@@ -132,3 +138,29 @@ function StudentDashboard() {
 }
 
 export default StudentDashboard;
+
+const MessageWrapper = styled.main`
+  font-size: 1rem;
+  margin: 1.25rem;
+`;
+
+const Message = styled.div`
+  padding: 1.25rem;
+  border: 1px solid teal;
+  border-radius: 5px;
+`;
+
+const MessageButton = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid #101f3c;
+  &:last-child {
+    color: #ea501a;
+    border-bottom: 1px solid #ea501a;
+  }
+  &:hover {
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: scale(1.1 1.5s ease);
+  }
+`;

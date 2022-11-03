@@ -59,7 +59,14 @@ h1{
   margin-bottom: 10px;
   border-color: #ea501a;
 }
-
+.login-button:disabled{
+  cursor: not-allowed;
+  color: #eab8a5;
+}
+.button-span{
+  color: red;
+  font-weight: 600;
+}
 .log {
   color: #ea501a;
 }

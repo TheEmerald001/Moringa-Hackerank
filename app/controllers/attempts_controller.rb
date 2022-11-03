@@ -43,6 +43,13 @@ class AttemptsController < ApplicationController
         render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end
 
+     #DELETE /attempts/id
+     def destroy
+        attempt= Attempt.find(params[:id])
+        attempt.destroy
+        head :not_found
+    end
+
     private 
 
     def attempt_params

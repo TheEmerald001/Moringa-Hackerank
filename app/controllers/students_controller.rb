@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :index, :show]
 
     #GET /students
     def index
@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 
     #GET /me 
     def show
-        student = Student.find_by(id: session[:student_id])
+        student = Student.find_by(id: params[:id])
         if student
             render json: student
         else
