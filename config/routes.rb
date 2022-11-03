@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :students,only:[:index,:show,:create,:destroy] do
     resources :assessments, only: [:show, :create, :update, :destroy]
   end
-  resources :tutors, only: [:show, :create]
+  resources :tutors, only: [:show, :create,:destroy]
   
   # get "/student_assessments", to: "students#stud"
 

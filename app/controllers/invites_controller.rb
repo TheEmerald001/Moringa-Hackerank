@@ -1,5 +1,5 @@
 class InvitesController < ApplicationController
-    skip_before_action :authorize, only: [:index, :update]
+    skip_before_action :authorize, only: [:index, :update, :destroy]
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 

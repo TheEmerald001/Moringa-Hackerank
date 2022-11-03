@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-    skip_before_action :authorize, only: [:create, :index, :show]
+    skip_before_action :authorize, only: [:create, :index, :show, :destroy]
 
     #GET /students
     def index

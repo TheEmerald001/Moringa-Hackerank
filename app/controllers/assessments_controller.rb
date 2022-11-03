@@ -5,8 +5,16 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     # GET 
     def index
+       
+        query_tutor = params[:tutor_id]
+
+    assessments = if query_tutor
         
-        render json: Assessment.all
+            Assessment.where(tutor_id: query_tutor)
+        else
+            Assessment.all
+        end
+        render json: assessments
     end
     # GET /assessments/1
     def show

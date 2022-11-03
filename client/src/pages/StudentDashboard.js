@@ -56,14 +56,7 @@ function StudentDashboard() {
         </div>
         {message?.message?.message && (
           <MessageWrapper>
-            <Message>
-              {message?.message?.message}
-              <MessageButton>another</MessageButton> or go{" "}
-              <Link to="/mentors/assessments">
-                <MessageButton>back</MessageButton>
-              </Link>{" "}
-              to assessments?
-            </Message>
+            <Message>{message?.message?.message}</Message>
           </MessageWrapper>
         )}
         <div className="dashboarD">

@@ -7,9 +7,9 @@ class Contact < MailForm::Base
     # Declare the e-mail headers. It accepts anything the mail method
     # in ActionMailer accepts.
     def headers
-     full_name = "#{Tutor.first.firstname} #{Tutor.first.lastname}"
+     full_name = "#{Tutor.last.firstname} #{Tutor.last.lastname}"
     
-     tutor_mail = Tutor.first.email
+     tutor_mail = Tutor.last.email
       {
         :subject => "You have been invited to take on the assessment",
         :to => "#{email}",

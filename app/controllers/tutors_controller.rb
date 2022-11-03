@@ -1,6 +1,6 @@
 class TutorsController < ApplicationController
     
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :destroy]
 
     #GET /tutors
     def index
