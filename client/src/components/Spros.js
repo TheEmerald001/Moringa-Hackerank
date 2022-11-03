@@ -32,6 +32,7 @@ function Spros() {
       console.log(error);
     }
   };
+  console.log(assessment);
   return (
     <div className="asses">
       <StudentSideBar />

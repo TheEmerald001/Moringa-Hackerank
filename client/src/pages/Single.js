@@ -59,7 +59,7 @@ const Single = () => {
         </Top>
         <Bottom>
           <ListTitle>Student's Attempts</ListTitle>
-          {student.assessments.map((assessment) => (
+          {student?.assessments?.map((assessment) => (
             <AssessmentContainer key={assessment.id}>
               <AssessmentLeft>
                 <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>

@@ -83,7 +83,7 @@ function App() {
               )
             }
           />
-          {student && (
+          {student ? (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
@@ -97,8 +97,10 @@ function App() {
                 <Route path=":id/pros" element={<Spros />} />
               </Route>
             </Route>
+          ) : (
+            <Route path="/" element={<Home />} />
           )}
-          {mentor && (
+          {mentor ? (
             <Route path="mentors">
               <Route index element={<TmHome />} />
 
@@ -129,6 +131,8 @@ function App() {
                 <Route path=":id/kata" element={<StudentKataAttempt />} />
               </Route>
             </Route>
+          ) : (
+            <Route path="/" element={<Home />} />
           )}
         </Route>
       </Routes>

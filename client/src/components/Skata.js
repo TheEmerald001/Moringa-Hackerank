@@ -9,7 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 function Skata() {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
-  
+
   const [assessment, setAssessment] = useState({});
   const [code, setCode] = useState();
 
@@ -19,7 +19,7 @@ function Skata() {
 
   useEffect(() => {
     const getAssessment = async () => {
-    const { data } = await axios.get(`/assessments/${assessmentId}`);
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
       setAssessment(data);
     };
     getAssessment();
@@ -39,9 +39,9 @@ function Skata() {
   return (
     <Container>
       <StudentSideBar />
-     
+
       <Wrapper>
-       <div className='miniNav'>
+        {/* <div className='miniNav'>
             <Link to={`/students/assessments/${assessmentId}/quiz`}>
               <span>QUIZ</span>
             </Link>
@@ -51,7 +51,7 @@ function Skata() {
             <Link to={`/students/assessments/${assessmentId}/pros`}>
               <span>PROS</span>
             </Link>
-        </div>
+        </div> */}
         <Top>
           <Title>KATA</Title>
           <AssessmentContainer>
@@ -59,30 +59,24 @@ function Skata() {
           </AssessmentContainer>
         </Top>
         <Bottom>
-         {assessment?.kataas?.map((kata)=>(
-           <>
-           <Left>
-            
-            <Instruction>
-              {kata.instructions}
-            </Instruction>
-          </Left>
-          <Right>
-            <Task>{kata.question}</Task>
-            <CodeMirror
-              value={code}
-              height="300px"
-              width="600px"
-              extensions={[javascript({ jsx: true })]}
-              onChange={onChange}
-            />
-            <Button onClick={submitCode}>Submit</Button>
-          </Right>
- 
-           </>
-           
-         ))}
-          
+          {assessment?.kataas?.map((kata) => (
+            <>
+              <Left>
+                <Instruction>{kata.instructions}</Instruction>
+              </Left>
+              <Right>
+                <Task>{kata.question}</Task>
+                <CodeMirror
+                  value={code}
+                  height="300px"
+                  width="600px"
+                  extensions={[javascript({ jsx: true })]}
+                  onChange={onChange}
+                />
+                <Button onClick={submitCode}>Submit</Button>
+              </Right>
+            </>
+          ))}
         </Bottom>
       </Wrapper>
     </Container>
@@ -92,13 +86,11 @@ function Skata() {
 export default Skata;
 
 const Container = styled.main`
-display: flex;
-
-
+  display: flex;
 `;
 
 const Wrapper = styled.section`
-flex:8
+  flex: 8;
 `;
 
 const Top = styled.section`
