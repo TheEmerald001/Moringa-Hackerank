@@ -6,7 +6,17 @@ class InvitesController < ApplicationController
     
 
     def index
-        invites = Invite.all
+        query_student = params[:student_id]
+        query_tutor = params[:tutor_id]
+
+    invites = if query_student
+            Invite.where(student_id: query_student)
+        elsif query_tutor
+            Invite.where(tutor_id: query_tutor)
+        else
+            Invite.all
+        end
+        
         render json: invites
     end
 

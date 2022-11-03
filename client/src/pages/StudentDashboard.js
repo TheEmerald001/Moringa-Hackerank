@@ -15,10 +15,11 @@ function StudentDashboard() {
   const [message, setMessage] = useState({});
   const [accepted, setAccepted] = useState(false);
   const dispatch = useDispatch();
+  const student = useSelector((state) => state.student?.currentUser);
 
   useEffect(() => {
     const getInvites = async () => {
-      const { data } = await axios.get("/invites");
+      const { data } = await axios.get(`/invites?=student_id=${student.id}`);
       setInvites(data);
     };
     getInvites();

@@ -1,6 +1,7 @@
 class AttemptsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    skip_before_action :authorize, only: [:index, :update]
   
     def order
         attemptlist = Attempt.where(assessment_id: params[:assessment_id])
@@ -16,7 +17,15 @@ class AttemptsController < ApplicationController
 
     #GET/attempts
     def index
-        attempts = Attempt.all
+        query_assessment = params[:assessment_id]
+        
+
+    attempts = if query_assessment
+        Attempt.where(assessment_id: query_assessment)
+        else
+           Attempt.all
+        end
+
         render json: attempts 
     end
 
