@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_20_193717) do
+ActiveRecord::Schema.define(version: 2022_10_29_145252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "kataa_response"
+    t.string "pro_response"
+    t.bigint "tutor_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "assessment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assessment_id"], name: "index_answers_on_assessment_id"
+    t.index ["student_id"], name: "index_answers_on_student_id"
+    t.index ["tutor_id"], name: "index_answers_on_tutor_id"
+  end
 
   create_table "assessments", force: :cascade do |t|
     t.bigint "tutor_id", null: false
@@ -28,12 +41,9 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "student_id", null: false
     t.bigint "tutor_id", null: false
     t.integer "mcq_score"
-    t.string "kataa_response"
     t.integer "kataa_score"
-    t.string "pro_response"
     t.integer "pro_score"
     t.string "tutor_feedback"
-    t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_attempts_on_assessment_id"
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "assessment_id", null: false
     t.string "question"
     t.string "instructions"
+    t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_kataas_on_assessment_id"
@@ -67,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.string "question"
     t.string "answers", default: [], array: true
     t.string "correct_answer"
+    t.string "student_answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_mcqs_on_assessment_id"
@@ -76,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.bigint "assessment_id", null: false
     t.string "question"
     t.string "instructions"
+    t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_pros_on_assessment_id"
@@ -100,6 +113,23 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "totals", force: :cascade do |t|
+    t.integer "mcq_score"
+    t.integer "kataa_score"
+    t.integer "pro_score"
+    t.integer "total"
+    t.bigint "attempt_id", null: false
+    t.bigint "assessment_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "tutor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assessment_id"], name: "index_totals_on_assessment_id"
+    t.index ["attempt_id"], name: "index_totals_on_attempt_id"
+    t.index ["student_id"], name: "index_totals_on_student_id"
+    t.index ["tutor_id"], name: "index_totals_on_tutor_id"
+  end
+
   create_table "tutorprofiles", force: :cascade do |t|
     t.string "image"
     t.string "phone"
@@ -119,6 +149,9 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "answers", "assessments"
+  add_foreign_key "answers", "students"
+  add_foreign_key "answers", "tutors"
   add_foreign_key "assessments", "tutors"
   add_foreign_key "attempts", "assessments"
   add_foreign_key "attempts", "students"
@@ -130,5 +163,9 @@ ActiveRecord::Schema.define(version: 2022_10_20_193717) do
   add_foreign_key "mcqs", "assessments"
   add_foreign_key "pros", "assessments"
   add_foreign_key "studentprofiles", "students"
+  add_foreign_key "totals", "assessments"
+  add_foreign_key "totals", "attempts"
+  add_foreign_key "totals", "students"
+  add_foreign_key "totals", "tutors"
   add_foreign_key "tutorprofiles", "tutors"
 end
