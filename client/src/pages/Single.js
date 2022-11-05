@@ -1,11 +1,13 @@
+import { Assessment } from "@material-ui/icons";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import AnswerTable from "../components/AnswerTable";
+
 import Sidebar from "../components/Sidebar";
 import request from "../Helpers/requestMethods";
 
-const Single = ({ columns, type }) => {
+const Single = () => {
   const location = useLocation();
   const studentId = location.pathname.split("/")[3];
   const [student, setStudent] = useState({});
@@ -13,7 +15,7 @@ const Single = ({ columns, type }) => {
   useEffect(() => {
     const getStudent = async () => {
       try {
-        const { data } = await request.get(`/students/${studentId}`);
+        const { data } = await axios.get(`/students/${studentId}`);
         setStudent(data);
       } catch (err) {
         console.log(err);
@@ -21,8 +23,6 @@ const Single = ({ columns, type }) => {
     };
     getStudent();
   }, [studentId]);
-
-  console.log(student);
 
   return (
     <Container>
@@ -38,7 +38,7 @@ const Single = ({ columns, type }) => {
               />
               <Details>
                 <StudentName>
-                  {student.first_name} {student.last_name}
+                  {student.firstname} {student.lastname}
                 </StudentName>
                 <DetailStudent>
                   <StudentKey>Email:</StudentKey>
@@ -59,7 +59,24 @@ const Single = ({ columns, type }) => {
         </Top>
         <Bottom>
           <ListTitle>Student's Attempts</ListTitle>
-          <AnswerTable data={student?.invites} columns={columns} type={type} />
+          {student?.assessments?.map((assessment) => (
+            <AssessmentContainer key={assessment.id}>
+              <AssessmentLeft>
+                <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>
+              </AssessmentLeft>
+              <AssessmentRight>
+                <Link to={`/mentors/students/${assessment.id}/quiz`}>
+                  <ViewButton title="quiz">Quiz</ViewButton>
+                </Link>
+                <Link to={`/mentors/students/${assessment.id}/kata`}>
+                  <ViewButton title="kata">Kata</ViewButton>
+                </Link>
+                <Link to={`/mentors/students/${assessment.id}/prose`}>
+                  <ViewButton title="prose">Prose</ViewButton>
+                </Link>
+              </AssessmentRight>
+            </AssessmentContainer>
+          ))}
         </Bottom>
       </Wrapper>
     </Container>
@@ -126,10 +143,12 @@ const StudentKey = styled.span`
   font-weight: bold;
   margin-right: 5px;
   color: gray;
+  font-size: 1rem;
 `;
 
 const StudentValue = styled.span`
-  font-weight: 300;
+  font-size: 0.9rem;
+  color: #101f3c;
 `;
 
 const Right = styled.article`
@@ -148,4 +167,44 @@ const ListTitle = styled.article`
   font-weight: 600;
   color: gray;
   margin-bottom: 1rem;
+`;
+
+const ViewButton = styled.div`
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: ${(props) =>
+    props.title === "quiz"
+      ? "#ea501a"
+      : props.title === "kata"
+      ? "#101f3c"
+      : "teal"};
+  cursor: pointer;
+`;
+
+const AssessmentContainer = styled.section`
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: #f3f7f7;
+  color: #101f3c;
+  font-weight: 600;
+  margin: 0.625rem 1.25rem;
+  justify-content: space-between;
+`;
+
+const AssessmentLeft = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+const AssessmentTitle = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+const AssessmentRight = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;

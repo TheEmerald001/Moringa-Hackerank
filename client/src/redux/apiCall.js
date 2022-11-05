@@ -1,6 +1,5 @@
 import axios from "axios";
-import request from "../Helpers/requestMethods";
-import { setupLogin } from "../Helpers/auth.js";
+
 import { logoutFunc } from "../Helpers/auth.js";
 import {
   loginMentorStart,
@@ -32,11 +31,20 @@ import {
   errorEmail,
 } from "./contactSlice";
 
+import {
+  getAttemptStart,
+  getAttemptSuccess,
+  getAttemptFailure,
+  addAttemptStart,
+  addAttemptSuccess,
+  addAttemptFailure,
+} from "./attemptSlice";
+
 export const submitContactReqToServer = async (dispatch, mail) => {
   dispatch(makeApiRequestToSendEmail());
   dispatch(clearEmailDetails());
   try {
-    const { data } = await axios.post("http://localhost:3000/contacts", mail);
+    const { data } = await axios.post("/contacts", mail);
     dispatch(receivedResponse());
     dispatch(sentEmail(data));
   } catch (error) {
@@ -47,8 +55,8 @@ export const submitContactReqToServer = async (dispatch, mail) => {
 export const loginMentor = async (dispatch, user) => {
   dispatch(loginMentorStart());
   try {
-    const { data } = await request.post("/mentors/login", user);
-    setupLogin(data?.token);
+    const { data } = await axios.post("/login", user);
+    // setupLogin(data?.token);
     dispatch(loginMentorSuccess(data));
   } catch (error) {
     dispatch(loginMentorFailure());
@@ -59,8 +67,8 @@ export const loginMentor = async (dispatch, user) => {
 export const loginStudent = async (dispatch, user) => {
   dispatch(loginStudentStart());
   try {
-    const { data } = await request.post("/students/login", user);
-    setupLogin(data?.token);
+    const { data } = await axios.post("/login", user);
+    // setupLogin(data?.token);
     dispatch(loginStudentSuccess(data));
   } catch (error) {
     dispatch(loginStudentFailure());
@@ -68,10 +76,20 @@ export const loginStudent = async (dispatch, user) => {
   }
 };
 
+export const addAttempt = async (attempt, dispatch) => {
+  dispatch(addAttemptStart());
+  try {
+    const { data } = await axios.post(`/attempts`, attempt);
+    dispatch(addAttemptSuccess(data));
+  } catch (err) {
+    dispatch(addAttemptFailure());
+  }
+};
+
 export const addAssessment = async (assessment, dispatch) => {
   dispatch(addAssessmentStart());
   try {
-    const { data } = await request.post(`/assessments`, assessment);
+    const { data } = await axios.post(`/assessments`, assessment);
     dispatch(addAssessmentSuccess(data));
   } catch (err) {
     dispatch(addAssessmentFailure());
@@ -81,7 +99,7 @@ export const addAssessment = async (assessment, dispatch) => {
 export const getAssessments = async (dispatch) => {
   dispatch(getAssessmentsStart());
   try {
-    const { data } = await request.get("/assessments");
+    const { data } = await axios.get("/assessments");
     dispatch(getAssessmentsSuccess(data));
   } catch (error) {
     dispatch(getAssessmentsFailure());
@@ -91,7 +109,7 @@ export const getAssessments = async (dispatch) => {
 export const deleteAssessment = async (id, dispatch) => {
   dispatch(deleteAssessmentStart());
   try {
-    await request.delete(`/assessments/${id}`);
+    await axios.delete(`/assessments/${id}`);
     dispatch(deleteAssessmentSuccess(id));
   } catch (err) {
     dispatch(deleteAssessmentFailure());

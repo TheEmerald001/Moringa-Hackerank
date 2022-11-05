@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import SingleAssessmentSidebar from "../components/SingleAssessmentSidebar";
+import Sidebar from "../components/Sidebar";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { shuffleAnswers } from "../Helpers/shuffleAnswers";
+import axios from "axios";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const SingleAssessment = () => {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
   const [isQuizExpanded, setQuizExpanded] = useState(false);
-  const assessment = useSelector((state) =>
-    state.assessment?.assessments.find(
-      (assessment) => assessment.id == assessmentId
-    )
-  );
+  const [isKataExpanded, setKataExpanded] = useState(false);
+  const [isProseExpanded, setProseExpanded] = useState(false);
+  const [assessment, setAssessment] = useState({});
+
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
 
   const expand = () => {
     setQuizExpanded((isQuizExpanded) => !isQuizExpanded);
@@ -22,26 +30,32 @@ const SingleAssessment = () => {
 
   return (
     <Container>
-      <SingleAssessmentSidebar />
+      <Sidebar />
       <AssessmentContainer>
         <Top>
           <AssessmentInfo>
-            <AssessmentTitle>{assessment?.title}</AssessmentTitle>
+            <AssessmentTitle>{assessment?.assessment_title}</AssessmentTitle>
             <AssessmentDuedate>{assessment?.duedate}</AssessmentDuedate>
           </AssessmentInfo>
         </Top>
         <Bottom>
           <TaskContainer>
             <Task onClick={expand}>
-              <ArrowForwardIosIcon
-                on
-                style={{ color: "#ea501a", fontSize: "0.875rem" }}
-              />
+              {isQuizExpanded ? (
+                <KeyboardArrowDownIcon
+                  style={{ color: "#ea501a", fontSize: "1.5rem" }}
+                />
+              ) : (
+                <ArrowForwardIosIcon
+                  style={{ color: "#ea501a", fontSize: "0.875rem" }}
+                />
+              )}
+
               <Title>Questions</Title>
             </Task>
             {isQuizExpanded && (
               <QuestionContainer>
-                {assessment?.quizzes?.map((question) => {
+                {assessment?.mcqs?.map((question) => {
                   const answers = shuffleAnswers(question);
                   return (
                     <Question>
@@ -56,20 +70,62 @@ const SingleAssessment = () => {
             )}
           </TaskContainer>
           <TaskContainer>
-            <Task>
-              <ArrowForwardIosIcon
-                style={{ color: "#ea501a", fontSize: "0.875rem" }}
-              />
+            <Task
+              onClick={() =>
+                setKataExpanded((isKataExpanded) => !isKataExpanded)
+              }
+            >
+              {isKataExpanded ? (
+                <KeyboardArrowDownIcon
+                  style={{ color: "#ea501a", fontSize: "1.5rem" }}
+                />
+              ) : (
+                <ArrowForwardIosIcon
+                  style={{ color: "#ea501a", fontSize: "0.875rem" }}
+                />
+              )}
               <Title>Katas</Title>
             </Task>
+            {isKataExpanded && (
+              <QuestionContainer>
+                {assessment?.kataas?.map((kata) => {
+                  return (
+                    <Question>
+                      <Prompt>{kata.question}</Prompt>
+                    </Question>
+                  );
+                })}
+              </QuestionContainer>
+            )}
           </TaskContainer>
           <TaskContainer>
-            <Task>
-              <ArrowForwardIosIcon
-                style={{ color: "#ea501a", fontSize: "0.875rem" }}
-              />
+            <Task
+              onClick={() =>
+                setProseExpanded((isProseExpanded) => !isProseExpanded)
+              }
+            >
+              {isProseExpanded ? (
+                <KeyboardArrowDownIcon
+                  style={{ color: "#ea501a", fontSize: "1.5rem" }}
+                />
+              ) : (
+                <ArrowForwardIosIcon
+                  style={{ color: "#ea501a", fontSize: "0.875rem" }}
+                />
+              )}
               <Title>Prose</Title>
             </Task>
+            {isProseExpanded && (
+              <QuestionContainer>
+                {assessment?.pros?.map((pro) => {
+                  return (
+                    <Question>
+                      <Prompt>{pro.question}</Prompt>
+                    </Question>
+                  );
+                })}
+              </QuestionContainer>
+            )}
           </TaskContainer>
         </Bottom>
       </AssessmentContainer>
@@ -81,12 +137,12 @@ export default SingleAssessment;
 
 const Container = styled.main`
   display: flex;
-  width: 100%;
+
   position: relative;
 `;
 
 const AssessmentContainer = styled.section`
-  width: 70vw;
+  flex: 8;
   min-height: 100vh;
   margin: 0 auto;
 `;

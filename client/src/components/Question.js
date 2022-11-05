@@ -21,8 +21,8 @@ const Question = () => {
         </TopWrapper>
       </Top>
       <Bottom>
-        <Prompt>{currentQuestion.question}</Prompt>
-        {answers.map((answer, index) => (
+        <Prompt>{currentQuestion?.question}</Prompt>
+        {answers?.map((answer, index) => (
           <Answer
             key={index}
             answerText={answer}

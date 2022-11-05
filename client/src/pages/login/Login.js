@@ -3,22 +3,54 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginMentor, loginStudent } from "../../redux/apiCall";
+import axios from "axios";
+import {
+  loginMentorFailure,
+  loginMentorStart,
+  loginMentorSuccess,
+} from "../../redux/mentorSlice";
+import {
+  loginStudentFailure,
+  loginStudentStart,
+  loginStudentSuccess,
+} from "../../redux/studentSlice";
 
 export default function Login({ inputs, type }) {
-  const [data, setData] = useState({});
+  const [input, setinput] = useState({});
+  const [isFetching, setFetching] = useState(false);
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setData({ ...data, [name]: value });
+    setinput({ ...input, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (data.work_id) {
-      loginMentor(dispatch, data);
-    } else {
-      loginStudent(dispatch, data);
+    if (input.work_id) {
+      setFetching(true);
+      dispatch(loginMentorStart());
+      try {
+        setFetching(false);
+        const { data } = await axios.post("/login", input);
+        dispatch(loginMentorSuccess(data));
+      } catch (error) {
+        dispatch(loginMentorFailure());
+        setError(true);
+      }
+    }
+    if (input.username) {
+      setFetching(true);
+      dispatch(loginStudentStart());
+      try {
+        setFetching(false);
+        const { data } = await axios.post("/login", input);
+        dispatch(loginStudentSuccess(data));
+      } catch (error) {
+        dispatch(loginStudentFailure());
+        setError(true);
+      }
     }
   };
 
@@ -51,7 +83,12 @@ export default function Login({ inputs, type }) {
               className="input"
             />
           ))}
-          <button className="login-button">LOGIN</button>
+          <button disabled={isFetching} className="login-button">
+            LOGIN
+          </button>
+          {error && (
+            <span className="button-span">Wrong username or password</span>
+          )}
           <p className="mt-2">
             Dont have an account?{" "}
             <Link to={link} className="log">

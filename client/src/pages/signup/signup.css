@@ -50,7 +50,10 @@ h1{
   cursor: pointer;
   border: none;
 }
-
+.register-span{
+  color: red;
+  font-weight: 600;
+}
 span {
   font-size: 12px;
   margin: 10px 0;

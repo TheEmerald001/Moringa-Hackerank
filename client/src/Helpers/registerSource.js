@@ -2,13 +2,13 @@ export const studentRegisterInputs = [
   {
     id: 1,
     type: "text",
-    name: "first_name",
+    name: "firstname",
     placeholder: "First Name",
   },
   {
     id: 2,
     type: "text",
-    name: "last_name",
+    name: "lastname",
     placeholder: "Last Name",
   },
   {
@@ -35,13 +35,13 @@ export const mentorRegisterInputs = [
   {
     id: 1,
     type: "text",
-    name: "first_name",
+    name: "firstname",
     placeholder: "First Name",
   },
   {
     id: 2,
     type: "text",
-    name: "last_name",
+    name: "lastname",
     placeholder: "Last Name",
   },
   {

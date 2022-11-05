@@ -1,17 +1,26 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import styled from "styled-components";
 import AssessmentDataTable from "../components/AssessmentDataTable";
 import Sidebar from "../components/Sidebar";
-import { getAssessments } from "../redux/apiCall";
 
-const Assessments = ({ data, columns, type }) => {
-  const dispatch = useDispatch();
-  const assessments = useSelector((state) => state.assessment?.assessments);
+const Assessments = ({ columns, type }) => {
+  const [assessments, setAssessments] = useState([]);
+  const mentorId = useSelector((state) => state.mentor?.currentUser?.id);
 
   useEffect(() => {
-    getAssessments(dispatch);
-  }, [dispatch]);
+    const fetchAssessments = async () => {
+      try {
+        const { data } = await axios.get(`/assessments?tutor_id=${mentorId}`);
+        setAssessments(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAssessments();
+  }, []);
 
   return (
     <Container>

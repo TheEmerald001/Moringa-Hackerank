@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logStudentOut } from "../redux/studentSlice";
 
 function StudentSideBar() {
-  const student = useSelector((state) => state.student?.currentUser?.student);
+  const student = useSelector((state) => state.student?.currentUser);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -35,7 +35,7 @@ function StudentSideBar() {
           />
           <AvatarFallback delayMs={600}>CT</AvatarFallback>
         </Avatar>
-        <span>{student.username}</span>
+        <span>{student?.username}</span>
       </div>
       <div className="icon-container">
         <Link to="/students">
@@ -43,10 +43,10 @@ function StudentSideBar() {
             <AiOutlineHome className="iCON" /> <span>Home</span>
           </div>
         </Link>
-        <Link to="/students/assignments">
+        <Link to="/students/assessments">
           <div className="iCon">
             {" "}
-            <SlBookOpen className="iCON" /> <span>Assesments</span>
+            <SlBookOpen className="iCON" /> <span>Assessments</span>
           </div>
         </Link>
 

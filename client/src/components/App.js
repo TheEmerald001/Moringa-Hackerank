@@ -11,10 +11,7 @@ import Login from "../pages/login/Login";
 
 import QuizPage from "../pages/QuizPage";
 import StudentDashboard from "../pages/StudentDashboard";
-import {
-  assessmentColumns,
-  assessmentRows,
-} from "../Helpers/assessmentDataTableSource";
+import { assessmentColumns } from "../Helpers/assessmentDataTableSource";
 import { attemptColumns, attemptRows } from "../Helpers/attemptsSource";
 import Single from "../pages/Single";
 import CreateQuiz from "./CreateQuiz";
@@ -28,12 +25,17 @@ import {
 import { kataInputs, proseInputs } from "../Helpers/createFormSource";
 import Trial from "../pages/Trial";
 import New from "./New";
-import StudentAttempt from "../pages/StudentAttempt";
+import StudentProseAttempt from "../pages/StudentProseAttempt";
 import StudentAssignment from "../pages/StudentAssignment";
+import SendInvite from "./SendInvite";
+import Skata from "./Skata";
+import Squiz from "./Squiz";
+import Spros from "./Spros";
+import StudentKataAttempt from "../pages/StudentKataAttempt";
 
 function App() {
-  const mentor = useSelector((state) => state.mentor?.currentUser?.mentor);
-  const student = useSelector((state) => state.student?.currentUser?.student);
+  const mentor = useSelector((state) => state.mentor?.currentUser?.work_id);
+  const student = useSelector((state) => state.student?.currentUser?.username);
 
   return (
     <Router>
@@ -81,16 +83,24 @@ function App() {
               )
             }
           />
-          {student && (
+          {student ? (
             <Route path="students">
               <Route index element={<StudentDashboard />} />
               <Route path="trial" element={<Trial />} />
               <Route path="quiz" element={<QuizPage />} />
-              <Route path="assignments/id" element={<StudentAssignment />} />
-              <Route path="assignments" element={<Assignment />} />
+
+              <Route path="assessments">
+                <Route index element={<Assignment />} />
+                <Route path=":id" element={<StudentAssignment />} />
+                <Route path=":id/kata" element={<Skata />} />
+                <Route path=":id/quiz" element={<Squiz />} />
+                <Route path=":id/pros" element={<Spros />} />
+              </Route>
             </Route>
+          ) : (
+            <Route path="/" element={<Home />} />
           )}
-          {mentor && (
+          {mentor ? (
             <Route path="mentors">
               <Route index element={<TmHome />} />
 
@@ -98,11 +108,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Assessments
-                      data={assessmentRows}
-                      columns={assessmentColumns}
-                      type="mentor"
-                    />
+                    <Assessments columns={assessmentColumns} type="mentor" />
                   }
                 />
                 <Route path=":id" element={<SingleAssessment />} />
@@ -116,21 +122,17 @@ function App() {
                   path=":id/new-prose"
                   element={<New inputs={proseInputs} title="Add New Prose" />}
                 />
+                <Route path=":id/new-invite" element={<SendInvite />} />
               </Route>
-              <Route path="grades">
+              <Route path="students">
                 <Route index element={<List />} />
-                <Route
-                  path=":id"
-                  element={
-                    <Single
-                      data={attemptRows}
-                      columns={attemptColumns}
-                      type="mentors"
-                    />
-                  }
-                />
+                <Route path=":id" element={<Single />} />
+                <Route path=":id/prose" element={<StudentProseAttempt />} />
+                <Route path=":id/kata" element={<StudentKataAttempt />} />
               </Route>
             </Route>
+          ) : (
+            <Route path="/" element={<Home />} />
           )}
         </Route>
       </Routes>

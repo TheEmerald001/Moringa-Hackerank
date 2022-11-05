@@ -1,10 +1,30 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
+import CodeMirror from "@uiw/react-codemirror";
+import { javascript } from "@codemirror/lang-javascript";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 
-const StudentAttempt = () => {
+const StudentKataAttempt = () => {
   const [formData, setFormData] = useState({});
   const [isExpanded, setExpanded] = useState(false);
+  const location = useLocation();
+  const assessmentId = location.pathname.split("/")[3];
+  const [assessment, setAssessment] = useState({});
+  const [code, setCode] = useState();
+
+  const onChange = React.useCallback((value, viewUpdate) => {
+    setCode(value);
+  }, []);
+
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -36,9 +56,13 @@ const StudentAttempt = () => {
                   <span>Question</span>
                   How Many Legs does a cow have
                 </AttemptQuestion>
-                <AttemptAnswer>
-                  <span>Answer</span>4
-                </AttemptAnswer>
+                <CodeMirror
+                  value={code}
+                  height="300px"
+                  width="600px"
+                  extensions={[javascript({ jsx: true })]}
+                  onChange={onChange}
+                />
                 <GradeButton onClick={expand}>Grade</GradeButton>
               </AttempTop>
               {isExpanded && (
@@ -50,7 +74,7 @@ const StudentAttempt = () => {
                       type="number"
                       name="remarks"
                       onChange={handleChange}
-                      placeholder="Award Score"
+                      placeholder="Remarks"
                     />
 
                     <Score
@@ -72,7 +96,7 @@ const StudentAttempt = () => {
   );
 };
 
-export default StudentAttempt;
+export default StudentKataAttempt;
 
 const Container = styled.main`
   display: flex;
@@ -135,16 +159,12 @@ const AttempTop = styled.article`
 const AttemptQuestion = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const AttemptAnswer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
 `;
 
 const AttemptBottom = styled.article`
   position: relative;
+  margin-top: 1rem;
 `;
 
 const Form = styled.form`

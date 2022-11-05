@@ -1,24 +1,29 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
-import request from "../Helpers/requestMethods";
 
 import Sidebar from "./Sidebar";
 
 const New = ({ inputs, title }) => {
   const location = useLocation();
   const assessmentId = location.pathname.split("/")[3];
-  const assessment = useSelector((state) =>
-    state.assessment?.assessments.find(
-      (assessment) => assessment.id == assessmentId
-    )
-  );
+  const type = location.pathname.split("/")[4];
+  const [assessment, setAssessment] = useState({});
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const getAssessment = async () => {
+      const { data } = await axios.get(`/assessments/${assessmentId}`);
+      setAssessment(data);
+    };
+    getAssessment();
+  }, [assessmentId]);
+
   const [formData, setFormData] = useState({
     question: "",
     instructions: "",
-    answer: "",
   });
 
   const handleChange = (event) => {
@@ -28,18 +33,36 @@ const New = ({ inputs, title }) => {
       [name]: value,
     });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     let newData = {
       question: formData.question,
       instructions: formData.instructions,
-      answer: formData.answer,
       assessment_id: assessmentId,
     };
-    try {
-      const { data } = await request.post("/kataas", newData);
-    } catch (error) {
-      console.log(error);
+
+    switch (type) {
+      case "new-prose":
+        try {
+          const { data } = await axios.post("/pros", newData);
+          setSuccess((success) => !success);
+          setAssessment({});
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+      case "new-kata":
+        try {
+          const { data } = await axios.post("/kataas", newData);
+          setSuccess((success) => !success);
+          setAssessment({});
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+      default:
+        break;
     }
   };
 
@@ -50,27 +73,44 @@ const New = ({ inputs, title }) => {
         <Top>
           <Title>{title}</Title>
           <AssessmentContainer>
-            <AssessmentTitle>{assessment.title}</AssessmentTitle>
+            <AssessmentTitle>{assessment.assessment_title}</AssessmentTitle>
             <AssessmentDuedate>{assessment.duedate}</AssessmentDuedate>
           </AssessmentContainer>
         </Top>
 
         <Bottom>
-          <BottomForm onSubmit={handleSubmit}>
-            {inputs.map((input) => (
-              <FormInput key={input.id}>
-                <Label>{input.label}</Label>
-                <Input
-                  type={input.type}
-                  name={input.name}
-                  onChange={handleChange}
-                  placeholder={input.placeholder}
-                />
-              </FormInput>
-            ))}
+          {!success && (
+            <BottomForm onSubmit={handleSubmit}>
+              {inputs.map((input) => (
+                <FormInput key={input.id}>
+                  <Label>{input.label}</Label>
+                  <Input
+                    type={input.type}
+                    name={input.name}
+                    onChange={handleChange}
+                    placeholder={input.placeholder}
+                  />
+                </FormInput>
+              ))}
 
-            <Button>Submit</Button>
-          </BottomForm>
+              <Button>Submit</Button>
+            </BottomForm>
+          )}
+          {success && (
+            <MessageWrapper>
+              <Message>
+                Action has been performed successfully, send{" "}
+                <MessageButton onClick={() => setSuccess(!success)}>
+                  another
+                </MessageButton>{" "}
+                or go{" "}
+                <Link to="/mentors/assessments">
+                  <MessageButton>back</MessageButton>
+                </Link>{" "}
+                to assessments?
+              </Message>
+            </MessageWrapper>
+          )}
         </Bottom>
       </Wrapper>
     </Container>
@@ -159,4 +199,30 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+`;
+
+const MessageWrapper = styled.main`
+  font-size: 1rem;
+  margin: 1.25rem;
+`;
+
+const Message = styled.div`
+  padding: 1.25rem;
+  border: 1px solid teal;
+  border-radius: 5px;
+`;
+
+const MessageButton = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid #101f3c;
+  &:last-child {
+    color: #ea501a;
+    border-bottom: 1px solid #ea501a;
+  }
+  &:hover {
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: scale(1.1 1.5s ease);
+  }
 `;
